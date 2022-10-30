@@ -8,8 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
+using System.ComponentModel.DataAnnotations;
 using GIBDD_AIS.GIBDD_Forms.Autos_forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace GIBDD_AIS
 {
@@ -20,59 +21,65 @@ namespace GIBDD_AIS
         {
             InitializeComponent();
         }
-
- 
-
-        private void Vehicle_edit_Load(object sender, EventArgs e)
+        public void Vehicle_edit_Load(object sender, EventArgs e)
         {
             dataBase.openConnection();
+            int MaxLength = 30;
+            Brand_TextBox.MaxLength = MaxLength;
+            VIN_TextBox.MaxLength = 17;
+            Body_n_TextBox.MaxLength = MaxLength;
+            EngineV_TextBox.MaxLength = MaxLength;
+            Engine_n_TextBox.MaxLength = MaxLength;
+            Chasis_n_TextBox.MaxLength = MaxLength;
+            Color_TextBox.MaxLength = MaxLength;
+            Number_TextBox.MaxLength = 9;
+    
+            bool Wanted;
             SqlDataReader dataReader = null;
-  
+            LastTIDate_TimePicker.CustomFormat = "dd-MM-yyyy";
+            LastTIDate_TimePicker.Format = DateTimePickerFormat.Custom;
+            ReleaseD_DateTimePicker.CustomFormat = "dd-MM-yyyy";
+            ReleaseD_DateTimePicker.Format = DateTimePickerFormat.Custom;
+            string[] Types = { "Легковой", "Грузовой", "Грузопасажирский", "Автобус", "Спецтранспорт" };
+            Type_ComboBox.Items.AddRange(Types);
+            Type_ComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            string querystring = "SELECT CONCAT(Surname, ' ', Name, ' ', Middle_Name) as 'ФИО' FROM OWNERS";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(querystring, dataBase.GetConnection());
+            DataSet db = new DataSet();
+            dataAdapter.Fill(db);
+            Owners_dataGridView.DataSource = db.Tables[0];
+            string CurrOwnerQuerystring = $"SELECT CONCAT(Surname, ' ', Name, ' ', Middle_Name) as 'ФИО' FROM OWNERS where id in(SELECT OWNERS_ID FROM VEHICLES WHERE ID = '{DataBank.chosenID}')";
+            SqlCommand sqlCommand = new SqlCommand(CurrOwnerQuerystring, dataBase.GetConnection());
+
+            dataReader = sqlCommand.ExecuteReader();
+            while (dataReader.Read())
+            {
+                CurrOwner_label.Text = dataReader[0].ToString();
+            }
+            dataReader.Close();
             try
             {
-                string vehicle_querystring = $"SELECT Number,  Brand, Color, Engine_n, Chasis_n, VIN, OWNERS_ID from VEHICLES WHERE ID LIKE '{DataBank.chosenID}'";
-                SqlCommand sqlCommand = new SqlCommand(vehicle_querystring, dataBase.GetConnection());
-                dataReader = sqlCommand.ExecuteReader();
-
+                string vehicle_querystring = $"SELECT Number, VIN, Type, Release_D, Engine_volume, Brand, Engine_n, Chasis_n, Body_n, Color, Wanted,OWNERS_ID, TID from VEHICLES WHERE ID LIKE '{DataBank.chosenID}'";
+                SqlCommand sqlCommand1 = new SqlCommand(vehicle_querystring, dataBase.GetConnection());
+                dataReader = sqlCommand1.ExecuteReader();
                 while (dataReader.Read())
                 {
-
-                    Brand_textBox.Text = dataReader[1].ToString();
-                    Color_textBox.Text = dataReader[2].ToString();
-                    Engine_n_textBox.Text = dataReader[3].ToString();
-                    Chasis_n_textBox.Text = dataReader[4].ToString();
-                    VIN_textBox.Text = dataReader[5].ToString();
-                    DataBank.Owner_ID = dataReader[6].ToString();
-                    Number_textBox.Text = dataReader[0].ToString();
-
-
-                }
-                string owner_querystring = $"SELECT Surname, Name, Middle_name from OWNERS where ID IN (SELECT OWNERS_ID FROM VEHICLES where ID LIKE '{DataBank.chosenID}')";
-                sqlCommand = new SqlCommand(owner_querystring, dataBase.GetConnection());
-                dataReader = sqlCommand.ExecuteReader();
-                while (dataReader.Read())
-                {
-                    Owner_textBox.Text = dataReader[0].ToString() + " " + dataReader[1].ToString() + " " + dataReader[2].ToString();
-                }
-
-                string TI_querystring = $"SELECT Date FROM TI WHERE VEHICLES_ID = '{DataBank.chosenID}'";
-                sqlCommand = new SqlCommand(TI_querystring, dataBase.GetConnection());
-                dataReader = sqlCommand.ExecuteReader();
-                while (dataReader.Read())
-                {
-                    var date = dataReader.GetDateTime(0);
-                    lastTi_textBox.Text = date.ToString("dd-MM-yyyy");
-                }
-                dataReader.Close();
-
-                string Wanted_querystring = $"SELECT Activity From WANTED where VEHICLES_ID = '{DataBank.chosenID}'";
-                sqlCommand = new SqlCommand(Wanted_querystring, dataBase.GetConnection());
-                dataReader = sqlCommand.ExecuteReader();
-                while (dataReader.Read())
-                {
-                    if (dataReader[0].ToString() == "True")
+                    Number_TextBox.Text = dataReader[0].ToString();
+                    VIN_TextBox.Text = dataReader[1].ToString();
+                    Type_ComboBox.Text = dataReader[2].ToString();
+                    ReleaseD_DateTimePicker.Text = dataReader[3].ToString();
+                    EngineV_TextBox.Text = dataReader[4].ToString();
+                    Brand_TextBox.Text = dataReader[5].ToString();
+                    Engine_n_TextBox.Text = dataReader[6].ToString();
+                    Chasis_n_TextBox.Text = dataReader[7].ToString();
+                    Body_n_TextBox.Text = dataReader[8].ToString();
+                    Color_TextBox.Text = dataReader[9].ToString();
+                    Wanted = Convert.ToBoolean(dataReader[10].ToString());
+                    if (Wanted == true)
                     { wanted_checkBox.Checked = true; }
-                    else { wanted_checkBox.Checked = false; }
+                    else {wanted_checkBox.Checked = false;}
+                    DataBank.Owner_ID = dataReader[11].ToString();
+                    LastTIDate_TimePicker.Text = dataReader[12].ToString();
                 }
                 dataReader.Close();
             }
@@ -86,129 +93,262 @@ namespace GIBDD_AIS
                 {
                     dataReader.Close();
                 }
-
             }
         }
-
-        private void TopLabelAuto_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Delete_Button_Click(object sender, EventArgs e)
         {
             try
             {
-                string delete_vehicle = $"DELETE FROM VEHICLES WHERE ID LIKE '{DataBank.chosenID}'";
-                string delete_ti = $"DELETE FROM TI WHERE VEHICLES_ID = '{DataBank.chosenID}'";
-                string delete_wanted = $"DELETE FROM WANTED WHERE VEHICLES_ID = '{DataBank.chosenID}'";
-                string delete_owner = $"DELETE FROM OWNERS WHERE ID IN (SELECT OWNERS_ID FROM VEHICLES WHERE ID LIKE '{DataBank.chosenID}')";
-
+                string delete_history = $"DELETE HISTORYS WHERE VEHICLES_ID = '{DataBank.chosenID}'";
+             
+                string delete_vehicle = $"DELETE VEHICLES WHERE ID = '{DataBank.chosenID}'";
+   
+                SqlCommand sqlCommand2 = new SqlCommand(delete_history, dataBase.GetConnection());
+                sqlCommand2.ExecuteNonQuery();
                 SqlCommand sqlCommand1 = new SqlCommand(delete_vehicle, dataBase.GetConnection());
                 sqlCommand1.ExecuteNonQuery();
-                SqlCommand sqlCommand2 = new SqlCommand(delete_ti, dataBase.GetConnection());
-                sqlCommand2.ExecuteNonQuery();
-                SqlCommand sqlCommand3 = new SqlCommand(delete_wanted, dataBase.GetConnection());
-                sqlCommand3.ExecuteNonQuery();
-                SqlCommand sqlCommand4 = new SqlCommand(delete_owner, dataBase.GetConnection());
-                sqlCommand4.ExecuteNonQuery();
+                MessageBox.Show("Удаление прошло успешно!", "Успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             catch (Exception Ex)
             {
                 MessageBox.Show(Ex.Message);
             }
         }
+        private void Save_Button_Click(object sender, EventArgs e)
+        {
+            if (checkForm() != false)
+            {
+                string owner = Owners_dataGridView[0, Owners_dataGridView.CurrentRow.Index].Value.ToString();
+                String[] subs = owner.Split(' ');
+                string querystring = $"SELECT ID FROM OWNERS WHERE Surname = '{subs[0]}' AND Name = '{subs[1]}' AND Middle_name = '{subs[2]}'";
+                SqlDataAdapter dataAdapter1 = new SqlDataAdapter(querystring, dataBase.GetConnection());
+                DataSet db = new DataSet();
+                dataAdapter1.Fill(db);
+                string Owner_ID = db.Tables[0].Rows[0][0].ToString();
+                var Brand = Brand_TextBox.Text;
+                var VIN = VIN_TextBox.Text;
+                var Type = Type_ComboBox.Text;
+                var Release_D = ReleaseD_DateTimePicker.Text;
+                var EngineV = EngineV_TextBox.Text;
+                var Engine_n = Engine_n_TextBox.Text;
+                var Chasis_n = Chasis_n_TextBox.Text;
+                var Body_n = Body_n_TextBox.Text;
+                var Color = Color_TextBox.Text;
+                var Number = Number_TextBox.Text;
+                var TI = LastTIDate_TimePicker.Text;
+                Release_D.Reverse();
 
+                TI.Reverse();
+                string create_vehicle = $"UPDATE VEHICLES SET Number = '{Number}', VIN = '{VIN}', Type = '{Type}', Release_D = '{Release_D}', Engine_volume = '{EngineV}', Brand = '{Brand}', Engine_n = '{Engine_n}', Chasis_n = '{Chasis_n}', Body_n = '{Body_n}', Color = '{Color}', Wanted = '{wanted_checkBox.Checked}', OWNERS_ID = '{Owner_ID}', TID = '{TI}' WHERE ID = {DataBank.chosenID}";
+                SqlCommand CreateVehicle_Command = new SqlCommand(create_vehicle, dataBase.GetConnection());
+                CreateVehicle_Command.ExecuteNonQuery();
+                MessageBox.Show("Сохранение прошло успешно!", "Успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+                MessageBox.Show("Некорректные данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
         private void exit_button_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        private void Brand_textBox_Leave(object sender, EventArgs e)
+        private void SearchName_TextBox_TextChanged(object sender, EventArgs e)
         {
-            string edit_vehicle = $"UPDATE VEHICLES SET Brand = '{Brand_textBox.Text}' WHERE ID LIKE '{DataBank.chosenID}'";
-            SqlCommand sqlCommand = new SqlCommand(edit_vehicle, dataBase.GetConnection());
-            sqlCommand.ExecuteNonQuery();
+            (Owners_dataGridView.DataSource as DataTable).DefaultView.RowFilter = $"ФИО LIKE '%{SearchName_TextBox.Text}%'";
+        }
+        private bool CheckBrand()
+        {
+            var textBox = Brand_TextBox;
+            bool status = true;
+            if (textBox.Text == "")
+            {
+                errorProvider1.SetError(textBox, "Требуется поле");
+                status = false;
+            }
+            else
+                errorProvider1.SetError(textBox, "");
+            return status;
+        }
+        private bool CheckVIN()
+        {
+            var textBox = VIN_TextBox;
+            bool status = true;
+            if (textBox.Text == "")
+            {
+                errorProvider1.SetError(textBox, "Требуется поле");
+                status = false;
+            }
+            else
+                errorProvider1.SetError(textBox, "");
+            return status;
+        }
+        private bool CheckType()
+        {
+            var Box = Type_ComboBox;
+            bool status = true;
+            if (Box.Text == "")
+            {
+                errorProvider1.SetError(Box, "Требуется поле");
+                status = false;
+            }
+            else
+                errorProvider1.SetError(Box, "");
+            return status;
+        }
+        private bool CheckEngineV()
+        {
+            var Box = EngineV_TextBox;
+            bool status = true;
+            if (Box.Text == "")
+            {
+                errorProvider1.SetError(Box, "Требуется поле");
+                status = false;
+            }
+            else
+                errorProvider1.SetError(Box, "");
+            return status;
+        }
+        private bool CheckReleaseD()
+        {
+            var Box = ReleaseD_DateTimePicker;
+            bool status = true;
+            if (Box.Text == "")
+            {
+                errorProvider1.SetError(Box, "Требуется поле");
+                status = false;
+            }
+            else
+            if (Box.Value > DateTime.Today)
+            {
+                errorProvider1.SetError(Box, "Дата выпуска не может быть больше текущей");
+                status = false;
+            }
+            else
+            if (Box.Value > LastTIDate_TimePicker.Value)
+            {
+                errorProvider1.SetError(Box, "Дата выпуска не может быть больше даты то");
+                status = false;
+            }
+            else
+                errorProvider1.SetError(Box, "");
+
+            return status;
+        }
+        private bool CheckEngine_n()
+        {
+            var Box = Engine_n_TextBox;
+            bool status = true;
+            if (Box.Text == "")
+            {
+                errorProvider1.SetError(Box, "Требуется поле");
+                status = false;
+            }
+            else
+                errorProvider1.SetError(Box, "");
+            return status;
         }
 
-        private void VIN_textBox_Leave(object sender, EventArgs e)
+        private bool CheckChasis_n()
         {
-          
-            string edit_vehicle =$"UPDATE VEHICLES SET VIN = '{VIN_textBox.Text}' WHERE ID LIKE '{DataBank.chosenID}'";
-            SqlCommand sqlCommand = new SqlCommand(edit_vehicle, dataBase.GetConnection());
-            sqlCommand.ExecuteNonQuery();
+            var Box = Chasis_n_TextBox;
+            bool status = true;
+            if (Box.Text == "")
+            {
+                errorProvider1.SetError(Box, "Требуется поле");
+                status = false;
+            }
+            else
+                errorProvider1.SetError(Box, "");
+            return status;
         }
-
-        private void Chasis_n_textBox_Leave(object sender, EventArgs e)
+        private bool CheckBody_n()
         {
-           
-            string edit_vehicle =$"UPDATE VEHICLES SET Chasis_n = '{Chasis_n_textBox.Text}' WHERE ID LIKE '{DataBank.chosenID}'";
-            SqlCommand sqlCommand = new SqlCommand(edit_vehicle, dataBase.GetConnection());
-            sqlCommand.ExecuteNonQuery();
+            var Box = Body_n_TextBox;
+            bool status = true;
+            if (Box.Text == "")
+            {
+                errorProvider1.SetError(Box, "Требуется поле");
+                status = false;
+            }
+            else
+                errorProvider1.SetError(Box, "");
+            return status;
         }
-
-        private void Engine_n_textBox_Leave(object sender, EventArgs e)
+        private bool CheckColor()
         {
-            string edit_vehicle = $"UPDATE VEHICLES SET Engine_n = '{Engine_n_textBox.Text}' WHERE ID LIKE '{DataBank.chosenID}'";
-            SqlCommand sqlCommand = new SqlCommand(edit_vehicle, dataBase.GetConnection());
-            sqlCommand.ExecuteNonQuery();
-           
+            var Box = Color_TextBox;
+            bool status = true;
+            if (Box.Text == "")
+            {
+                errorProvider1.SetError(Box, "Требуется поле");
+                status = false;
+            }
+            else
+                errorProvider1.SetError(Box, "");
+
+            return status;
         }
-
-        private void Color_textBox_Leave(object sender, EventArgs e)
+        private bool CheckNumber()
         {
-          
-            string edit_vehicle = $"UPDATE VEHICLES SET Color = '{Color_textBox.Text}' WHERE ID LIKE '{DataBank.chosenID}'";
-            SqlCommand sqlCommand = new SqlCommand(edit_vehicle, dataBase.GetConnection());
-            sqlCommand.ExecuteNonQuery();
+            var Box = Number_TextBox;
+            bool status = true;
+            if (Box.Text == "")
+            {
+                errorProvider1.SetError(Box, "Требуется поле");
+                status = false;
+            }
+            else
+                errorProvider1.SetError(Box, "");
+
+            return status;
+        }
+        private bool CheckLastTIDate()
+        {
+            var Box = LastTIDate_TimePicker;
+            bool status = true;
+            if (Box.Text == "")
+            {
+                errorProvider1.SetError(Box, "Требуется поле");
+                status = false;
+            }
+            else
+             if (Box.Value > DateTime.Today)
+                {
+
+                    errorProvider1.SetError(Box, "Дата не может быть больше текущей");
+                    status = false;
+                }
+                else
+                if (Box.Value < ReleaseD_DateTimePicker.Value)
+                {
+                    errorProvider1.SetError(Box, "Дата то не может быть меньше даты выпуска");
+                    status = false;
+                }
+                else errorProvider1.SetError(Box, "");
             
+            return status;
         }
-
-        private void Number_textBox_Leave(object sender, EventArgs e)
+        public bool checkForm()
         {
-            string edit_vehicle = $"UPDATE VEHICLES SET Number = '{Number_textBox.Text}' WHERE ID LIKE '{DataBank.chosenID}'";
-            SqlCommand sqlCommand = new SqlCommand(edit_vehicle, dataBase.GetConnection());
-            sqlCommand.ExecuteNonQuery();
+            bool Brand = CheckBrand();
+            bool VIN = CheckVIN();
+            bool Type = CheckType();
+            bool EngineV = CheckEngineV();
+            bool ReleaseD = CheckReleaseD();
+            bool Engine_n = CheckEngine_n();
+            bool Chasis_n = CheckChasis_n();
+            bool Body_n = CheckBody_n();
+            bool Color_n = CheckColor();
+            bool Number = CheckNumber();
+            bool TIDate = CheckLastTIDate();
+            if (Brand && VIN && Type && EngineV && ReleaseD && Engine_n && Chasis_n && Body_n && Color_n && Number && TIDate)
+            {
+                return true;
+            }
+            else return false;
         }
-
-        private void Owner_textBox_Leave(object sender, EventArgs e)
-        {
-            String Owner = Owner_textBox.Text;
-            String[] subs = Owner.Split(' ');
-            string query = $"UPDATE OWNERS SET Surname = '{subs[0]}', Name = '{subs[1]}', Middle_name = '{subs[2]}'where ID IN (SELECT OWNERS_ID FROM VEHICLES where ID LIKE '{DataBank.chosenID}')";
-            SqlCommand sqlCommand = new SqlCommand(query, dataBase.GetConnection());
-            sqlCommand.ExecuteNonQuery();
-        }
-        private void BirthDate_textBox_Leave(object sender, EventArgs e)
-        {
-            String BirthDate = BirthDate_textBox.Text;
-            string query = $"UPDATE OWNERS SET Birth_D = '{BirthDate}' where ID IN (SELECT OWNERS_ID FROM VEHICLES where ID LIKE '{DataBank.chosenID}')";
-            SqlCommand sqlCommand = new SqlCommand(query, dataBase.GetConnection());
-            sqlCommand.ExecuteNonQuery();
-        }
-        private void lastTi_textBox_Leave(object sender, EventArgs e)
-        {
-            string date = lastTi_textBox.Text;
-            date.Reverse();
-            string edit_vehicle = $"UPDATE TI SET Date = '{date}' WHERE VEHICLES_ID LIKE '{DataBank.chosenID}'";
-            SqlCommand sqlCommand = new SqlCommand(edit_vehicle, dataBase.GetConnection());
-            sqlCommand.ExecuteNonQuery();
-          
-        }
-
-        private void wanted_checkBox_Leave(object sender, EventArgs e)
-        {
-            string edit_vehicle = $"UPDATE WANTED SET Activity = '{wanted_checkBox.Checked}' WHERE VEHICLES_ID LIKE '{DataBank.chosenID}'";
-            SqlCommand sqlCommand = new SqlCommand(edit_vehicle, dataBase.GetConnection());
-            sqlCommand.ExecuteNonQuery();
-        }
-
-        private void Vehicle_edit_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Vehicles newForm = new Vehicles();
-            newForm.Show();
-        }
-
-
     }
 }
+    
+

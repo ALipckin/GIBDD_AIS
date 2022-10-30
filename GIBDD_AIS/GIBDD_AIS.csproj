@@ -33,6 +33,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
@@ -52,9 +62,13 @@
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -67,16 +81,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BD_GIBDDDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BD_GIBDDDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BD_GIBDDDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BD_GIBDDDataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DataBank.cs" />
     <Compile Include="GIBDD_Forms\Autos_forms\Vehicle_input.cs">
       <SubType>Form</SubType>
@@ -133,6 +137,12 @@
     <Compile Include="GIBDD_Forms\GIBDD.Designer.cs">
       <DependentUpon>GIBDD.cs</DependentUpon>
     </Compile>
+    <Compile Include="GIBDD_Forms\Owners_forms\Owners.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIBDD_Forms\Owners_forms\Owners.Designer.cs">
+      <DependentUpon>Owners.cs</DependentUpon>
+    </Compile>
     <Compile Include="GIBDD_Forms\Owners_forms\Owner_edit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,18 +161,52 @@
     <Compile Include="GIBDD_Forms\Owners_forms\Owner_view.Designer.cs">
       <DependentUpon>Owner_view.cs</DependentUpon>
     </Compile>
+    <Compile Include="GIBDD_Forms\Reports_forms\Accidents_CrystalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Accidents_CrystalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GIBDD_Forms\Reports_forms\AutoTI_CrystalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoTI_CrystalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GIBDD_Forms\Reports_forms\Report_files\Accidents_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Accidents_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GIBDD_Forms\Reports_forms\Accidents_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIBDD_Forms\Reports_forms\Accidents_Report.Designer.cs">
+      <DependentUpon>Accidents_Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GIBDD_Forms\Reports_forms\StolenAutos_CrustalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StolenAutos_CrustalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GIBDD_Forms\Reports_forms\StolenAuto_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIBDD_Forms\Reports_forms\StolenAuto_Report.Designer.cs">
+      <DependentUpon>StolenAuto_Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GIBDD_Forms\Reports_forms\TIAutos_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIBDD_Forms\Reports_forms\TIAutos_Report.Designer.cs">
+      <DependentUpon>TIAutos_Report.cs</DependentUpon>
+    </Compile>
     <Compile Include="Log_in.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GIBDD_Forms\Owners_forms\Owners.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GIBDD_Forms\Owners_forms\Owners.Designer.cs">
-      <DependentUpon>Owners.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="GIBDD_Forms\Accidents_forms\Accidents.resx">
       <DependentUpon>Accidents.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,6 +243,31 @@
     <EmbeddedResource Include="GIBDD_Forms\Owners_forms\Owner_view.resx">
       <DependentUpon>Owner_view.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GIBDD_Forms\Reports_forms\Accidents_CrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Accidents_CrystalReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GIBDD_Forms\Reports_forms\AutoTI_CrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AutoTI_CrystalReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GIBDD_Forms\Reports_forms\Report_files\Accidents_Report.rdlc" />
+    <EmbeddedResource Include="GIBDD_Forms\Reports_forms\Accidents_Report.resx">
+      <DependentUpon>Accidents_Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GIBDD_Forms\Reports_forms\StolenAutos_CrustalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StolenAutos_CrustalReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GIBDD_Forms\Reports_forms\StolenAuto_Report.resx">
+      <DependentUpon>StolenAuto_Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GIBDD_Forms\Reports_forms\TIAutos_Report.resx">
+      <DependentUpon>TIAutos_Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GIBDD_Forms\Reports_forms\Report_files\TIAutos_Report.rdlc" />
+    <EmbeddedResource Include="GIBDD_Forms\Reports_forms\Report_files\StolenAutos_Report.rdlc" />
+    <EmbeddedResource Include="GIBDD_Forms\Vehicles.resx" />
     <EmbeddedResource Include="Log_in.resx">
       <DependentUpon>Log_in.cs</DependentUpon>
     </EmbeddedResource>
@@ -214,27 +283,16 @@
     <EmbeddedResource Include="GIBDD_Forms\Autos_forms\Vehicles.resx">
       <DependentUpon>Vehicles.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="BD_GIBDDDataSet.xsc">
-      <DependentUpon>BD_GIBDDDataSet.xsd</DependentUpon>
+    <None Include="GIBDD_Forms\Reports_forms\Report_files\Accidents_DataSet.xsc">
+      <DependentUpon>Accidents_DataSet.xsd</DependentUpon>
     </None>
-    <None Include="BD_GIBDDDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BD_GIBDDDataSet.Designer.cs</LastGenOutput>
+    <None Include="GIBDD_Forms\Reports_forms\Report_files\Accidents_DataSet.xsd">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="BD_GIBDDDataSet.xss">
-      <DependentUpon>BD_GIBDDDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="BD_GIBDDDataSet1.xsc">
-      <DependentUpon>BD_GIBDDDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="BD_GIBDDDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BD_GIBDDDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
+      <LastGenOutput>Accidents_DataSet.Designer.cs</LastGenOutput>
     </None>
-    <None Include="BD_GIBDDDataSet1.xss">
-      <DependentUpon>BD_GIBDDDataSet1.xsd</DependentUpon>
+    <None Include="GIBDD_Forms\Reports_forms\Report_files\Accidents_DataSet.xss">
+      <DependentUpon>Accidents_DataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -248,25 +306,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="SqlServerTypes\x64\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

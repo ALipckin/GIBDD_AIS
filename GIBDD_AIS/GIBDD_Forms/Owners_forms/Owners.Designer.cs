@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.bD_GIBDDDataSet1 = new GIBDD_AIS.BD_GIBDDDataSet();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Owners_dataGridView = new System.Windows.Forms.DataGridView();
             this.SearchName_TextBox = new System.Windows.Forms.TextBox();
@@ -43,17 +42,11 @@
             this.Accidents_label = new System.Windows.Forms.Label();
             this.ViewAccidents_button = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.bD_GIBDDDataSet1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Owners_dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Accidents_dataGridView)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // bD_GIBDDDataSet1
-            // 
-            this.bD_GIBDDDataSet1.DataSetName = "BD_GIBDDDataSet";
-            this.bD_GIBDDDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panel1
             // 
@@ -63,36 +56,41 @@
             this.panel1.Controls.Add(this.View_button);
             this.panel1.Controls.Add(this.Edit_button);
             this.panel1.Controls.Add(this.Owners_label);
-            this.panel1.Location = new System.Drawing.Point(26, 49);
+            this.panel1.Location = new System.Drawing.Point(26, 58);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(377, 312);
+            this.panel1.Size = new System.Drawing.Size(377, 308);
             this.panel1.TabIndex = 0;
             // 
             // Owners_dataGridView
             // 
             this.Owners_dataGridView.AllowUserToAddRows = false;
             this.Owners_dataGridView.AllowUserToDeleteRows = false;
+            this.Owners_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Owners_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Owners_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Owners_dataGridView.Location = new System.Drawing.Point(24, 50);
             this.Owners_dataGridView.Name = "Owners_dataGridView";
             this.Owners_dataGridView.ReadOnly = true;
-            this.Owners_dataGridView.Size = new System.Drawing.Size(301, 138);
+            this.Owners_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Owners_dataGridView.Size = new System.Drawing.Size(323, 138);
             this.Owners_dataGridView.TabIndex = 148;
             this.Owners_dataGridView.SelectionChanged += new System.EventHandler(this.Owners_dataGridView_SelectionChanged);
             // 
             // SearchName_TextBox
             // 
-            this.SearchName_TextBox.Location = new System.Drawing.Point(194, 194);
+            this.SearchName_TextBox.Location = new System.Drawing.Point(194, 201);
+            this.SearchName_TextBox.MaxLength = 100;
             this.SearchName_TextBox.Name = "SearchName_TextBox";
             this.SearchName_TextBox.Size = new System.Drawing.Size(150, 20);
             this.SearchName_TextBox.TabIndex = 150;
             this.SearchName_TextBox.TextChanged += new System.EventHandler(this.SearchName_TextBox_TextChanged);
+            this.SearchName_TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchName_TextBox_KeyPress);
             // 
             // SearchName_label
             // 
             this.SearchName_label.AutoSize = true;
             this.SearchName_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.SearchName_label.Location = new System.Drawing.Point(21, 197);
+            this.SearchName_label.Location = new System.Drawing.Point(21, 204);
             this.SearchName_label.Name = "SearchName_label";
             this.SearchName_label.Size = new System.Drawing.Size(103, 17);
             this.SearchName_label.TabIndex = 146;
@@ -123,7 +121,7 @@
             // Owners_label
             // 
             this.Owners_label.AutoSize = true;
-            this.Owners_label.Location = new System.Drawing.Point(21, 24);
+            this.Owners_label.Location = new System.Drawing.Point(21, 22);
             this.Owners_label.Name = "Owners_label";
             this.Owners_label.Size = new System.Drawing.Size(137, 13);
             this.Owners_label.TabIndex = 140;
@@ -131,7 +129,7 @@
             // 
             // exit_button
             // 
-            this.exit_button.Location = new System.Drawing.Point(47, 655);
+            this.exit_button.Location = new System.Drawing.Point(41, 660);
             this.exit_button.Name = "exit_button";
             this.exit_button.Size = new System.Drawing.Size(323, 23);
             this.exit_button.TabIndex = 142;
@@ -143,7 +141,7 @@
             // 
             this.TopLabelAuto.AutoSize = true;
             this.TopLabelAuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TopLabelAuto.Location = new System.Drawing.Point(143, 9);
+            this.TopLabelAuto.Location = new System.Drawing.Point(135, 14);
             this.TopLabelAuto.Name = "TopLabelAuto";
             this.TopLabelAuto.Size = new System.Drawing.Size(154, 24);
             this.TopLabelAuto.TabIndex = 138;
@@ -151,11 +149,11 @@
             // 
             // inputNewOwner_button
             // 
-            this.inputNewOwner_button.Location = new System.Drawing.Point(44, 613);
+            this.inputNewOwner_button.Location = new System.Drawing.Point(44, 595);
             this.inputNewOwner_button.Name = "inputNewOwner_button";
             this.inputNewOwner_button.Size = new System.Drawing.Size(320, 23);
             this.inputNewOwner_button.TabIndex = 151;
-            this.inputNewOwner_button.Text = "Ввод данных о новом автовладельце";
+            this.inputNewOwner_button.Text = "Добавить";
             this.inputNewOwner_button.UseCompatibleTextRendering = true;
             this.inputNewOwner_button.UseVisualStyleBackColor = true;
             this.inputNewOwner_button.Click += new System.EventHandler(this.inputNewOwner_button_Click);
@@ -168,6 +166,7 @@
             this.Accidents_dataGridView.Location = new System.Drawing.Point(18, 46);
             this.Accidents_dataGridView.Name = "Accidents_dataGridView";
             this.Accidents_dataGridView.ReadOnly = true;
+            this.Accidents_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Accidents_dataGridView.Size = new System.Drawing.Size(320, 66);
             this.Accidents_dataGridView.TabIndex = 149;
             // 
@@ -182,11 +181,11 @@
             // 
             // ViewAccidents_button
             // 
-            this.ViewAccidents_button.Location = new System.Drawing.Point(24, 118);
+            this.ViewAccidents_button.Location = new System.Drawing.Point(18, 127);
             this.ViewAccidents_button.Name = "ViewAccidents_button";
-            this.ViewAccidents_button.Size = new System.Drawing.Size(323, 24);
+            this.ViewAccidents_button.Size = new System.Drawing.Size(320, 24);
             this.ViewAccidents_button.TabIndex = 151;
-            this.ViewAccidents_button.Text = "Посмотреть автопроисшествия";
+            this.ViewAccidents_button.Text = "Посмотреть автопроисшествие";
             this.ViewAccidents_button.UseVisualStyleBackColor = true;
             this.ViewAccidents_button.Click += new System.EventHandler(this.ViewAccidents_button_Click);
             // 
@@ -195,26 +194,28 @@
             this.panel2.Controls.Add(this.ViewAccidents_button);
             this.panel2.Controls.Add(this.Accidents_label);
             this.panel2.Controls.Add(this.Accidents_dataGridView);
-            this.panel2.Location = new System.Drawing.Point(26, 398);
+            this.panel2.Location = new System.Drawing.Point(26, 403);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(377, 159);
+            this.panel2.Size = new System.Drawing.Size(377, 164);
             this.panel2.TabIndex = 150;
             // 
             // Owners
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(419, 701);
+            this.ClientSize = new System.Drawing.Size(419, 695);
             this.Controls.Add(this.inputNewOwner_button);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.TopLabelAuto);
             this.Controls.Add(this.exit_button);
+            this.MaximumSize = new System.Drawing.Size(435, 734);
+            this.MinimumSize = new System.Drawing.Size(435, 734);
             this.Name = "Owners";
-            this.Text = "Owners";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Автовладельцы";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Owners_FormClosed);
             this.Load += new System.EventHandler(this.Owners_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.bD_GIBDDDataSet1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Owners_dataGridView)).EndInit();
@@ -227,7 +228,7 @@
         }
 
         #endregion
-        private BD_GIBDDDataSet bD_GIBDDDataSet1;
+   
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button exit_button;
         private System.Windows.Forms.Label Owners_label;

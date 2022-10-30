@@ -20,7 +20,6 @@ namespace GIBDD_AIS
                 sqlConnection.Open();
             }
         }
-
         public void closeConnection()
         {
             if (sqlConnection.State == System.Data.ConnectionState.Open)
@@ -28,15 +27,9 @@ namespace GIBDD_AIS
                 sqlConnection.Close();
             }
         }
-
         public SqlConnection GetConnection()
         {
             return sqlConnection;
-        }
-
-        private void LoadData()
-        {
-            
         }
     }
 }

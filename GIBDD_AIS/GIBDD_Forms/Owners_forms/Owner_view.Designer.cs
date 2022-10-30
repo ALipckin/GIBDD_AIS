@@ -28,40 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BirthDate_textBox = new System.Windows.Forms.TextBox();
-            this.BirthDate_label = new System.Windows.Forms.Label();
             this.exit_button = new System.Windows.Forms.Button();
             this.Owner_vehicles_dataGridView = new System.Windows.Forms.DataGridView();
             this.Owner_vehicles_label = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.TopLabelAuto = new System.Windows.Forms.Label();
-            this.Owner_textBox = new System.Windows.Forms.TextBox();
-            this.Owner = new System.Windows.Forms.Label();
+            this.BrirthD_dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.OwnerMiddleName_textBox = new System.Windows.Forms.TextBox();
+            this.OwnerName_textBox = new System.Windows.Forms.TextBox();
+            this.Owner_label = new System.Windows.Forms.Label();
             this.Address_textBox = new System.Windows.Forms.TextBox();
             this.Address_label = new System.Windows.Forms.Label();
+            this.BirthDate_label = new System.Windows.Forms.Label();
+            this.OwnerSurname_textBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Owner_vehicles_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // BirthDate_textBox
-            // 
-            this.BirthDate_textBox.Enabled = false;
-            this.BirthDate_textBox.Location = new System.Drawing.Point(153, 148);
-            this.BirthDate_textBox.Name = "BirthDate_textBox";
-            this.BirthDate_textBox.Size = new System.Drawing.Size(248, 20);
-            this.BirthDate_textBox.TabIndex = 133;
-            // 
-            // BirthDate_label
-            // 
-            this.BirthDate_label.AutoSize = true;
-            this.BirthDate_label.Location = new System.Drawing.Point(18, 151);
-            this.BirthDate_label.Name = "BirthDate_label";
-            this.BirthDate_label.Size = new System.Drawing.Size(89, 13);
-            this.BirthDate_label.TabIndex = 132;
-            this.BirthDate_label.Text = "Дата рождения:";
-            // 
             // exit_button
             // 
-            this.exit_button.Location = new System.Drawing.Point(171, 404);
+            this.exit_button.Location = new System.Drawing.Point(171, 453);
             this.exit_button.Name = "exit_button";
             this.exit_button.Size = new System.Drawing.Size(135, 23);
             this.exit_button.TabIndex = 131;
@@ -71,31 +57,23 @@
             // 
             // Owner_vehicles_dataGridView
             // 
+            this.Owner_vehicles_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Owner_vehicles_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Owner_vehicles_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Owner_vehicles_dataGridView.Enabled = false;
-            this.Owner_vehicles_dataGridView.Location = new System.Drawing.Point(21, 219);
+            this.Owner_vehicles_dataGridView.Location = new System.Drawing.Point(21, 268);
             this.Owner_vehicles_dataGridView.Name = "Owner_vehicles_dataGridView";
-            this.Owner_vehicles_dataGridView.Size = new System.Drawing.Size(409, 139);
+            this.Owner_vehicles_dataGridView.Size = new System.Drawing.Size(400, 139);
             this.Owner_vehicles_dataGridView.TabIndex = 130;
             // 
             // Owner_vehicles_label
             // 
             this.Owner_vehicles_label.AutoSize = true;
-            this.Owner_vehicles_label.Location = new System.Drawing.Point(168, 193);
+            this.Owner_vehicles_label.Location = new System.Drawing.Point(150, 241);
             this.Owner_vehicles_label.Name = "Owner_vehicles_label";
             this.Owner_vehicles_label.Size = new System.Drawing.Size(135, 13);
             this.Owner_vehicles_label.TabIndex = 129;
             this.Owner_vehicles_label.Text = "Автомобили во владении";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(127, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(221, 24);
-            this.label1.TabIndex = 128;
-            this.label1.Text = "(форма для просмотра)";
             // 
             // TopLabelAuto
             // 
@@ -103,63 +81,127 @@
             this.TopLabelAuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TopLabelAuto.Location = new System.Drawing.Point(149, 18);
             this.TopLabelAuto.Name = "TopLabelAuto";
-            this.TopLabelAuto.Size = new System.Drawing.Size(154, 24);
+            this.TopLabelAuto.Size = new System.Drawing.Size(154, 48);
             this.TopLabelAuto.TabIndex = 127;
-            this.TopLabelAuto.Text = "Автовладельцы";
+            this.TopLabelAuto.Text = "Автовладельцы\r\n(просмотр)";
+            this.TopLabelAuto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Owner_textBox
+            // BrirthD_dateTimePicker
             // 
-            this.Owner_textBox.CausesValidation = false;
-            this.Owner_textBox.Enabled = false;
-            this.Owner_textBox.Location = new System.Drawing.Point(153, 96);
-            this.Owner_textBox.Name = "Owner_textBox";
-            this.Owner_textBox.Size = new System.Drawing.Size(248, 20);
-            this.Owner_textBox.TabIndex = 126;
+            this.BrirthD_dateTimePicker.Enabled = false;
+            this.BrirthD_dateTimePicker.Location = new System.Drawing.Point(162, 188);
+            this.BrirthD_dateTimePicker.Name = "BrirthD_dateTimePicker";
+            this.BrirthD_dateTimePicker.Size = new System.Drawing.Size(248, 20);
+            this.BrirthD_dateTimePicker.TabIndex = 174;
             // 
-            // Owner
+            // label3
             // 
-            this.Owner.AutoSize = true;
-            this.Owner.Location = new System.Drawing.Point(18, 99);
-            this.Owner.Name = "Owner";
-            this.Owner.Size = new System.Drawing.Size(59, 13);
-            this.Owner.TabIndex = 125;
-            this.Owner.Text = "Владелец:";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(27, 142);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 13);
+            this.label3.TabIndex = 173;
+            this.label3.Text = "Отчество:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(27, 116);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(32, 13);
+            this.label2.TabIndex = 172;
+            this.label2.Text = "Имя:";
+            // 
+            // OwnerMiddleName_textBox
+            // 
+            this.OwnerMiddleName_textBox.CausesValidation = false;
+            this.OwnerMiddleName_textBox.Enabled = false;
+            this.OwnerMiddleName_textBox.Location = new System.Drawing.Point(162, 135);
+            this.OwnerMiddleName_textBox.Name = "OwnerMiddleName_textBox";
+            this.OwnerMiddleName_textBox.ReadOnly = true;
+            this.OwnerMiddleName_textBox.Size = new System.Drawing.Size(248, 20);
+            this.OwnerMiddleName_textBox.TabIndex = 171;
+            // 
+            // OwnerName_textBox
+            // 
+            this.OwnerName_textBox.CausesValidation = false;
+            this.OwnerName_textBox.Enabled = false;
+            this.OwnerName_textBox.Location = new System.Drawing.Point(162, 109);
+            this.OwnerName_textBox.Name = "OwnerName_textBox";
+            this.OwnerName_textBox.ReadOnly = true;
+            this.OwnerName_textBox.Size = new System.Drawing.Size(248, 20);
+            this.OwnerName_textBox.TabIndex = 170;
+            // 
+            // Owner_label
+            // 
+            this.Owner_label.AutoSize = true;
+            this.Owner_label.Location = new System.Drawing.Point(27, 90);
+            this.Owner_label.Name = "Owner_label";
+            this.Owner_label.Size = new System.Drawing.Size(59, 13);
+            this.Owner_label.TabIndex = 169;
+            this.Owner_label.Text = "Фамилия:";
             // 
             // Address_textBox
             // 
             this.Address_textBox.Enabled = false;
-            this.Address_textBox.Location = new System.Drawing.Point(153, 122);
+            this.Address_textBox.Location = new System.Drawing.Point(162, 162);
             this.Address_textBox.Name = "Address_textBox";
+            this.Address_textBox.ReadOnly = true;
             this.Address_textBox.Size = new System.Drawing.Size(248, 20);
-            this.Address_textBox.TabIndex = 135;
+            this.Address_textBox.TabIndex = 168;
             // 
             // Address_label
             // 
             this.Address_label.AutoSize = true;
-            this.Address_label.Location = new System.Drawing.Point(18, 125);
+            this.Address_label.Location = new System.Drawing.Point(27, 169);
             this.Address_label.Name = "Address_label";
             this.Address_label.Size = new System.Drawing.Size(41, 13);
-            this.Address_label.TabIndex = 134;
+            this.Address_label.TabIndex = 167;
             this.Address_label.Text = "Адрес:";
+            // 
+            // BirthDate_label
+            // 
+            this.BirthDate_label.AutoSize = true;
+            this.BirthDate_label.Location = new System.Drawing.Point(27, 194);
+            this.BirthDate_label.Name = "BirthDate_label";
+            this.BirthDate_label.Size = new System.Drawing.Size(89, 13);
+            this.BirthDate_label.TabIndex = 166;
+            this.BirthDate_label.Text = "Дата рождения:";
+            // 
+            // OwnerSurname_textBox
+            // 
+            this.OwnerSurname_textBox.CausesValidation = false;
+            this.OwnerSurname_textBox.Enabled = false;
+            this.OwnerSurname_textBox.Location = new System.Drawing.Point(162, 83);
+            this.OwnerSurname_textBox.Name = "OwnerSurname_textBox";
+            this.OwnerSurname_textBox.ReadOnly = true;
+            this.OwnerSurname_textBox.Size = new System.Drawing.Size(248, 20);
+            this.OwnerSurname_textBox.TabIndex = 165;
             // 
             // Owner_view
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(433, 456);
+            this.ClientSize = new System.Drawing.Size(433, 524);
+            this.Controls.Add(this.BrirthD_dateTimePicker);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.OwnerMiddleName_textBox);
+            this.Controls.Add(this.OwnerName_textBox);
+            this.Controls.Add(this.Owner_label);
             this.Controls.Add(this.Address_textBox);
             this.Controls.Add(this.Address_label);
-            this.Controls.Add(this.BirthDate_textBox);
             this.Controls.Add(this.BirthDate_label);
+            this.Controls.Add(this.OwnerSurname_textBox);
             this.Controls.Add(this.exit_button);
             this.Controls.Add(this.Owner_vehicles_dataGridView);
             this.Controls.Add(this.Owner_vehicles_label);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.TopLabelAuto);
-            this.Controls.Add(this.Owner_textBox);
-            this.Controls.Add(this.Owner);
+            this.MaximumSize = new System.Drawing.Size(449, 563);
+            this.MinimumSize = new System.Drawing.Size(449, 563);
             this.Name = "Owner_view";
-            this.Text = "Owner_view";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Просмотр";
             this.Load += new System.EventHandler(this.Owner_view_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Owner_vehicles_dataGridView)).EndInit();
             this.ResumeLayout(false);
@@ -168,17 +210,19 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox BirthDate_textBox;
-        private System.Windows.Forms.Label BirthDate_label;
         private System.Windows.Forms.Button exit_button;
         private System.Windows.Forms.DataGridView Owner_vehicles_dataGridView;
         private System.Windows.Forms.Label Owner_vehicles_label;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label TopLabelAuto;
-        private System.Windows.Forms.TextBox Owner_textBox;
-        private System.Windows.Forms.Label Owner;
+        private System.Windows.Forms.DateTimePicker BrirthD_dateTimePicker;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox OwnerMiddleName_textBox;
+        private System.Windows.Forms.TextBox OwnerName_textBox;
+        public System.Windows.Forms.Label Owner_label;
         private System.Windows.Forms.TextBox Address_textBox;
         private System.Windows.Forms.Label Address_label;
+        private System.Windows.Forms.Label BirthDate_label;
+        private System.Windows.Forms.TextBox OwnerSurname_textBox;
     }
 }

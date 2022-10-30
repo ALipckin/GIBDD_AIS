@@ -41,7 +41,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.TopLabelAuto = new System.Windows.Forms.Label();
             this.Number_textBox = new System.Windows.Forms.TextBox();
             this.Engine_n_textBox = new System.Windows.Forms.TextBox();
@@ -62,6 +61,7 @@
             this.lastTi_textBox.CausesValidation = false;
             this.lastTi_textBox.Enabled = false;
             this.lastTi_textBox.Location = new System.Drawing.Point(167, 312);
+            this.lastTi_textBox.MaxLength = 10;
             this.lastTi_textBox.Name = "lastTi_textBox";
             this.lastTi_textBox.Size = new System.Drawing.Size(248, 20);
             this.lastTi_textBox.TabIndex = 103;
@@ -71,6 +71,7 @@
             this.Color_textBox.CausesValidation = false;
             this.Color_textBox.Enabled = false;
             this.Color_textBox.Location = new System.Drawing.Point(167, 203);
+            this.Color_textBox.MaxLength = 20;
             this.Color_textBox.Name = "Color_textBox";
             this.Color_textBox.Size = new System.Drawing.Size(248, 20);
             this.Color_textBox.TabIndex = 102;
@@ -80,6 +81,7 @@
             this.Chasis_n_textBox.CausesValidation = false;
             this.Chasis_n_textBox.Enabled = false;
             this.Chasis_n_textBox.Location = new System.Drawing.Point(167, 148);
+            this.Chasis_n_textBox.MaxLength = 17;
             this.Chasis_n_textBox.Name = "Chasis_n_textBox";
             this.Chasis_n_textBox.Size = new System.Drawing.Size(248, 20);
             this.Chasis_n_textBox.TabIndex = 100;
@@ -89,10 +91,10 @@
             this.Brand_textBox.CausesValidation = false;
             this.Brand_textBox.Enabled = false;
             this.Brand_textBox.Location = new System.Drawing.Point(167, 96);
+            this.Brand_textBox.MaxLength = 20;
             this.Brand_textBox.Name = "Brand_textBox";
             this.Brand_textBox.Size = new System.Drawing.Size(248, 20);
             this.Brand_textBox.TabIndex = 99;
-            this.Brand_textBox.TextChanged += new System.EventHandler(this.Brand_textBox_TextChanged);
             // 
             // wanted_checkBox
             // 
@@ -118,9 +120,9 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(32, 315);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(122, 13);
+            this.label8.Size = new System.Drawing.Size(112, 13);
             this.label8.TabIndex = 95;
-            this.label8.Text = "Последний техосмотр:";
+            this.label8.Text = "Дата последнего то:";
             // 
             // label7
             // 
@@ -176,31 +178,23 @@
             this.label2.TabIndex = 89;
             this.label2.Text = "Марка";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(125, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(221, 24);
-            this.label1.TabIndex = 88;
-            this.label1.Text = "(форма для просмотра)";
-            // 
             // TopLabelAuto
             // 
             this.TopLabelAuto.AutoSize = true;
             this.TopLabelAuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TopLabelAuto.Location = new System.Drawing.Point(174, 23);
             this.TopLabelAuto.Name = "TopLabelAuto";
-            this.TopLabelAuto.Size = new System.Drawing.Size(122, 24);
+            this.TopLabelAuto.Size = new System.Drawing.Size(122, 48);
             this.TopLabelAuto.TabIndex = 87;
-            this.TopLabelAuto.Text = "Автомобили";
+            this.TopLabelAuto.Text = "Автомобили\r\n(просмотр)\r\n";
+            this.TopLabelAuto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Number_textBox
             // 
             this.Number_textBox.CausesValidation = false;
             this.Number_textBox.Enabled = false;
             this.Number_textBox.Location = new System.Drawing.Point(167, 231);
+            this.Number_textBox.MaxLength = 9;
             this.Number_textBox.Name = "Number_textBox";
             this.Number_textBox.Size = new System.Drawing.Size(248, 20);
             this.Number_textBox.TabIndex = 104;
@@ -210,6 +204,7 @@
             this.Engine_n_textBox.CausesValidation = false;
             this.Engine_n_textBox.Enabled = false;
             this.Engine_n_textBox.Location = new System.Drawing.Point(167, 176);
+            this.Engine_n_textBox.MaxLength = 17;
             this.Engine_n_textBox.Name = "Engine_n_textBox";
             this.Engine_n_textBox.Size = new System.Drawing.Size(248, 20);
             this.Engine_n_textBox.TabIndex = 105;
@@ -219,6 +214,7 @@
             this.Owner_textBox.CausesValidation = false;
             this.Owner_textBox.Enabled = false;
             this.Owner_textBox.Location = new System.Drawing.Point(167, 260);
+            this.Owner_textBox.MaxLength = 100;
             this.Owner_textBox.Name = "Owner_textBox";
             this.Owner_textBox.Size = new System.Drawing.Size(248, 20);
             this.Owner_textBox.TabIndex = 106;
@@ -226,7 +222,7 @@
             // Accidents
             // 
             this.Accidents.AutoSize = true;
-            this.Accidents.Location = new System.Drawing.Point(164, 423);
+            this.Accidents.Location = new System.Drawing.Point(50, 423);
             this.Accidents.Name = "Accidents";
             this.Accidents.Size = new System.Drawing.Size(104, 13);
             this.Accidents.TabIndex = 107;
@@ -234,11 +230,14 @@
             // 
             // Accidents_dataGridView
             // 
+            this.Accidents_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Accidents_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Accidents_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Accidents_dataGridView.Enabled = false;
-            this.Accidents_dataGridView.Location = new System.Drawing.Point(90, 439);
+            this.Accidents_dataGridView.Location = new System.Drawing.Point(44, 439);
             this.Accidents_dataGridView.Name = "Accidents_dataGridView";
-            this.Accidents_dataGridView.Size = new System.Drawing.Size(275, 139);
+            this.Accidents_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Accidents_dataGridView.Size = new System.Drawing.Size(371, 139);
             this.Accidents_dataGridView.TabIndex = 108;
             // 
             // exit_button
@@ -266,6 +265,7 @@
             this.VIN_textBox.CausesValidation = false;
             this.VIN_textBox.Enabled = false;
             this.VIN_textBox.Location = new System.Drawing.Point(167, 122);
+            this.VIN_textBox.MaxLength = 17;
             this.VIN_textBox.Name = "VIN_textBox";
             this.VIN_textBox.Size = new System.Drawing.Size(248, 20);
             this.VIN_textBox.TabIndex = 112;
@@ -283,6 +283,7 @@
             // 
             this.BirthDate_textBox.Enabled = false;
             this.BirthDate_textBox.Location = new System.Drawing.Point(167, 286);
+            this.BirthDate_textBox.MaxLength = 10;
             this.BirthDate_textBox.Name = "BirthDate_textBox";
             this.BirthDate_textBox.Size = new System.Drawing.Size(248, 20);
             this.BirthDate_textBox.TabIndex = 176;
@@ -300,7 +301,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(451, 643);
+            this.ClientSize = new System.Drawing.Size(449, 646);
             this.Controls.Add(this.BirthDate_textBox);
             this.Controls.Add(this.BirthDatelabel);
             this.Controls.Add(this.VIN_textBox);
@@ -325,11 +326,12 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.TopLabelAuto);
+            this.MaximumSize = new System.Drawing.Size(465, 685);
+            this.MinimumSize = new System.Drawing.Size(465, 685);
             this.Name = "Vehicle_view";
-            this.Text = " ";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Vehicle_view_FormClosed);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = " Просмотр";
             this.Load += new System.EventHandler(this.Vehicle_view1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Accidents_dataGridView)).EndInit();
             this.ResumeLayout(false);
@@ -352,7 +354,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label TopLabelAuto;
         private System.Windows.Forms.TextBox Number_textBox;
         private System.Windows.Forms.TextBox Engine_n_textBox;

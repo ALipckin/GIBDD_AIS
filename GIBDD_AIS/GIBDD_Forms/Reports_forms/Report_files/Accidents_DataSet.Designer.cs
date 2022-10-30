@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace GIBDD_AIS {
+namespace GIBDD_AIS.GIBDD_Forms.Reports_forms.Report_files {
     
     
     /// <summary>
@@ -20,17 +20,17 @@ namespace GIBDD_AIS {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("BD_GIBDDDataSet1")]
+    [global::System.Xml.Serialization.XmlRootAttribute("Accidents_DataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class BD_GIBDDDataSet1 : global::System.Data.DataSet {
+    public partial class Accidents_DataSet : global::System.Data.DataSet {
         
-        private VEHICLESDataTable tableVEHICLES;
+        private ACCIDENTSDataTable tableACCIDENTS;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public BD_GIBDDDataSet1() {
+        public Accidents_DataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace GIBDD_AIS {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected BD_GIBDDDataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected Accidents_DataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace GIBDD_AIS {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["VEHICLES"] != null)) {
-                    base.Tables.Add(new VEHICLESDataTable(ds.Tables["VEHICLES"]));
+                if ((ds.Tables["ACCIDENTS"] != null)) {
+                    base.Tables.Add(new ACCIDENTSDataTable(ds.Tables["ACCIDENTS"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace GIBDD_AIS {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public VEHICLESDataTable VEHICLES {
+        public ACCIDENTSDataTable ACCIDENTS {
             get {
-                return this.tableVEHICLES;
+                return this.tableACCIDENTS;
             }
         }
         
@@ -127,7 +127,7 @@ namespace GIBDD_AIS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            BD_GIBDDDataSet1 cln = ((BD_GIBDDDataSet1)(base.Clone()));
+            Accidents_DataSet cln = ((Accidents_DataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace GIBDD_AIS {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["VEHICLES"] != null)) {
-                    base.Tables.Add(new VEHICLESDataTable(ds.Tables["VEHICLES"]));
+                if ((ds.Tables["ACCIDENTS"] != null)) {
+                    base.Tables.Add(new ACCIDENTSDataTable(ds.Tables["ACCIDENTS"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace GIBDD_AIS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableVEHICLES = ((VEHICLESDataTable)(base.Tables["VEHICLES"]));
+            this.tableACCIDENTS = ((ACCIDENTSDataTable)(base.Tables["ACCIDENTS"]));
             if ((initTable == true)) {
-                if ((this.tableVEHICLES != null)) {
-                    this.tableVEHICLES.InitVars();
+                if ((this.tableACCIDENTS != null)) {
+                    this.tableACCIDENTS.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace GIBDD_AIS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "BD_GIBDDDataSet1";
+            this.DataSetName = "Accidents_DataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/BD_GIBDDDataSet1.xsd";
+            this.Namespace = "http://tempuri.org/Accidents_DataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableVEHICLES = new VEHICLESDataTable();
-            base.Tables.Add(this.tableVEHICLES);
+            this.tableACCIDENTS = new ACCIDENTSDataTable();
+            base.Tables.Add(this.tableACCIDENTS);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeVEHICLES() {
+        private bool ShouldSerializeACCIDENTS() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace GIBDD_AIS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            BD_GIBDDDataSet1 ds = new BD_GIBDDDataSet1();
+            Accidents_DataSet ds = new Accidents_DataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,25 +270,35 @@ namespace GIBDD_AIS {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void VEHICLESRowChangeEventHandler(object sender, VEHICLESRowChangeEvent e);
+        public delegate void ACCIDENTSRowChangeEventHandler(object sender, ACCIDENTSRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class VEHICLESDataTable : global::System.Data.TypedTableBase<VEHICLESRow> {
+        public partial class ACCIDENTSDataTable : global::System.Data.TypedTableBase<ACCIDENTSRow> {
             
-            private global::System.Data.DataColumn columnNumber;
+            private global::System.Data.DataColumn columnID;
             
-            private global::System.Data.DataColumn columnBrand;
+            private global::System.Data.DataColumn columnNum_of_victims;
             
-            private global::System.Data.DataColumn columnChasis_n;
+            private global::System.Data.DataColumn columnAmount_of_damage;
+            
+            private global::System.Data.DataColumn columnReason;
+            
+            private global::System.Data.DataColumn columnRoad_conditions;
+            
+            private global::System.Data.DataColumn columnArea;
+            
+            private global::System.Data.DataColumn columnType;
+            
+            private global::System.Data.DataColumn columnDate;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VEHICLESDataTable() {
-                this.TableName = "VEHICLES";
+            public ACCIDENTSDataTable() {
+                this.TableName = "ACCIDENTS";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -296,7 +306,7 @@ namespace GIBDD_AIS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal VEHICLESDataTable(global::System.Data.DataTable table) {
+            internal ACCIDENTSDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -313,32 +323,72 @@ namespace GIBDD_AIS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected VEHICLESDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected ACCIDENTSDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NumberColumn {
+            public global::System.Data.DataColumn IDColumn {
                 get {
-                    return this.columnNumber;
+                    return this.columnID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn BrandColumn {
+            public global::System.Data.DataColumn Num_of_victimsColumn {
                 get {
-                    return this.columnBrand;
+                    return this.columnNum_of_victims;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Chasis_nColumn {
+            public global::System.Data.DataColumn Amount_of_damageColumn {
                 get {
-                    return this.columnChasis_n;
+                    return this.columnAmount_of_damage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ReasonColumn {
+                get {
+                    return this.columnReason;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Road_conditionsColumn {
+                get {
+                    return this.columnRoad_conditions;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn AreaColumn {
+                get {
+                    return this.columnArea;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TypeColumn {
+                get {
+                    return this.columnType;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DateColumn {
+                get {
+                    return this.columnDate;
                 }
             }
             
@@ -353,54 +403,59 @@ namespace GIBDD_AIS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VEHICLESRow this[int index] {
+            public ACCIDENTSRow this[int index] {
                 get {
-                    return ((VEHICLESRow)(this.Rows[index]));
+                    return ((ACCIDENTSRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event VEHICLESRowChangeEventHandler VEHICLESRowChanging;
+            public event ACCIDENTSRowChangeEventHandler ACCIDENTSRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event VEHICLESRowChangeEventHandler VEHICLESRowChanged;
+            public event ACCIDENTSRowChangeEventHandler ACCIDENTSRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event VEHICLESRowChangeEventHandler VEHICLESRowDeleting;
+            public event ACCIDENTSRowChangeEventHandler ACCIDENTSRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event VEHICLESRowChangeEventHandler VEHICLESRowDeleted;
+            public event ACCIDENTSRowChangeEventHandler ACCIDENTSRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddVEHICLESRow(VEHICLESRow row) {
+            public void AddACCIDENTSRow(ACCIDENTSRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VEHICLESRow AddVEHICLESRow(string Number, string Brand, string Chasis_n) {
-                VEHICLESRow rowVEHICLESRow = ((VEHICLESRow)(this.NewRow()));
+            public ACCIDENTSRow AddACCIDENTSRow(int Num_of_victims, double Amount_of_damage, string Reason, string Road_conditions, string Area, string Type, System.DateTime Date) {
+                ACCIDENTSRow rowACCIDENTSRow = ((ACCIDENTSRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Number,
-                        Brand,
-                        Chasis_n};
-                rowVEHICLESRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowVEHICLESRow);
-                return rowVEHICLESRow;
+                        null,
+                        Num_of_victims,
+                        Amount_of_damage,
+                        Reason,
+                        Road_conditions,
+                        Area,
+                        Type,
+                        Date};
+                rowACCIDENTSRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowACCIDENTSRow);
+                return rowACCIDENTSRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VEHICLESRow FindByNumber(string Number) {
-                return ((VEHICLESRow)(this.Rows.Find(new object[] {
-                            Number})));
+            public ACCIDENTSRow FindByID(int ID) {
+                return ((ACCIDENTSRow)(this.Rows.Find(new object[] {
+                            ID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                VEHICLESDataTable cln = ((VEHICLESDataTable)(base.Clone()));
+                ACCIDENTSDataTable cln = ((ACCIDENTSDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -408,61 +463,83 @@ namespace GIBDD_AIS {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new VEHICLESDataTable();
+                return new ACCIDENTSDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnNumber = base.Columns["Number"];
-                this.columnBrand = base.Columns["Brand"];
-                this.columnChasis_n = base.Columns["Chasis_n"];
+                this.columnID = base.Columns["ID"];
+                this.columnNum_of_victims = base.Columns["Num_of_victims"];
+                this.columnAmount_of_damage = base.Columns["Amount_of_damage"];
+                this.columnReason = base.Columns["Reason"];
+                this.columnRoad_conditions = base.Columns["Road_conditions"];
+                this.columnArea = base.Columns["Area"];
+                this.columnType = base.Columns["Type"];
+                this.columnDate = base.Columns["Date"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnNumber = new global::System.Data.DataColumn("Number", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNumber);
-                this.columnBrand = new global::System.Data.DataColumn("Brand", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBrand);
-                this.columnChasis_n = new global::System.Data.DataColumn("Chasis_n", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnChasis_n);
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID);
+                this.columnNum_of_victims = new global::System.Data.DataColumn("Num_of_victims", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNum_of_victims);
+                this.columnAmount_of_damage = new global::System.Data.DataColumn("Amount_of_damage", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAmount_of_damage);
+                this.columnReason = new global::System.Data.DataColumn("Reason", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReason);
+                this.columnRoad_conditions = new global::System.Data.DataColumn("Road_conditions", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRoad_conditions);
+                this.columnArea = new global::System.Data.DataColumn("Area", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnArea);
+                this.columnType = new global::System.Data.DataColumn("Type", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnType);
+                this.columnDate = new global::System.Data.DataColumn("Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDate);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnNumber}, true));
-                this.columnNumber.AllowDBNull = false;
-                this.columnNumber.Unique = true;
-                this.columnNumber.MaxLength = 9;
-                this.columnBrand.AllowDBNull = false;
-                this.columnBrand.MaxLength = 30;
-                this.columnChasis_n.AllowDBNull = false;
-                this.columnChasis_n.MaxLength = 30;
+                                this.columnID}, true));
+                this.columnID.AutoIncrement = true;
+                this.columnID.AutoIncrementSeed = -1;
+                this.columnID.AutoIncrementStep = -1;
+                this.columnID.AllowDBNull = false;
+                this.columnID.ReadOnly = true;
+                this.columnID.Unique = true;
+                this.columnNum_of_victims.AllowDBNull = false;
+                this.columnReason.MaxLength = 30;
+                this.columnRoad_conditions.MaxLength = 30;
+                this.columnArea.AllowDBNull = false;
+                this.columnArea.MaxLength = 30;
+                this.columnType.AllowDBNull = false;
+                this.columnType.MaxLength = 30;
+                this.columnDate.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VEHICLESRow NewVEHICLESRow() {
-                return ((VEHICLESRow)(this.NewRow()));
+            public ACCIDENTSRow NewACCIDENTSRow() {
+                return ((ACCIDENTSRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new VEHICLESRow(builder);
+                return new ACCIDENTSRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(VEHICLESRow);
+                return typeof(ACCIDENTSRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.VEHICLESRowChanged != null)) {
-                    this.VEHICLESRowChanged(this, new VEHICLESRowChangeEvent(((VEHICLESRow)(e.Row)), e.Action));
+                if ((this.ACCIDENTSRowChanged != null)) {
+                    this.ACCIDENTSRowChanged(this, new ACCIDENTSRowChangeEvent(((ACCIDENTSRow)(e.Row)), e.Action));
                 }
             }
             
@@ -470,8 +547,8 @@ namespace GIBDD_AIS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.VEHICLESRowChanging != null)) {
-                    this.VEHICLESRowChanging(this, new VEHICLESRowChangeEvent(((VEHICLESRow)(e.Row)), e.Action));
+                if ((this.ACCIDENTSRowChanging != null)) {
+                    this.ACCIDENTSRowChanging(this, new ACCIDENTSRowChangeEvent(((ACCIDENTSRow)(e.Row)), e.Action));
                 }
             }
             
@@ -479,8 +556,8 @@ namespace GIBDD_AIS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.VEHICLESRowDeleted != null)) {
-                    this.VEHICLESRowDeleted(this, new VEHICLESRowChangeEvent(((VEHICLESRow)(e.Row)), e.Action));
+                if ((this.ACCIDENTSRowDeleted != null)) {
+                    this.ACCIDENTSRowDeleted(this, new ACCIDENTSRowChangeEvent(((ACCIDENTSRow)(e.Row)), e.Action));
                 }
             }
             
@@ -488,14 +565,14 @@ namespace GIBDD_AIS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.VEHICLESRowDeleting != null)) {
-                    this.VEHICLESRowDeleting(this, new VEHICLESRowChangeEvent(((VEHICLESRow)(e.Row)), e.Action));
+                if ((this.ACCIDENTSRowDeleting != null)) {
+                    this.ACCIDENTSRowDeleting(this, new ACCIDENTSRowChangeEvent(((ACCIDENTSRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveVEHICLESRow(VEHICLESRow row) {
+            public void RemoveACCIDENTSRow(ACCIDENTSRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -504,7 +581,7 @@ namespace GIBDD_AIS {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                BD_GIBDDDataSet1 ds = new BD_GIBDDDataSet1();
+                Accidents_DataSet ds = new Accidents_DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -522,7 +599,7 @@ namespace GIBDD_AIS {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "VEHICLESDataTable";
+                attribute2.FixedValue = "ACCIDENTSDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -566,48 +643,154 @@ namespace GIBDD_AIS {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class VEHICLESRow : global::System.Data.DataRow {
+        public partial class ACCIDENTSRow : global::System.Data.DataRow {
             
-            private VEHICLESDataTable tableVEHICLES;
+            private ACCIDENTSDataTable tableACCIDENTS;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal VEHICLESRow(global::System.Data.DataRowBuilder rb) : 
+            internal ACCIDENTSRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableVEHICLES = ((VEHICLESDataTable)(this.Table));
+                this.tableACCIDENTS = ((ACCIDENTSDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Number {
+            public int ID {
                 get {
-                    return ((string)(this[this.tableVEHICLES.NumberColumn]));
+                    return ((int)(this[this.tableACCIDENTS.IDColumn]));
                 }
                 set {
-                    this[this.tableVEHICLES.NumberColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Brand {
-                get {
-                    return ((string)(this[this.tableVEHICLES.BrandColumn]));
-                }
-                set {
-                    this[this.tableVEHICLES.BrandColumn] = value;
+                    this[this.tableACCIDENTS.IDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Chasis_n {
+            public int Num_of_victims {
                 get {
-                    return ((string)(this[this.tableVEHICLES.Chasis_nColumn]));
+                    return ((int)(this[this.tableACCIDENTS.Num_of_victimsColumn]));
                 }
                 set {
-                    this[this.tableVEHICLES.Chasis_nColumn] = value;
+                    this[this.tableACCIDENTS.Num_of_victimsColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public double Amount_of_damage {
+                get {
+                    try {
+                        return ((double)(this[this.tableACCIDENTS.Amount_of_damageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Amount_of_damage\' в таблице \'ACCIDENTS\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableACCIDENTS.Amount_of_damageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Reason {
+                get {
+                    try {
+                        return ((string)(this[this.tableACCIDENTS.ReasonColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Reason\' в таблице \'ACCIDENTS\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableACCIDENTS.ReasonColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Road_conditions {
+                get {
+                    try {
+                        return ((string)(this[this.tableACCIDENTS.Road_conditionsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Road_conditions\' в таблице \'ACCIDENTS\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableACCIDENTS.Road_conditionsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Area {
+                get {
+                    return ((string)(this[this.tableACCIDENTS.AreaColumn]));
+                }
+                set {
+                    this[this.tableACCIDENTS.AreaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Type {
+                get {
+                    return ((string)(this[this.tableACCIDENTS.TypeColumn]));
+                }
+                set {
+                    this[this.tableACCIDENTS.TypeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime Date {
+                get {
+                    return ((global::System.DateTime)(this[this.tableACCIDENTS.DateColumn]));
+                }
+                set {
+                    this[this.tableACCIDENTS.DateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsAmount_of_damageNull() {
+                return this.IsNull(this.tableACCIDENTS.Amount_of_damageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetAmount_of_damageNull() {
+                this[this.tableACCIDENTS.Amount_of_damageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsReasonNull() {
+                return this.IsNull(this.tableACCIDENTS.ReasonColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetReasonNull() {
+                this[this.tableACCIDENTS.ReasonColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsRoad_conditionsNull() {
+                return this.IsNull(this.tableACCIDENTS.Road_conditionsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetRoad_conditionsNull() {
+                this[this.tableACCIDENTS.Road_conditionsColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -615,22 +798,22 @@ namespace GIBDD_AIS {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class VEHICLESRowChangeEvent : global::System.EventArgs {
+        public class ACCIDENTSRowChangeEvent : global::System.EventArgs {
             
-            private VEHICLESRow eventRow;
+            private ACCIDENTSRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VEHICLESRowChangeEvent(VEHICLESRow row, global::System.Data.DataRowAction action) {
+            public ACCIDENTSRowChangeEvent(ACCIDENTSRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VEHICLESRow Row {
+            public ACCIDENTSRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -646,7 +829,7 @@ namespace GIBDD_AIS {
         }
     }
 }
-namespace GIBDD_AIS.BD_GIBDDDataSet1TableAdapters {
+namespace GIBDD_AIS.GIBDD_Forms.Reports_forms.Report_files.Accidents_DataSetTableAdapters {
     
     
     /// <summary>
@@ -658,7 +841,7 @@ namespace GIBDD_AIS.BD_GIBDDDataSet1TableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class VEHICLESTableAdapter : global::System.ComponentModel.Component {
+    public partial class ACCIDENTSTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -672,7 +855,7 @@ namespace GIBDD_AIS.BD_GIBDDDataSet1TableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public VEHICLESTableAdapter() {
+        public ACCIDENTSTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -769,37 +952,74 @@ namespace GIBDD_AIS.BD_GIBDDDataSet1TableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "VEHICLES";
-            tableMapping.ColumnMappings.Add("Number", "Number");
-            tableMapping.ColumnMappings.Add("Brand", "Brand");
-            tableMapping.ColumnMappings.Add("Chasis_n", "Chasis_n");
+            tableMapping.DataSetTable = "ACCIDENTS";
+            tableMapping.ColumnMappings.Add("ID", "ID");
+            tableMapping.ColumnMappings.Add("Num_of_victims", "Num_of_victims");
+            tableMapping.ColumnMappings.Add("Amount_of_damage", "Amount_of_damage");
+            tableMapping.ColumnMappings.Add("Reason", "Reason");
+            tableMapping.ColumnMappings.Add("Road_conditions", "Road_conditions");
+            tableMapping.ColumnMappings.Add("Area", "Area");
+            tableMapping.ColumnMappings.Add("Type", "Type");
+            tableMapping.ColumnMappings.Add("Date", "Date");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[VEHICLES] WHERE (([Number] = @Original_Number) AND ([Brand] = " +
-                "@Original_Brand) AND ([Chasis_n] = @Original_Chasis_n))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [ACCIDENTS] WHERE (([ID] = @Original_ID) AND ([Num_of_victims] = @Original_Num_of_victims) AND ((@IsNull_Amount_of_damage = 1 AND [Amount_of_damage] IS NULL) OR ([Amount_of_damage] = @Original_Amount_of_damage)) AND ((@IsNull_Reason = 1 AND [Reason] IS NULL) OR ([Reason] = @Original_Reason)) AND ((@IsNull_Road_conditions = 1 AND [Road_conditions] IS NULL) OR ([Road_conditions] = @Original_Road_conditions)) AND ([Area] = @Original_Area) AND ([Type] = @Original_Type) AND ([Date] = @Original_Date))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Number", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Number", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Brand", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Brand", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Chasis_n", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Chasis_n", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Num_of_victims", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Num_of_victims", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Amount_of_damage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount_of_damage", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Amount_of_damage", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount_of_damage", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Reason", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reason", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Reason", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reason", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Road_conditions", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Road_conditions", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Road_conditions", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Road_conditions", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Area", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Area", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [ACCIDENTS] ([Num_of_victims], [Amount_of_damage], [Reason], [Road_conditions], [Area], [Type], [Date]) VALUES (@Num_of_victims, @Amount_of_damage, @Reason, @Road_conditions, @Area, @Type, @Date);
+SELECT ID, Num_of_victims, Amount_of_damage, Reason, Road_conditions, Area, Type, Date FROM ACCIDENTS WHERE (ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Num_of_victims", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Num_of_victims", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Amount_of_damage", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount_of_damage", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Reason", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reason", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Road_conditions", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Road_conditions", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Area", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[VEHICLES] SET [Number] = @Number, [Brand] = @Brand, [Chasis_n] = @Chasis_n WHERE (([Number] = @Original_Number) AND ([Brand] = @Original_Brand) AND ([Chasis_n] = @Original_Chasis_n));
-SELECT Number, Brand, Chasis_n FROM VEHICLES WHERE (Number = @Number)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [ACCIDENTS] SET [Num_of_victims] = @Num_of_victims, [Amount_of_damage] = @Amount_of_damage, [Reason] = @Reason, [Road_conditions] = @Road_conditions, [Area] = @Area, [Type] = @Type, [Date] = @Date WHERE (([ID] = @Original_ID) AND ([Num_of_victims] = @Original_Num_of_victims) AND ((@IsNull_Amount_of_damage = 1 AND [Amount_of_damage] IS NULL) OR ([Amount_of_damage] = @Original_Amount_of_damage)) AND ((@IsNull_Reason = 1 AND [Reason] IS NULL) OR ([Reason] = @Original_Reason)) AND ((@IsNull_Road_conditions = 1 AND [Road_conditions] IS NULL) OR ([Road_conditions] = @Original_Road_conditions)) AND ([Area] = @Original_Area) AND ([Type] = @Original_Type) AND ([Date] = @Original_Date));
+SELECT ID, Num_of_victims, Amount_of_damage, Reason, Road_conditions, Area, Type, Date FROM ACCIDENTS WHERE (ID = @ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Number", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Brand", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Brand", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Chasis_n", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Chasis_n", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Number", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Number", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Brand", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Brand", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Chasis_n", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Chasis_n", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Num_of_victims", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Num_of_victims", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Amount_of_damage", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount_of_damage", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Reason", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reason", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Road_conditions", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Road_conditions", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Area", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Num_of_victims", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Num_of_victims", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Amount_of_damage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount_of_damage", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Amount_of_damage", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount_of_damage", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Reason", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reason", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Reason", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reason", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Road_conditions", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Road_conditions", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Road_conditions", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Road_conditions", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Area", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Area", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::GIBDD_AIS.Properties.Settings.Default.BD_GIBDDConnectionString;
+            this._connection.ConnectionString = global::GIBDD_AIS.Properties.Settings.Default.BD_GIBDDConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -808,7 +1028,7 @@ SELECT Number, Brand, Chasis_n FROM VEHICLES WHERE (Number = @Number)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Number, Brand, Chasis_n FROM dbo.VEHICLES";
+            this._commandCollection[0].CommandText = "SELECT * FROM ACCIDENTS";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -816,7 +1036,7 @@ SELECT Number, Brand, Chasis_n FROM VEHICLES WHERE (Number = @Number)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(BD_GIBDDDataSet1.VEHICLESDataTable dataTable) {
+        public virtual int Fill(Accidents_DataSet.ACCIDENTSDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -829,9 +1049,9 @@ SELECT Number, Brand, Chasis_n FROM VEHICLES WHERE (Number = @Number)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual BD_GIBDDDataSet1.VEHICLESDataTable GetData() {
+        public virtual Accidents_DataSet.ACCIDENTSDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            BD_GIBDDDataSet1.VEHICLESDataTable dataTable = new BD_GIBDDDataSet1.VEHICLESDataTable();
+            Accidents_DataSet.ACCIDENTSDataTable dataTable = new Accidents_DataSet.ACCIDENTSDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -839,15 +1059,15 @@ SELECT Number, Brand, Chasis_n FROM VEHICLES WHERE (Number = @Number)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(BD_GIBDDDataSet1.VEHICLESDataTable dataTable) {
+        public virtual int Update(Accidents_DataSet.ACCIDENTSDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(BD_GIBDDDataSet1 dataSet) {
-            return this.Adapter.Update(dataSet, "VEHICLES");
+        public virtual int Update(Accidents_DataSet dataSet) {
+            return this.Adapter.Update(dataSet, "ACCIDENTS");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -869,25 +1089,46 @@ SELECT Number, Brand, Chasis_n FROM VEHICLES WHERE (Number = @Number)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Number, string Original_Brand, string Original_Chasis_n) {
-            if ((Original_Number == null)) {
-                throw new global::System.ArgumentNullException("Original_Number");
+        public virtual int Delete(int Original_ID, int Original_Num_of_victims, global::System.Nullable<double> Original_Amount_of_damage, string Original_Reason, string Original_Road_conditions, string Original_Area, string Original_Type, System.DateTime Original_Date) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Num_of_victims));
+            if ((Original_Amount_of_damage.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((double)(Original_Amount_of_damage.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_Number));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((Original_Brand == null)) {
-                throw new global::System.ArgumentNullException("Original_Brand");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Brand));
-            }
-            if ((Original_Chasis_n == null)) {
-                throw new global::System.ArgumentNullException("Original_Chasis_n");
+            if ((Original_Reason == null)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Chasis_n));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Reason));
             }
+            if ((Original_Road_conditions == null)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Road_conditions));
+            }
+            if ((Original_Area == null)) {
+                throw new global::System.ArgumentNullException("Original_Area");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Area));
+            }
+            if ((Original_Type == null)) {
+                throw new global::System.ArgumentNullException("Original_Type");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_Type));
+            }
+            this.Adapter.DeleteCommand.Parameters[10].Value = ((System.DateTime)(Original_Date));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -907,44 +1148,149 @@ SELECT Number, Brand, Chasis_n FROM VEHICLES WHERE (Number = @Number)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(int Num_of_victims, global::System.Nullable<double> Amount_of_damage, string Reason, string Road_conditions, string Area, string Type, System.DateTime Date) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Num_of_victims));
+            if ((Amount_of_damage.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((double)(Amount_of_damage.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Reason == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Reason));
+            }
+            if ((Road_conditions == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Road_conditions));
+            }
+            if ((Area == null)) {
+                throw new global::System.ArgumentNullException("Area");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Area));
+            }
+            if ((Type == null)) {
+                throw new global::System.ArgumentNullException("Type");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Type));
+            }
+            this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(Date));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Number, string Brand, string Chasis_n, string Original_Number, string Original_Brand, string Original_Chasis_n) {
-            if ((Number == null)) {
-                throw new global::System.ArgumentNullException("Number");
+        public virtual int Update(
+                    int Num_of_victims, 
+                    global::System.Nullable<double> Amount_of_damage, 
+                    string Reason, 
+                    string Road_conditions, 
+                    string Area, 
+                    string Type, 
+                    System.DateTime Date, 
+                    int Original_ID, 
+                    int Original_Num_of_victims, 
+                    global::System.Nullable<double> Original_Amount_of_damage, 
+                    string Original_Reason, 
+                    string Original_Road_conditions, 
+                    string Original_Area, 
+                    string Original_Type, 
+                    System.DateTime Original_Date, 
+                    int ID) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Num_of_victims));
+            if ((Amount_of_damage.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((double)(Amount_of_damage.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Number));
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((Brand == null)) {
-                throw new global::System.ArgumentNullException("Brand");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Brand));
-            }
-            if ((Chasis_n == null)) {
-                throw new global::System.ArgumentNullException("Chasis_n");
+            if ((Reason == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Chasis_n));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Reason));
             }
-            if ((Original_Number == null)) {
-                throw new global::System.ArgumentNullException("Original_Number");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_Number));
-            }
-            if ((Original_Brand == null)) {
-                throw new global::System.ArgumentNullException("Original_Brand");
+            if ((Road_conditions == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_Brand));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Road_conditions));
             }
-            if ((Original_Chasis_n == null)) {
-                throw new global::System.ArgumentNullException("Original_Chasis_n");
+            if ((Area == null)) {
+                throw new global::System.ArgumentNullException("Area");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Chasis_n));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Area));
             }
+            if ((Type == null)) {
+                throw new global::System.ArgumentNullException("Type");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Type));
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(Date));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_ID));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Num_of_victims));
+            if ((Original_Amount_of_damage.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((double)(Original_Amount_of_damage.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Reason == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Reason));
+            }
+            if ((Original_Road_conditions == null)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Road_conditions));
+            }
+            if ((Original_Area == null)) {
+                throw new global::System.ArgumentNullException("Original_Area");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Area));
+            }
+            if ((Original_Type == null)) {
+                throw new global::System.ArgumentNullException("Original_Type");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Type));
+            }
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((System.DateTime)(Original_Date));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -965,8 +1311,8 @@ SELECT Number, Brand, Chasis_n FROM VEHICLES WHERE (Number = @Number)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Brand, string Chasis_n, string Original_Number, string Original_Brand, string Original_Chasis_n) {
-            return this.Update(Original_Number, Brand, Chasis_n, Original_Number, Original_Brand, Original_Chasis_n);
+        public virtual int Update(int Num_of_victims, global::System.Nullable<double> Amount_of_damage, string Reason, string Road_conditions, string Area, string Type, System.DateTime Date, int Original_ID, int Original_Num_of_victims, global::System.Nullable<double> Original_Amount_of_damage, string Original_Reason, string Original_Road_conditions, string Original_Area, string Original_Type, System.DateTime Original_Date) {
+            return this.Update(Num_of_victims, Amount_of_damage, Reason, Road_conditions, Area, Type, Date, Original_ID, Original_Num_of_victims, Original_Amount_of_damage, Original_Reason, Original_Road_conditions, Original_Area, Original_Type, Original_Date, Original_ID);
         }
     }
     
@@ -982,7 +1328,7 @@ SELECT Number, Brand, Chasis_n FROM VEHICLES WHERE (Number = @Number)";
         
         private UpdateOrderOption _updateOrder;
         
-        private VEHICLESTableAdapter _vEHICLESTableAdapter;
+        private ACCIDENTSTableAdapter _aCCIDENTSTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1004,12 +1350,12 @@ SELECT Number, Brand, Chasis_n FROM VEHICLES WHERE (Number = @Number)";
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public VEHICLESTableAdapter VEHICLESTableAdapter {
+        public ACCIDENTSTableAdapter ACCIDENTSTableAdapter {
             get {
-                return this._vEHICLESTableAdapter;
+                return this._aCCIDENTSTableAdapter;
             }
             set {
-                this._vEHICLESTableAdapter = value;
+                this._aCCIDENTSTableAdapter = value;
             }
         }
         
@@ -1032,9 +1378,9 @@ SELECT Number, Brand, Chasis_n FROM VEHICLES WHERE (Number = @Number)";
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._vEHICLESTableAdapter != null) 
-                            && (this._vEHICLESTableAdapter.Connection != null))) {
-                    return this._vEHICLESTableAdapter.Connection;
+                if (((this._aCCIDENTSTableAdapter != null) 
+                            && (this._aCCIDENTSTableAdapter.Connection != null))) {
+                    return this._aCCIDENTSTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1049,7 +1395,7 @@ SELECT Number, Brand, Chasis_n FROM VEHICLES WHERE (Number = @Number)";
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._vEHICLESTableAdapter != null)) {
+                if ((this._aCCIDENTSTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1061,14 +1407,14 @@ SELECT Number, Brand, Chasis_n FROM VEHICLES WHERE (Number = @Number)";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(BD_GIBDDDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(Accidents_DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._vEHICLESTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.VEHICLES.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._aCCIDENTSTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ACCIDENTS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._vEHICLESTableAdapter.Update(updatedRows));
+                    result = (result + this._aCCIDENTSTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1080,13 +1426,13 @@ SELECT Number, Brand, Chasis_n FROM VEHICLES WHERE (Number = @Number)";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(BD_GIBDDDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(Accidents_DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._vEHICLESTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.VEHICLES.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._aCCIDENTSTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ACCIDENTS.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._vEHICLESTableAdapter.Update(addedRows));
+                    result = (result + this._aCCIDENTSTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1098,13 +1444,13 @@ SELECT Number, Brand, Chasis_n FROM VEHICLES WHERE (Number = @Number)";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(BD_GIBDDDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(Accidents_DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._vEHICLESTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.VEHICLES.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._aCCIDENTSTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ACCIDENTS.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._vEHICLESTableAdapter.Update(deletedRows));
+                    result = (result + this._aCCIDENTSTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1140,15 +1486,15 @@ SELECT Number, Brand, Chasis_n FROM VEHICLES WHERE (Number = @Number)";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(BD_GIBDDDataSet1 dataSet) {
+        public virtual int UpdateAll(Accidents_DataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._vEHICLESTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._vEHICLESTableAdapter.Connection) == false))) {
+            if (((this._aCCIDENTSTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._aCCIDENTSTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
@@ -1184,13 +1530,13 @@ SELECT Number, Brand, Chasis_n FROM VEHICLES WHERE (Number = @Number)";
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._vEHICLESTableAdapter != null)) {
-                    revertConnections.Add(this._vEHICLESTableAdapter, this._vEHICLESTableAdapter.Connection);
-                    this._vEHICLESTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._vEHICLESTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._vEHICLESTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._vEHICLESTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._vEHICLESTableAdapter.Adapter);
+                if ((this._aCCIDENTSTableAdapter != null)) {
+                    revertConnections.Add(this._aCCIDENTSTableAdapter, this._aCCIDENTSTableAdapter.Connection);
+                    this._aCCIDENTSTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._aCCIDENTSTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._aCCIDENTSTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._aCCIDENTSTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._aCCIDENTSTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1251,9 +1597,9 @@ SELECT Number, Brand, Chasis_n FROM VEHICLES WHERE (Number = @Number)";
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._vEHICLESTableAdapter != null)) {
-                    this._vEHICLESTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._vEHICLESTableAdapter]));
-                    this._vEHICLESTableAdapter.Transaction = null;
+                if ((this._aCCIDENTSTableAdapter != null)) {
+                    this._aCCIDENTSTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._aCCIDENTSTableAdapter]));
+                    this._aCCIDENTSTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

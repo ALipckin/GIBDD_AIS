@@ -8,139 +8,279 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.ComponentModel.DataAnnotations;
+
 namespace GIBDD_AIS.GIBDD_Forms.Autos_forms
 {
     public partial class Vehicle_input : Form
     {
         DataBase dataBase = new DataBase();
-
-        
         public Vehicle_input()
         {
             InitializeComponent();
         }
-
         private void create_button_Click(object sender, EventArgs e)
         {
-            dataBase.openConnection();
-
-            SqlDataReader dataReader = null;
-            SqlCommand sqlCommand = null;
-
-            var Brand = Brand_textBox.Text;
-            var VIN = Body_n_textBox.Text;
-            var Type = Type_comboBox.Text;
-            var Release_D = ReleaseD_textBox.Text;
-            Release_D.Reverse();
-            var Engine_n = Engine_n_textBox.Text;
-            var Body_n = Body_n_textBox.Text;
-            var Chasis_n = Body_n_textBox.Text;
-            var Color = Color_textBox.Text;
-            var Number = Number_textBox.Text;
-            var EngineV = EngineV_textBox.Text;
-
-           
-            var Owner = Owner_textBox.Text;
-            var Address = Address_textBox.Text;
-            var BirthDate = BirthDate_textBox.Text;
-            BirthDate.Reverse();
-            String[] subs = Owner.Split(' ');
-
-            var TI = lastTi_textBox.Text;
-            TI.Reverse();
-
-           try
+            if (checkForm())
             {
-                string create_owner = $"INSERT INTO OWNERS (Surname, Name, Middle_name, Address, Birth_D) values('{subs[0]}', '{subs[1]}', '{subs[2]}', '{Address}', '{BirthDate}')";
-                sqlCommand = new SqlCommand(create_owner, dataBase.GetConnection());
+                dataBase.openConnection();
+                SqlCommand sqlCommand = null;
+                SqlDataReader dataReader = null;
+                var Brand = Brand_TextBox.Text;
+                var VIN = VIN_TextBox.Text;
+                var Type = Type_ComboBox.Text;
+                var Release_D = ReleaseD_DateTimePicker.Text;
+                Release_D.Reverse();
+
+                var EngineV = EngineV_TextBox.Text;
+                var Engine_n = Engine_n_TextBox.Text;
+                var Chasis_n = Chasis_n_TextBox.Text;
+                var Body_n = Body_n_TextBox.Text;
+                var Color = Color_TextBox.Text;
+                var Number = Number_TextBox.Text;
+                var TI = LastTIDate_TimePicker.Text;
+                TI.Reverse();
+                string owner = Owners_dataGridView[0, Owners_dataGridView.CurrentRow.Index].Value.ToString();
+                String[] subs = owner.Split(' ');
+                string querystring = $"SELECT ID FROM OWNERS WHERE Surname = '{subs[0]}' AND Name = '{subs[1]}' AND Middle_name = '{subs[2]}'";
+                SqlDataAdapter dataAdapter1 = new SqlDataAdapter(querystring, dataBase.GetConnection());
+                DataSet db = new DataSet();
+                dataAdapter1.Fill(db);
+                var Owner_ID = db.Tables[0].Rows[0][0].ToString();
+                string create_vehicle =
+                $"INSERT INTO VEHICLES(Number, VIN, Type, Release_D, Engine_volume, Brand, Engine_n, Chasis_n, Body_n, Color, Wanted, OWNERS_ID, TID) values('{Number}','{VIN}','{Type}','{Release_D}','{EngineV}','{Brand}','{Engine_n}','{Chasis_n}','{Body_n}','{Color}', '{wanted_checkBox.Checked}','{Owner_ID}', '{TI}')";
+                sqlCommand = new SqlCommand(create_vehicle, dataBase.GetConnection());
                 sqlCommand.ExecuteNonQuery();
-            } 
-             catch
-            {
-              MessageBox.Show("Ошибка создания владельца", "Неправильный формат", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Авто созданно", "Успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
-
-           
-            try
-            {
-                string owner_query = $"SELECT ID FROM OWNERS WHERE ID = SCOPE_IDENTITY()";
-
-                sqlCommand = new SqlCommand(owner_query, dataBase.GetConnection());
-                dataReader = sqlCommand.ExecuteReader();
-                string owner_id;
-
-                while (dataReader.Read())
-                {
-                    owner_id = dataReader[0].ToString();
-                    string create_vehicle =
-                    $"INSERT INTO VEHICLES(Number, VIN, Type, Release_D, Engine_volume, Brand, Engine_n, Chasis_n, Body_n, Color, OWNERS_ID) values('{Number}','{VIN}','{Type}','{Release_D}','{EngineV}','{Brand}','{Engine_n}','{Chasis_n}','{Body_n}','{Color}', '{owner_id}')";
-                    sqlCommand = new SqlCommand(create_vehicle, dataBase.GetConnection());
-                    sqlCommand.ExecuteNonQuery();
-                }
-                dataReader.Close();
-            }
-            catch
-            {
-                MessageBox.Show("Ошибка создания авто", "Неправильный формат", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-
-
-            try
-            {
-                string TI_query = $"SELECT ID FROM VEHICLES WHERE ID = SCOPE_IDENTITY()";
-
-                sqlCommand = new SqlCommand(TI_query, dataBase.GetConnection());
-                dataReader = sqlCommand.ExecuteReader();
-                string VEHICLES_ID;
-                while (dataReader.Read())
-                {
-                    VEHICLES_ID = dataReader[0].ToString();
-                    string TI_querystring = $"INSERT INTO TI (Date, VEHICLES_ID) values('{TI}', '{VEHICLES_ID}')";
-                    sqlCommand = new SqlCommand(TI_querystring, dataBase.GetConnection());
-                    sqlCommand.ExecuteNonQuery();
-                }
-                dataReader.Close();
-            }
-             catch
-            {
-                 MessageBox.Show("Ошибка последний тех. осмотр", "Введите дату в формате dd-MM-yyyy", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            
-            MessageBox.Show("Успешно создано!", "Успешно!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            dataBase.closeConnection();
-            this.Close();
+            else
+                MessageBox.Show("Ошибка ввода", "Введите данные", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }  
-
         private void Vehicle_input_Load(object sender, EventArgs e)
         {
             int MaxLength = 30;
-            Brand_textBox.MaxLength = MaxLength;
-            VIN_textBox.MaxLength = 17;
-         
-            ReleaseD_textBox.MaxLength = 10;
-            EngineV_textBox.MaxLength = MaxLength;
-            Engine_n_textBox.MaxLength = MaxLength;
-            Chassis_n_textBox.MaxLength = MaxLength;
-            Body_n_textBox.MaxLength = MaxLength;
-            
-            Color_textBox.MaxLength = MaxLength;
-            Number_textBox.MaxLength = 9;
 
-            Owner_textBox.MaxLength = MaxLength; 
-            Address_textBox.MaxLength = MaxLength;
-            BirthDate_textBox.MaxLength = 10;
-
-            lastTi_textBox.MaxLength = 10;
+            Brand_TextBox.MaxLength = MaxLength;
+            VIN_TextBox.MaxLength = 17;
+            Body_n_TextBox.MaxLength = MaxLength;
+            EngineV_TextBox.MaxLength = MaxLength;
+            Engine_n_TextBox.MaxLength = MaxLength;
+            Chasis_n_TextBox.MaxLength = MaxLength;
+            Color_TextBox.MaxLength = MaxLength;
+            Number_TextBox.MaxLength = 9;
+            SqlDataReader dataReader = null;
+            LastTIDate_TimePicker.CustomFormat = "dd-MM-yyyy";
+            LastTIDate_TimePicker.Format = DateTimePickerFormat.Custom;
+            ReleaseD_DateTimePicker.CustomFormat = "dd-MM-yyyy";
+            ReleaseD_DateTimePicker.Format = DateTimePickerFormat.Custom;
 
             string[] Types = { "Легковой", "Грузовой", "Грузопасажирский", "Автобус", "Спецтранспорт" };
-            Type_comboBox.Items.AddRange(Types);
-        }
+            Type_ComboBox.Items.AddRange(Types);
+            Type_ComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            string querystring = "SELECT CONCAT(Surname, ' ', Name, ' ', Middle_Name) as 'ФИО' FROM OWNERS";
 
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(querystring, dataBase.GetConnection());
+            DataSet db = new DataSet();
+            dataAdapter.Fill(db);
+            Owners_dataGridView.DataSource = db.Tables[0];
+        }
         private void Vehicle_input_FormClosed(object sender, FormClosedEventArgs e)
         {
             Vehicles newForm = new Vehicles();
             newForm.Show();
+        }
+        private void SearchName_TextBox_TextChanged(object sender, EventArgs e)
+        {
+            (Owners_dataGridView.DataSource as DataTable).DefaultView.RowFilter = $"ФИО LIKE '%{SearchName_TextBox.Text}%'";
+        }
+        private bool CheckBrand()
+        {
+            var textBox = Brand_TextBox;
+            bool status = true;
+            if (textBox.Text == "")
+            {
+                errorProvider1.SetError(textBox, "Требуется поле");
+                status = false;
+            }
+            else
+                errorProvider1.SetError(textBox, "");
+
+            return status;
+        }
+        private bool CheckVIN()
+        {
+            var textBox = VIN_TextBox;
+            bool status = true;
+            if (textBox.Text == "")
+            {
+                errorProvider1.SetError(textBox, "Требуется поле");
+                status = false;
+            }
+            else
+                errorProvider1.SetError(textBox, "");
+            return status;
+        }
+        private bool CheckType()
+        {
+            var Box = Type_ComboBox;
+            bool status = true;
+            if (Box.Text == "")
+            {
+                errorProvider1.SetError(Box, "Требуется поле");
+                status = false;
+            }
+            else
+                errorProvider1.SetError(Box, "");
+            return status;
+        }
+        private bool CheckEngineV()
+        {
+            var Box = EngineV_TextBox;
+            bool status = true;
+            if (Box.Text == "")
+            {
+                errorProvider1.SetError(Box, "Требуется поле");
+                status = false;
+            }
+            else
+                errorProvider1.SetError(Box, "");
+            return status;
+        }
+        private bool CheckReleaseD()
+        {
+            var Box = ReleaseD_DateTimePicker;
+            bool status = true;
+            if (Box.Text == "")
+            {
+                errorProvider1.SetError(Box, "Требуется поле");
+                status = false;
+            }
+            else
+            if (Box.Value > DateTime.Today)
+            {
+                errorProvider1.SetError(Box, "Дата выпуска не может быть больше текущей");
+                status = false;
+            }
+            else
+            if (Box.Value > LastTIDate_TimePicker.Value)
+            {
+                errorProvider1.SetError(Box, "Дата выпуска не может быть больше даты то");
+                status = false;
+            }
+            else
+                errorProvider1.SetError(Box, "");
+            return status;
+        }
+        private bool CheckEngine_n()
+        {
+            var Box = Engine_n_TextBox;
+            bool status = true;
+            if (Box.Text == "")
+            {
+                errorProvider1.SetError(Box, "Требуется поле");
+                status = false;
+            }
+            else
+                errorProvider1.SetError(Box, "");
+            return status;
+        }
+
+        private bool CheckChasis_n()
+        {
+            var Box = Chasis_n_TextBox;
+            bool status = true;
+            if (Box.Text == "")
+            {
+                errorProvider1.SetError(Box, "Требуется поле");
+                status = false;
+            }
+            else
+                errorProvider1.SetError(Box, "");
+            return status;
+        }
+        private bool CheckBody_n()
+        {
+            var Box = Body_n_TextBox;
+            bool status = true;
+            if (Box.Text == "")
+            {
+                errorProvider1.SetError(Box, "Требуется поле");
+                status = false;
+            }
+            else
+                errorProvider1.SetError(Box, "");
+            return status;
+        }
+        private bool CheckColor()
+        {
+            var Box = Color_TextBox;
+            bool status = true;
+            if (Box.Text == "")
+            {
+                errorProvider1.SetError(Box, "Требуется поле");
+                status = false;
+            }
+            else
+                errorProvider1.SetError(Box, "");
+
+            return status;
+        }
+        private bool CheckNumber()
+        {
+            var Box = Number_TextBox;
+            bool status = true;
+            if (Box.Text == "")
+            {
+                errorProvider1.SetError(Box, "Требуется поле");
+                status = false;
+            }
+            else
+                errorProvider1.SetError(Box, "");
+            return status;
+        }
+        private bool CheckLastTIDate()
+        {
+            var Box = LastTIDate_TimePicker;
+            bool status = true;
+            if (Box.Text == "")
+            {
+                errorProvider1.SetError(Box, "Требуется поле");
+                status = false;
+            }
+            else
+             if (Box.Value > DateTime.Today)
+            {
+
+                errorProvider1.SetError(Box, "Дата то не может быть больше текущей");
+                status = false;
+            }
+            else
+                if (Box.Value < ReleaseD_DateTimePicker.Value)
+            {
+                errorProvider1.SetError(Box, "Дата то не может быть меньше даты выпуска");
+                status = false;
+            }
+            else errorProvider1.SetError(Box, "");
+
+            return status;
+        }
+        public bool checkForm()
+        {
+            bool Brand = CheckBrand();
+            bool VIN = CheckVIN();
+            bool Type = CheckType();
+            bool EngineV = CheckEngineV();
+            bool ReleaseD = CheckReleaseD();
+            bool Engine_n = CheckEngine_n();
+            bool Chasis_n = CheckChasis_n();
+            bool Body_n = CheckBody_n();
+            bool Color_n = CheckColor();
+            bool Number = CheckNumber();
+            bool TIDate = CheckLastTIDate();
+            if (Brand && VIN && Type && EngineV && ReleaseD && Engine_n && Chasis_n && Body_n && Color_n && Number && TIDate)
+                return true;
+            else return false;
         }
     }
 }
