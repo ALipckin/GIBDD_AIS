@@ -37,6 +37,7 @@
             this.Exit_button = new System.Windows.Forms.Button();
             this.MainLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Change_auth_button = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -96,7 +97,7 @@
             this.Exit_button.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Exit_button.AutoSize = true;
             this.Exit_button.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Exit_button.Location = new System.Drawing.Point(251, 518);
+            this.Exit_button.Location = new System.Drawing.Point(278, 512);
             this.Exit_button.Name = "Exit_button";
             this.Exit_button.Size = new System.Drawing.Size(150, 35);
             this.Exit_button.TabIndex = 5;
@@ -117,6 +118,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panel1.Controls.Add(this.Change_auth_button);
             this.panel1.Controls.Add(this.work_label);
             this.panel1.Controls.Add(this.MainLabel);
             this.panel1.Controls.Add(this.Vehicles);
@@ -127,6 +129,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(682, 570);
             this.panel1.TabIndex = 24;
+            // 
+            // Change_auth_button
+            // 
+            this.Change_auth_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Change_auth_button.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Change_auth_button.Location = new System.Drawing.Point(23, 505);
+            this.Change_auth_button.Name = "Change_auth_button";
+            this.Change_auth_button.Size = new System.Drawing.Size(109, 42);
+            this.Change_auth_button.TabIndex = 24;
+            this.Change_auth_button.Text = "Изменить учетные данные";
+            this.Change_auth_button.UseVisualStyleBackColor = true;
+            this.Change_auth_button.Click += new System.EventHandler(this.Change_auth_button_Click);
             // 
             // imageList1
             // 
@@ -162,5 +176,6 @@
         private System.Windows.Forms.Label MainLabel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Button Change_auth_button;
     }
 }

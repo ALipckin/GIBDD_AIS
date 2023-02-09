@@ -33,7 +33,7 @@ namespace GIBDD_AIS.GIBDD_Forms.Accidents_forms
             Type_comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             try
             {
-                string querystring = $"SELECT Reason, Amount_of_damage, Road_conditions, Area, Type, Date, Num_of_victims from ACCIDENTS where ID LIKE '{DataBank.chosenID}'";
+                string querystring = $"SELECT Reason, Amount_of_damage, Road_conditions, Area, Type, Date, Num_of_victims from ACCIDENTS where ID LIKE '{DataBank.ChosenID}'";
                 SqlCommand sqlCommand = new SqlCommand(querystring, dataBase.GetConnection());
                 dataReader = sqlCommand.ExecuteReader();
                 while (dataReader.Read())
@@ -64,8 +64,8 @@ namespace GIBDD_AIS.GIBDD_Forms.Accidents_forms
         }
         private void Delete_button_Click(object sender, EventArgs e)
         {
-            string delete_accidents = $"DELETE FROM ACCIDENTS WHERE ID = '{DataBank.chosenID}'";
-            string delete_historys = $"DELETE FROM HISTORYS WHERE ACCIDENTS_ID = '{DataBank.chosenID}'";
+            string delete_accidents = $"DELETE FROM ACCIDENTS WHERE ID = '{DataBank.ChosenID}'";
+            string delete_historys = $"DELETE FROM HISTORYS WHERE ACCIDENTS_ID = '{DataBank.ChosenID}'";
             SqlCommand sqlCommand2 = new SqlCommand(delete_historys, dataBase.GetConnection());
             sqlCommand2.ExecuteNonQuery();
             SqlCommand sqlCommand1 = new SqlCommand(delete_accidents, dataBase.GetConnection());
@@ -80,7 +80,7 @@ namespace GIBDD_AIS.GIBDD_Forms.Accidents_forms
             {
                 var date = dateTimePicker.Text;
                 date.Reverse();
-                string query = $"UPDATE ACCIDENTS SET Date = '{dateTimePicker.Text}', Reason = '{Reason_textBox.Text}', Amount_of_damage = '{AmountOfDamage_textBox.Text}' , Road_conditions = '{RoadConditions_textBox.Text}', Area = '{Area_textBox.Text}', Type = '{Type_comboBox.Text}', Num_of_victims = '{NumOfVictims_TextBox.Text}' WHERE ID LIKE '{DataBank.chosenID}'";
+                string query = $"UPDATE ACCIDENTS SET Date = '{dateTimePicker.Text}', Reason = '{Reason_textBox.Text}', Amount_of_damage = '{AmountOfDamage_textBox.Text}' , Road_conditions = '{RoadConditions_textBox.Text}', Area = '{Area_textBox.Text}', Type = '{Type_comboBox.Text}', Num_of_victims = '{NumOfVictims_TextBox.Text}' WHERE ID LIKE '{DataBank.ChosenID}'";
                 SqlCommand sqlCommand = new SqlCommand(query, dataBase.GetConnection());
                 sqlCommand.ExecuteNonQuery();
                 MessageBox.Show("Сохранение прошло успешно!", "Успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);

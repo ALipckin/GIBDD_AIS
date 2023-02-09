@@ -49,9 +49,9 @@ namespace GIBDD_AIS
                 dataAdapter1.Fill(db);
 
                 DataBank.Owner_ID = db.Tables[0].Rows[0][0].ToString();
-                DataBank.chosenID = db.Tables[0].Rows[0][0].ToString();
+                DataBank.ChosenID = db.Tables[0].Rows[0][0].ToString();
 
-                string querystring1 = $"SELECT Area AS 'Место' , Date AS 'Дата' FROM ACCIDENTS WHERE ID IN (SELECT ACCIDENTS_ID FROM HISTORYS WHERE VEHICLES_ID IN(SELECT ID FROM VEHICLES WHERE OWNERS_ID = '{DataBank.chosenID}'))";
+                string querystring1 = $"SELECT Area AS 'Место' , Date AS 'Дата' FROM ACCIDENTS WHERE ID IN (SELECT ACCIDENTS_ID FROM HISTORYS WHERE VEHICLES_ID IN(SELECT ID FROM VEHICLES WHERE OWNERS_ID = '{DataBank.ChosenID}'))";
 
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(querystring1, dataBase.GetConnection());
                 DataSet db1 = new DataSet();
@@ -90,7 +90,7 @@ namespace GIBDD_AIS
                 SqlDataAdapter dataAdapter1 = new SqlDataAdapter(querystring, dataBase.GetConnection());
                 DataSet db = new DataSet();
                 dataAdapter1.Fill(db);
-                DataBank.chosenID = db.Tables[0].Rows[0][0].ToString();
+                DataBank.ChosenID = db.Tables[0].Rows[0][0].ToString();
                 Accident_view newForm = new Accident_view();
                 newForm.Show();
             }

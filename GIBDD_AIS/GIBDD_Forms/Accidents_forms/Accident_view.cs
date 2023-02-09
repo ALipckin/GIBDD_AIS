@@ -22,7 +22,7 @@ namespace GIBDD_AIS.GIBDD_Forms.Accidents_forms
         {
             dataBase.openConnection();
             SqlDataReader dataReader = null;
-            string Vehicle_querystring = $"SELECT Number as 'Номер', Brand as 'Марка', Color as 'Цвет' from VEHICLES where ID IN (SELECT VEHICLES_ID FROM HISTORYS WHERE ACCIDENTS_ID LIKE'{DataBank.chosenID}')";
+            string Vehicle_querystring = $"SELECT Number as 'Номер', Brand as 'Марка', Color as 'Цвет' from VEHICLES where ID IN (SELECT VEHICLES_ID FROM HISTORYS WHERE ACCIDENTS_ID LIKE'{DataBank.ChosenID}')";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(Vehicle_querystring, dataBase.GetConnection());
             DataSet db = new DataSet();
             dataAdapter.Fill(db);
@@ -36,7 +36,7 @@ namespace GIBDD_AIS.GIBDD_Forms.Accidents_forms
             dateTimePicker.Format = DateTimePickerFormat.Custom;
             try
             {
-                string querystring = $"SELECT Reason, Amount_of_damage, Road_conditions, Area, Type, Date, Num_of_victims from ACCIDENTS where ID LIKE '{DataBank.chosenID}'";
+                string querystring = $"SELECT Reason, Amount_of_damage, Road_conditions, Area, Type, Date, Num_of_victims from ACCIDENTS where ID LIKE '{DataBank.ChosenID}'";
                 SqlCommand sqlCommand = new SqlCommand(querystring, dataBase.GetConnection());
                 dataReader = sqlCommand.ExecuteReader();
                 while (dataReader.Read())

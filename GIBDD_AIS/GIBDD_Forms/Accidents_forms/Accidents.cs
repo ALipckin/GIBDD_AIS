@@ -48,7 +48,7 @@ namespace GIBDD_AIS
                 dataReader = sqlCommand.ExecuteReader();
                 while (dataReader.Read())
                 {
-                    DataBank.chosenID = dataReader[0].ToString();
+                    DataBank.ChosenID = dataReader[0].ToString();
                 }
                 dataReader.Close();
             }

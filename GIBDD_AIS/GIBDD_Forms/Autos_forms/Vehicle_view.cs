@@ -23,7 +23,7 @@ namespace GIBDD_AIS.GIBDD_Forms.Autos_forms
         {
             dataBase.openConnection();
             SqlDataReader dataReader = null;
-            string querystring = $"SELECT Date as 'Дата', Reason as 'Обстоятельства' FROM ACCIDENTS WHERE ID IN(SELECT ACCIDENTS_ID FROM HISTORYS WHERE VEHICLES_ID LIKE '{DataBank.chosenID}')";
+            string querystring = $"SELECT Date as 'Дата', Reason as 'Обстоятельства' FROM ACCIDENTS WHERE ID IN(SELECT ACCIDENTS_ID FROM HISTORYS WHERE VEHICLES_ID LIKE '{DataBank.ChosenID}')";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(querystring, dataBase.GetConnection());
             DataSet db = new DataSet();
             dataAdapter.Fill(db);
@@ -31,7 +31,7 @@ namespace GIBDD_AIS.GIBDD_Forms.Autos_forms
             Accidents_dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             try
             {
-                string vehicle_querystring = $"SELECT Number,  Brand, Color, Engine_n, Chasis_n, VIN, Wanted, OWNERS_ID, TID from VEHICLES where ID LIKE '{DataBank.chosenID}'";
+                string vehicle_querystring = $"SELECT Number,  Brand, Color, Engine_n, Chasis_n, VIN, Wanted, OWNERS_ID, TID from VEHICLES where ID LIKE '{DataBank.ChosenID}'";
                 SqlCommand sqlCommand = new SqlCommand(vehicle_querystring, dataBase.GetConnection());
                 dataReader = sqlCommand.ExecuteReader();
                 while (dataReader.Read())
@@ -49,7 +49,7 @@ namespace GIBDD_AIS.GIBDD_Forms.Autos_forms
                     lastTi_textBox.Text = dataReader[8].ToString();   
                 }
                 dataReader.Close();
-                string owner_querystring = $"SELECT Surname, Name, Middle_name, Birth_D from OWNERS where ID IN (SELECT OWNERS_ID FROM VEHICLES where ID LIKE '{DataBank.chosenID}')";
+                string owner_querystring = $"SELECT Surname, Name, Middle_name, Birth_D from OWNERS where ID IN (SELECT OWNERS_ID FROM VEHICLES where ID LIKE '{DataBank.ChosenID}')";
                 sqlCommand = new SqlCommand(owner_querystring,dataBase.GetConnection());
                 dataReader = sqlCommand.ExecuteReader();
                 while (dataReader.Read())

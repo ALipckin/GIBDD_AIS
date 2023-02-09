@@ -56,7 +56,7 @@ namespace GIBDD_AIS.GIBDD_Forms.Accidents_forms
                 dataReader = sqlCommand.ExecuteReader();
                 while (dataReader.Read())
                 {
-                    DataBank.chosenID = dataReader[0].ToString();
+                    DataBank.ChosenID = dataReader[0].ToString();
                 }
                 dataReader.Close();
             }
@@ -81,7 +81,7 @@ namespace GIBDD_AIS.GIBDD_Forms.Accidents_forms
                 dataAdapter.Fill(db);
                 var MaxID = db.Tables[0].Rows[0][0].ToString();
                 CalculateChosenID();
-                string AddMemberQ = $"SET IDENTITY_INSERT HISTORYS on INSERT INTO HISTORYS(ACCIDENTS_ID, Start_D,End_D, Amount, VEHICLES_ID) VALUES('{MaxID}' ,'{date}','{date}', '1' ,'{DataBank.chosenID}')";
+                string AddMemberQ = $"SET IDENTITY_INSERT HISTORYS on INSERT INTO HISTORYS(ACCIDENTS_ID, Start_D,End_D, Amount, VEHICLES_ID) VALUES('{MaxID}' ,'{date}','{date}', '1' ,'{DataBank.ChosenID}')";
                 SqlCommand sqlCommand = new SqlCommand(AddMemberQ, dataBase.GetConnection());
                 sqlCommand.ExecuteReader();
                 MessageBox.Show("Успешно создано!", "Успешно!", MessageBoxButtons.OK, MessageBoxIcon.Information);

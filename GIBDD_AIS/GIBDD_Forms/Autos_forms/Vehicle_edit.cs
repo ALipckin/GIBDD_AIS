@@ -48,7 +48,7 @@ namespace GIBDD_AIS
             DataSet db = new DataSet();
             dataAdapter.Fill(db);
             Owners_dataGridView.DataSource = db.Tables[0];
-            string CurrOwnerQuerystring = $"SELECT CONCAT(Surname, ' ', Name, ' ', Middle_Name) as 'ФИО' FROM OWNERS where id in(SELECT OWNERS_ID FROM VEHICLES WHERE ID = '{DataBank.chosenID}')";
+            string CurrOwnerQuerystring = $"SELECT CONCAT(Surname, ' ', Name, ' ', Middle_Name) as 'ФИО' FROM OWNERS where id in(SELECT OWNERS_ID FROM VEHICLES WHERE ID = '{DataBank.ChosenID}')";
             SqlCommand sqlCommand = new SqlCommand(CurrOwnerQuerystring, dataBase.GetConnection());
 
             dataReader = sqlCommand.ExecuteReader();
@@ -59,7 +59,7 @@ namespace GIBDD_AIS
             dataReader.Close();
             try
             {
-                string vehicle_querystring = $"SELECT Number, VIN, Type, Release_D, Engine_volume, Brand, Engine_n, Chasis_n, Body_n, Color, Wanted,OWNERS_ID, TID from VEHICLES WHERE ID LIKE '{DataBank.chosenID}'";
+                string vehicle_querystring = $"SELECT Number, VIN, Type, Release_D, Engine_volume, Brand, Engine_n, Chasis_n, Body_n, Color, Wanted,OWNERS_ID, TID from VEHICLES WHERE ID LIKE '{DataBank.ChosenID}'";
                 SqlCommand sqlCommand1 = new SqlCommand(vehicle_querystring, dataBase.GetConnection());
                 dataReader = sqlCommand1.ExecuteReader();
                 while (dataReader.Read())
@@ -99,9 +99,9 @@ namespace GIBDD_AIS
         {
             try
             {
-                string delete_history = $"DELETE HISTORYS WHERE VEHICLES_ID = '{DataBank.chosenID}'";
+                string delete_history = $"DELETE HISTORYS WHERE VEHICLES_ID = '{DataBank.ChosenID}'";
              
-                string delete_vehicle = $"DELETE VEHICLES WHERE ID = '{DataBank.chosenID}'";
+                string delete_vehicle = $"DELETE VEHICLES WHERE ID = '{DataBank.ChosenID}'";
    
                 SqlCommand sqlCommand2 = new SqlCommand(delete_history, dataBase.GetConnection());
                 sqlCommand2.ExecuteNonQuery();
@@ -140,7 +140,7 @@ namespace GIBDD_AIS
                 Release_D.Reverse();
 
                 TI.Reverse();
-                string create_vehicle = $"UPDATE VEHICLES SET Number = '{Number}', VIN = '{VIN}', Type = '{Type}', Release_D = '{Release_D}', Engine_volume = '{EngineV}', Brand = '{Brand}', Engine_n = '{Engine_n}', Chasis_n = '{Chasis_n}', Body_n = '{Body_n}', Color = '{Color}', Wanted = '{wanted_checkBox.Checked}', OWNERS_ID = '{Owner_ID}', TID = '{TI}' WHERE ID = {DataBank.chosenID}";
+                string create_vehicle = $"UPDATE VEHICLES SET Number = '{Number}', VIN = '{VIN}', Type = '{Type}', Release_D = '{Release_D}', Engine_volume = '{EngineV}', Brand = '{Brand}', Engine_n = '{Engine_n}', Chasis_n = '{Chasis_n}', Body_n = '{Body_n}', Color = '{Color}', Wanted = '{wanted_checkBox.Checked}', OWNERS_ID = '{Owner_ID}', TID = '{TI}' WHERE ID = {DataBank.ChosenID}";
                 SqlCommand CreateVehicle_Command = new SqlCommand(create_vehicle, dataBase.GetConnection());
                 CreateVehicle_Command.ExecuteNonQuery();
                 MessageBox.Show("Сохранение прошло успешно!", "Успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);

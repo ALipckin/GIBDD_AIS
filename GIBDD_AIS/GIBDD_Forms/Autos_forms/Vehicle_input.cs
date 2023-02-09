@@ -25,7 +25,6 @@ namespace GIBDD_AIS.GIBDD_Forms.Autos_forms
             {
                 dataBase.openConnection();
                 SqlCommand sqlCommand = null;
-                SqlDataReader dataReader = null;
                 var Brand = Brand_TextBox.Text;
                 var VIN = VIN_TextBox.Text;
                 var Type = Type_ComboBox.Text;

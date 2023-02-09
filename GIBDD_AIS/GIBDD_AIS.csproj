@@ -82,6 +82,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBank.cs" />
+    <Compile Include="GIBDD_Forms\Auth_edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIBDD_Forms\Auth_edit.Designer.cs">
+      <DependentUpon>Auth_edit.cs</DependentUpon>
+    </Compile>
     <Compile Include="GIBDD_Forms\Autos_forms\Vehicle_input.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,7 +208,7 @@
     <Compile Include="GIBDD_Forms\Reports_forms\TIAutos_Report.Designer.cs">
       <DependentUpon>TIAutos_Report.cs</DependentUpon>
     </Compile>
-    <Compile Include="Log_in.cs">
+    <Compile Include="GIBDD_Forms\Log_in.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Program.cs" />
@@ -218,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GIBDD_Forms\Accidents_forms\Accident_view.resx">
       <DependentUpon>Accident_view.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GIBDD_Forms\Auth_edit.resx">
+      <DependentUpon>Auth_edit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GIBDD_Forms\Autos_forms\Vehicle_edit.resx">
       <DependentUpon>Vehicle_edit.cs</DependentUpon>
@@ -268,7 +277,7 @@
     <EmbeddedResource Include="GIBDD_Forms\Reports_forms\Report_files\TIAutos_Report.rdlc" />
     <EmbeddedResource Include="GIBDD_Forms\Reports_forms\Report_files\StolenAutos_Report.rdlc" />
     <EmbeddedResource Include="GIBDD_Forms\Vehicles.resx" />
-    <EmbeddedResource Include="Log_in.resx">
+    <EmbeddedResource Include="GIBDD_Forms\Log_in.resx">
       <DependentUpon>Log_in.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

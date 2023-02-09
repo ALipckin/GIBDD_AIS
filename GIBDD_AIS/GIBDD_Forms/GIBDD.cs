@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GIBDD_AIS.GIBDD_Forms.Reports_forms;
 using GIBDD_AIS.GIBDD_Forms.Reports_forms.Report_files;
-using Microsoft.Reporting.WinForms;
+
 namespace GIBDD_AIS.GIBDD_Forms
 {
     public partial class GIBDD : Form
@@ -64,6 +64,12 @@ namespace GIBDD_AIS.GIBDD_Forms
         private void AccidetsrReport_button_Click(object sender, EventArgs e)
         {
             Accidents_Report newForm = new Accidents_Report();
+            newForm.Show();
+        }
+
+        private void Change_auth_button_Click(object sender, EventArgs e)
+        {
+            Auth_edit newForm = new Auth_edit();
             newForm.Show();
         }
     }
