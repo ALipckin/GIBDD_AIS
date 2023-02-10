@@ -54,7 +54,7 @@ namespace GIBDD_AIS.GIBDD_Forms.Owners_forms
             BirthDate.Reverse();
             if (checkForm())
             {
-                    string create_owner = $"INSERT INTO OWNERS (Surname, Name, Middle_name, Address, Birth_D) values('{Name}', '{Surname}', '{MiddleName}', '{Address}', '{BirthDate}')";
+                    string create_owner = $"INSERT INTO OWNERS (Surname, Name, Middle_name, Address, Birth_D) values('{Surname}', '{Name}', '{MiddleName}', '{Address}', '{BirthDate}')";
                     sqlCommand = new SqlCommand(create_owner, dataBase.GetConnection());
                     sqlCommand.ExecuteNonQuery();
                     MessageBox.Show("Владелец успешно создан", "Успешно!", MessageBoxButtons.OK, MessageBoxIcon.Warning);

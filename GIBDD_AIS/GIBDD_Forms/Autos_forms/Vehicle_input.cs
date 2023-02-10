@@ -39,19 +39,21 @@ namespace GIBDD_AIS.GIBDD_Forms.Autos_forms
                 var Number = Number_TextBox.Text;
                 var TI = LastTIDate_TimePicker.Text;
                 TI.Reverse();
+                
                 string owner = Owners_dataGridView[0, Owners_dataGridView.CurrentRow.Index].Value.ToString();
                 String[] subs = owner.Split(' ');
                 string querystring = $"SELECT ID FROM OWNERS WHERE Surname = '{subs[0]}' AND Name = '{subs[1]}' AND Middle_name = '{subs[2]}'";
                 SqlDataAdapter dataAdapter1 = new SqlDataAdapter(querystring, dataBase.GetConnection());
                 DataSet db = new DataSet();
                 dataAdapter1.Fill(db);
-                var Owner_ID = db.Tables[0].Rows[0][0].ToString();
-                string create_vehicle =
-                $"INSERT INTO VEHICLES(Number, VIN, Type, Release_D, Engine_volume, Brand, Engine_n, Chasis_n, Body_n, Color, Wanted, OWNERS_ID, TID) values('{Number}','{VIN}','{Type}','{Release_D}','{EngineV}','{Brand}','{Engine_n}','{Chasis_n}','{Body_n}','{Color}', '{wanted_checkBox.Checked}','{Owner_ID}', '{TI}')";
+                string Owner_ID = db.Tables[0].Rows[0][0].ToString();
+                string create_vehicle = $"INSERT INTO VEHICLES(Number, VIN, Type, Release_D, Engine_volume, Brand, Engine_n, Chasis_n, Body_n, Color, Wanted, OWNERS_ID, TID) values('{Number}','{VIN}','{Type}','{Release_D}','{EngineV}','{Brand}','{Engine_n}','{Chasis_n}','{Body_n}','{Color}', '{wanted_checkBox.Checked}','{Owner_ID}', '{TI}')";
                 sqlCommand = new SqlCommand(create_vehicle, dataBase.GetConnection());
                 sqlCommand.ExecuteNonQuery();
+
                 MessageBox.Show("Авто созданно", "Успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
+                
             }
             else
                 MessageBox.Show("Ошибка ввода", "Введите данные", MessageBoxButtons.OK, MessageBoxIcon.Warning);

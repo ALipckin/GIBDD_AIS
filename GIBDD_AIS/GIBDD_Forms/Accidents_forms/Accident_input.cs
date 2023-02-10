@@ -14,6 +14,7 @@ namespace GIBDD_AIS.GIBDD_Forms.Accidents_forms
     public partial class Accident_input : Form
     {
         DataBase dataBase = new DataBase();
+     
         public Accident_input()
         {
             InitializeComponent();
@@ -21,7 +22,6 @@ namespace GIBDD_AIS.GIBDD_Forms.Accidents_forms
         private void Accident_input_Load(object sender, EventArgs e)
         {
             dataBase.openConnection();
-            SqlDataReader dataReader = null;
             string Vehicle_querystring = $"SELECT Number as 'Номер', Brand as 'Марка', Color as 'Цвет' from VEHICLES";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(Vehicle_querystring, dataBase.GetConnection());
             DataSet db = new DataSet();
@@ -36,6 +36,7 @@ namespace GIBDD_AIS.GIBDD_Forms.Accidents_forms
             string[] Types = { "Столкновение", "Опрокидывание", "Наезд на стоящее тс", "Наезд на препятствие", "Наезд на пешехода", "Наезд на велосипедиста", "Наезд на животное", "Падение пассажира", "Другое" };
             Type_comboBox.Items.AddRange(Types);
             Type_comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+          
         }
         private void exit_button_Click(object sender, EventArgs e)
         {
@@ -45,6 +46,7 @@ namespace GIBDD_AIS.GIBDD_Forms.Accidents_forms
         }
         public void CalculateChosenID()
         {
+           
             Int32 selectedRowCount =
             MembersOfAccident_dataGridView.Rows.GetRowCount(DataGridViewElementStates.Selected);
             if (selectedRowCount > 0)
@@ -54,6 +56,7 @@ namespace GIBDD_AIS.GIBDD_Forms.Accidents_forms
                 SqlDataReader dataReader = null;
                 SqlCommand sqlCommand = new SqlCommand(query, dataBase.GetConnection());
                 dataReader = sqlCommand.ExecuteReader();
+               
                 while (dataReader.Read())
                 {
                     DataBank.ChosenID = dataReader[0].ToString();
@@ -62,28 +65,31 @@ namespace GIBDD_AIS.GIBDD_Forms.Accidents_forms
             }
             else
                 MessageBox.Show("Выберете запись", "Запись не выбрана", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+       
         }
         private void create_button_Click(object sender, EventArgs e)
         {
             if (checkForm())
             {
                 dataBase.openConnection();
-            
                 var date = dateTimePicker.Text;
                 date.Reverse();
                 int num = Int32.Parse(NumOfVictims_TextBox.Text);
                 string querystring1 = $"INSERT INTO ACCIDENTS( Reason, Amount_of_damage, Road_conditions, Area, Type, Date, Num_of_victims) VALUES('{Reason_textBox.Text}','{AmountOfDamage_textBox.Text}','{RoadConditions_textBox.Text}','{Area_textBox.Text}','{Type_comboBox.Text}','{date}', '{num}')";
                 SqlCommand sqlCommand1 = new SqlCommand(querystring1, dataBase.GetConnection());
-                sqlCommand1.ExecuteReader();
+                sqlCommand1.ExecuteNonQuery();
+                
                 string SI_QS = $"SELECT Max(ID) FROM ACCIDENTS";
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(SI_QS, dataBase.GetConnection());
                 DataSet db = new DataSet();
+                
                 dataAdapter.Fill(db);
                 var MaxID = db.Tables[0].Rows[0][0].ToString();
                 CalculateChosenID();
                 string AddMemberQ = $"SET IDENTITY_INSERT HISTORYS on INSERT INTO HISTORYS(ACCIDENTS_ID, Start_D,End_D, Amount, VEHICLES_ID) VALUES('{MaxID}' ,'{date}','{date}', '1' ,'{DataBank.ChosenID}')";
                 SqlCommand sqlCommand = new SqlCommand(AddMemberQ, dataBase.GetConnection());
-                sqlCommand.ExecuteReader();
+                sqlCommand.ExecuteNonQuery();
                 MessageBox.Show("Успешно создано!", "Успешно!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dataBase.closeConnection();
                 this.Close();
@@ -91,6 +97,7 @@ namespace GIBDD_AIS.GIBDD_Forms.Accidents_forms
             else
                 MessageBox.Show("Ошибка ввода", "Введите данные", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
+           
         }
 
         private bool CheckReason()

@@ -145,7 +145,7 @@ namespace GIBDD_AIS
                     this.Hide();
                     frm1.ShowDialog();
                     this.Close();
-                    this.Show();
+                  
                 }
                 else
                     MessageBox.Show("Такого аккаунта не существует!", "Аккаунта не существует!", MessageBoxButtons.OK, MessageBoxIcon.Warning);

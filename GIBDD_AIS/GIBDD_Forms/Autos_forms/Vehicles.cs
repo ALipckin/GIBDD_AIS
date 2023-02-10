@@ -85,9 +85,26 @@ namespace GIBDD_AIS
         }
         private void Input_button_Click(object sender, EventArgs e)
         {
+            string query = $"SELECT COUNT(ID) FROM OWNERS";
+            SqlDataReader dataReader = null;
+            SqlCommand sqlCommand = new SqlCommand(query, dataBase.GetConnection());
+            dataReader = sqlCommand.ExecuteReader();
+            string count = "0";
+            while (dataReader.Read())
+            {
+                count = dataReader[0].ToString();
+            }
+            if(Convert.ToInt32(count) > 0)
+            {
                 this.Close();
                 Vehicle_input newForm = new Vehicle_input();
                 newForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Сначало создайте владельца", "Нет владельцов", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
     }
 }
