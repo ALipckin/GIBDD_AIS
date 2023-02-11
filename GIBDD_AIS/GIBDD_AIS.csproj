@@ -82,194 +82,212 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBank.cs" />
-    <Compile Include="GIBDD_Forms\Autos_forms\Vehicle_input.cs">
+    <Compile Include="GIBDDForms\Accidents_forms\AccidentEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GIBDD_Forms\Autos_forms\Vehicle_input.Designer.cs">
+    <Compile Include="GIBDDForms\Accidents_forms\AccidentEdit.Designer.cs">
+      <DependentUpon>AccidentEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GIBDDForms\Accidents_forms\AccidentInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIBDDForms\Accidents_forms\AccidentInput.Designer.cs">
+      <DependentUpon>AccidentInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GIBDDForms\Accidents_forms\AccidentParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIBDDForms\Accidents_forms\AccidentParent.Designer.cs">
+      <DependentUpon>AccidentParent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GIBDDForms\Accidents_forms\AccidentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIBDDForms\Accidents_forms\AccidentView.Designer.cs">
+      <DependentUpon>AccidentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GIBDDForms\AuthEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIBDDForms\AuthEdit.Designer.cs">
+      <DependentUpon>AuthEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GIBDDForms\Autos_forms\Vehicle_input.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIBDDForms\Autos_forms\Vehicle_input.Designer.cs">
       <DependentUpon>Vehicle_input.cs</DependentUpon>
     </Compile>
-    <Compile Include="GIBDD_Forms\Autos_forms\Vehicle_view.cs">
+    <Compile Include="GIBDDForms\Autos_forms\Vehicle_view.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GIBDD_Forms\Autos_forms\Vehicle_view.Designer.cs">
+    <Compile Include="GIBDDForms\Autos_forms\Vehicle_view.Designer.cs">
       <DependentUpon>Vehicle_view.cs</DependentUpon>
     </Compile>
-    <Compile Include="GIBDD_Forms\Autos_forms\Vehicles.cs">
+    <Compile Include="GIBDDForms\Autos_forms\Vehicles.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GIBDD_Forms\Autos_forms\Vehicles.Designer.cs">
+    <Compile Include="GIBDDForms\Autos_forms\Vehicles.Designer.cs">
       <DependentUpon>Vehicles.cs</DependentUpon>
     </Compile>
-    <Compile Include="GIBDD_Forms\Accidents_forms\Accidents.cs">
+    <Compile Include="GIBDDForms\Accidents_forms\Accidents.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GIBDD_Forms\Accidents_forms\Accidents.Designer.cs">
+    <Compile Include="GIBDDForms\Accidents_forms\Accidents.Designer.cs">
       <DependentUpon>Accidents.cs</DependentUpon>
     </Compile>
-    <Compile Include="GIBDD_Forms\Accidents_forms\Accident_edit.cs">
+    <Compile Include="GIBDDForms\Autos_forms\Vehicle_edit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GIBDD_Forms\Accidents_forms\Accident_edit.Designer.cs">
-      <DependentUpon>Accident_edit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GIBDD_Forms\Accidents_forms\Accident_input.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GIBDD_Forms\Accidents_forms\Accident_input.Designer.cs">
-      <DependentUpon>Accident_input.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GIBDD_Forms\Accidents_forms\Accident_view.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GIBDD_Forms\Accidents_forms\Accident_view.Designer.cs">
-      <DependentUpon>Accident_view.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GIBDD_Forms\Autos_forms\Vehicle_edit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GIBDD_Forms\Autos_forms\Vehicle_edit.Designer.cs">
+    <Compile Include="GIBDDForms\Autos_forms\Vehicle_edit.Designer.cs">
       <DependentUpon>Vehicle_edit.cs</DependentUpon>
     </Compile>
     <Compile Include="DataBase.cs" />
-    <Compile Include="GIBDD_Forms\GIBDD.cs">
+    <Compile Include="GIBDDForms\GIBDD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GIBDD_Forms\GIBDD.Designer.cs">
+    <Compile Include="GIBDDForms\GIBDD.Designer.cs">
       <DependentUpon>GIBDD.cs</DependentUpon>
     </Compile>
-    <Compile Include="GIBDD_Forms\Owners_forms\Owners.cs">
+    <Compile Include="GIBDDForms\Owners_forms\Owners.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GIBDD_Forms\Owners_forms\Owners.Designer.cs">
+    <Compile Include="GIBDDForms\Owners_forms\Owners.Designer.cs">
       <DependentUpon>Owners.cs</DependentUpon>
     </Compile>
-    <Compile Include="GIBDD_Forms\Owners_forms\Owner_edit.cs">
+    <Compile Include="GIBDDForms\Owners_forms\Owner_edit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GIBDD_Forms\Owners_forms\Owner_edit.Designer.cs">
+    <Compile Include="GIBDDForms\Owners_forms\Owner_edit.Designer.cs">
       <DependentUpon>Owner_edit.cs</DependentUpon>
     </Compile>
-    <Compile Include="GIBDD_Forms\Owners_forms\Owner_input.cs">
+    <Compile Include="GIBDDForms\Owners_forms\Owner_input.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GIBDD_Forms\Owners_forms\Owner_input.Designer.cs">
+    <Compile Include="GIBDDForms\Owners_forms\Owner_input.Designer.cs">
       <DependentUpon>Owner_input.cs</DependentUpon>
     </Compile>
-    <Compile Include="GIBDD_Forms\Owners_forms\Owner_view.cs">
+    <Compile Include="GIBDDForms\Owners_forms\Owner_view.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GIBDD_Forms\Owners_forms\Owner_view.Designer.cs">
+    <Compile Include="GIBDDForms\Owners_forms\Owner_view.Designer.cs">
       <DependentUpon>Owner_view.cs</DependentUpon>
     </Compile>
-    <Compile Include="GIBDD_Forms\Reports_forms\Accidents_CrystalReport.cs">
+    <Compile Include="GIBDDForms\ReportsForms\AccidentsCrystalReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Accidents_CrystalReport.rpt</DependentUpon>
+      <DependentUpon>AccidentsCrystalReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="GIBDD_Forms\Reports_forms\AutoTI_CrystalReport.cs">
+    <Compile Include="GIBDDForms\ReportsForms\AutoTICrystalReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AutoTI_CrystalReport.rpt</DependentUpon>
+      <DependentUpon>AutoTICrystalReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="GIBDD_Forms\Reports_forms\Report_files\Accidents_DataSet.Designer.cs">
+    <Compile Include="GIBDDForms\ReportsForms\ReportData\Accidents_DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Accidents_DataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="GIBDD_Forms\Reports_forms\Accidents_Report.cs">
+    <Compile Include="GIBDDForms\ReportsForms\AccidentsReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GIBDD_Forms\Reports_forms\Accidents_Report.Designer.cs">
-      <DependentUpon>Accidents_Report.cs</DependentUpon>
+    <Compile Include="GIBDDForms\ReportsForms\AccidentsReport.Designer.cs">
+      <DependentUpon>AccidentsReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="GIBDD_Forms\Reports_forms\StolenAutos_CrustalReport.cs">
+    <Compile Include="GIBDDForms\ReportsForms\StolenAutosCrustalReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>StolenAutos_CrustalReport.rpt</DependentUpon>
+      <DependentUpon>StolenAutosCrustalReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="GIBDD_Forms\Reports_forms\StolenAuto_Report.cs">
+    <Compile Include="GIBDDForms\ReportsForms\StolenAutoReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GIBDD_Forms\Reports_forms\StolenAuto_Report.Designer.cs">
-      <DependentUpon>StolenAuto_Report.cs</DependentUpon>
+    <Compile Include="GIBDDForms\ReportsForms\StolenAutoReport.Designer.cs">
+      <DependentUpon>StolenAutoReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="GIBDD_Forms\Reports_forms\TIAutos_Report.cs">
+    <Compile Include="GIBDDForms\ReportsForms\TIAutosReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GIBDD_Forms\Reports_forms\TIAutos_Report.Designer.cs">
-      <DependentUpon>TIAutos_Report.cs</DependentUpon>
+    <Compile Include="GIBDDForms\ReportsForms\TIAutosReport.Designer.cs">
+      <DependentUpon>TIAutosReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Log_in.cs">
+    <Compile Include="GIBDDForms\Authorization.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GIBDD_Forms\Accidents_forms\Accidents.resx">
+    <EmbeddedResource Include="GIBDDForms\Accidents_forms\AccidentEdit.resx">
+      <DependentUpon>AccidentEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GIBDDForms\Accidents_forms\AccidentInput.resx">
+      <DependentUpon>AccidentInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GIBDDForms\Accidents_forms\AccidentParent.resx">
+      <DependentUpon>AccidentParent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GIBDDForms\Accidents_forms\Accidents.resx">
       <DependentUpon>Accidents.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GIBDD_Forms\Accidents_forms\Accident_edit.resx">
-      <DependentUpon>Accident_edit.cs</DependentUpon>
+    <EmbeddedResource Include="GIBDDForms\Accidents_forms\AccidentView.resx">
+      <DependentUpon>AccidentView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GIBDD_Forms\Accidents_forms\Accident_input.resx">
-      <DependentUpon>Accident_input.cs</DependentUpon>
+    <EmbeddedResource Include="GIBDDForms\AuthEdit.resx">
+      <DependentUpon>AuthEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GIBDD_Forms\Accidents_forms\Accident_view.resx">
-      <DependentUpon>Accident_view.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GIBDD_Forms\Autos_forms\Vehicle_edit.resx">
+    <EmbeddedResource Include="GIBDDForms\Autos_forms\Vehicle_edit.resx">
       <DependentUpon>Vehicle_edit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GIBDD_Forms\Autos_forms\Vehicle_input.resx">
+    <EmbeddedResource Include="GIBDDForms\Autos_forms\Vehicle_input.resx">
       <DependentUpon>Vehicle_input.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GIBDD_Forms\Autos_forms\Vehicle_view.resx">
+    <EmbeddedResource Include="GIBDDForms\Autos_forms\Vehicle_view.resx">
       <DependentUpon>Vehicle_view.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GIBDD_Forms\GIBDD.resx">
+    <EmbeddedResource Include="GIBDDForms\GIBDD.resx">
       <DependentUpon>GIBDD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GIBDD_Forms\Owners_forms\Owners.resx">
+    <EmbeddedResource Include="GIBDDForms\Owners_forms\Owners.resx">
       <DependentUpon>Owners.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GIBDD_Forms\Owners_forms\Owner_edit.resx">
+    <EmbeddedResource Include="GIBDDForms\Owners_forms\Owner_edit.resx">
       <DependentUpon>Owner_edit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GIBDD_Forms\Owners_forms\Owner_input.resx">
+    <EmbeddedResource Include="GIBDDForms\Owners_forms\Owner_input.resx">
       <DependentUpon>Owner_input.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GIBDD_Forms\Owners_forms\Owner_view.resx">
+    <EmbeddedResource Include="GIBDDForms\Owners_forms\Owner_view.resx">
       <DependentUpon>Owner_view.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GIBDD_Forms\Reports_forms\Accidents_CrystalReport.rpt">
+    <EmbeddedResource Include="GIBDDForms\ReportsForms\AccidentsCrystalReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Accidents_CrystalReport.cs</LastGenOutput>
+      <LastGenOutput>AccidentsCrystalReport.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="GIBDD_Forms\Reports_forms\AutoTI_CrystalReport.rpt">
+    <EmbeddedResource Include="GIBDDForms\ReportsForms\AutoTICrystalReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>AutoTI_CrystalReport.cs</LastGenOutput>
+      <LastGenOutput>AutoTICrystalReport.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="GIBDD_Forms\Reports_forms\Report_files\Accidents_Report.rdlc" />
-    <EmbeddedResource Include="GIBDD_Forms\Reports_forms\Accidents_Report.resx">
-      <DependentUpon>Accidents_Report.cs</DependentUpon>
+    <EmbeddedResource Include="GIBDDForms\ReportsForms\ReportData\Accidents_Report.rdlc" />
+    <EmbeddedResource Include="GIBDDForms\ReportsForms\AccidentsReport.resx">
+      <DependentUpon>AccidentsReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GIBDD_Forms\Reports_forms\StolenAutos_CrustalReport.rpt">
+    <EmbeddedResource Include="GIBDDForms\ReportsForms\StolenAutosCrustalReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>StolenAutos_CrustalReport.cs</LastGenOutput>
+      <LastGenOutput>StolenAutosCrustalReport.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="GIBDD_Forms\Reports_forms\StolenAuto_Report.resx">
-      <DependentUpon>StolenAuto_Report.cs</DependentUpon>
+    <EmbeddedResource Include="GIBDDForms\ReportsForms\StolenAutoReport.resx">
+      <DependentUpon>StolenAutoReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GIBDD_Forms\Reports_forms\TIAutos_Report.resx">
-      <DependentUpon>TIAutos_Report.cs</DependentUpon>
+    <EmbeddedResource Include="GIBDDForms\ReportsForms\TIAutosReport.resx">
+      <DependentUpon>TIAutosReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GIBDD_Forms\Reports_forms\Report_files\TIAutos_Report.rdlc" />
-    <EmbeddedResource Include="GIBDD_Forms\Reports_forms\Report_files\StolenAutos_Report.rdlc" />
-    <EmbeddedResource Include="GIBDD_Forms\Vehicles.resx" />
-    <EmbeddedResource Include="Log_in.resx">
-      <DependentUpon>Log_in.cs</DependentUpon>
+    <EmbeddedResource Include="GIBDDForms\ReportsForms\ReportData\TIAutos_Report.rdlc" />
+    <EmbeddedResource Include="GIBDDForms\ReportsForms\ReportData\StolenAutos_Report.rdlc" />
+    <EmbeddedResource Include="GIBDDForms\Vehicles.resx" />
+    <EmbeddedResource Include="GIBDDForms\Authorization.resx">
+      <DependentUpon>Authorization.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -280,18 +298,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="GIBDD_Forms\Autos_forms\Vehicles.resx">
+    <EmbeddedResource Include="GIBDDForms\Autos_forms\Vehicles.resx">
       <DependentUpon>Vehicles.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="GIBDD_Forms\Reports_forms\Report_files\Accidents_DataSet.xsc">
+    <None Include="GIBDDForms\ReportsForms\ReportData\Accidents_DataSet.xsc">
       <DependentUpon>Accidents_DataSet.xsd</DependentUpon>
     </None>
-    <None Include="GIBDD_Forms\Reports_forms\Report_files\Accidents_DataSet.xsd">
+    <None Include="GIBDDForms\ReportsForms\ReportData\Accidents_DataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>Accidents_DataSet.Designer.cs</LastGenOutput>
     </None>
-    <None Include="GIBDD_Forms\Reports_forms\Report_files\Accidents_DataSet.xss">
+    <None Include="GIBDDForms\ReportsForms\ReportData\Accidents_DataSet.xss">
       <DependentUpon>Accidents_DataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
