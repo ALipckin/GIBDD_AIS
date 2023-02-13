@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BD_GIBDDDataSet_StolenAutos" targetNamespace="http://tempuri.org/BD_GIBDDDataSet_StolenAutos.xsd" xmlns:mstns="http://tempuri.org/BD_GIBDDDataSet_StolenAutos.xsd" xmlns="http://tempuri.org/BD_GIBDDDataSet_StolenAutos.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BD_GIBDDConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BD_GIBDDConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.GIBDD_AIS.Properties.Settings.GlobalReference.Default.BD_GIBDDConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FULL_NAMESTableAdapter" GeneratorDataComponentClassName="FULL_NAMESTableAdapter" Name="FULL_NAMES" UserDataComponentName="FULL_NAMESTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BD_GIBDDConnectionString (Settings)" DbObjectName="BD_GIBDD.dbo.FULL_NAMES" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT FULL_N FROM dbo.FULL_NAMES</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="FULL_N" DataSetColumn="FULL_N" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="STOLEN_AUTOSTableAdapter" GeneratorDataComponentClassName="STOLEN_AUTOSTableAdapter" Name="STOLEN_AUTOS" UserDataComponentName="STOLEN_AUTOSTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BD_GIBDDConnectionString (Settings)" DbObjectName="BD_GIBDD.dbo.STOLEN_AUTOS" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Number, VIN, Brand, Release_D, Engine_volume, Engine_n, Chasis_n, Body_n, Color, Type FROM dbo.STOLEN_AUTOS</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Number" DataSetColumn="Number" />
+              <Mapping SourceColumn="VIN" DataSetColumn="VIN" />
+              <Mapping SourceColumn="Brand" DataSetColumn="Brand" />
+              <Mapping SourceColumn="Release_D" DataSetColumn="Release_D" />
+              <Mapping SourceColumn="Engine_volume" DataSetColumn="Engine_volume" />
+              <Mapping SourceColumn="Engine_n" DataSetColumn="Engine_n" />
+              <Mapping SourceColumn="Chasis_n" DataSetColumn="Chasis_n" />
+              <Mapping SourceColumn="Body_n" DataSetColumn="Body_n" />
+              <Mapping SourceColumn="Color" DataSetColumn="Color" />
+              <Mapping SourceColumn="Type" DataSetColumn="Type" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BD_GIBDDDataSet_StolenAutos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="BD_GIBDDDataSet_StolenAutos" msprop:Generator_DataSetName="BD_GIBDDDataSet_StolenAutos">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="FULL_NAMES" msprop:Generator_RowEvHandlerName="FULL_NAMESRowChangeEventHandler" msprop:Generator_RowDeletedName="FULL_NAMESRowDeleted" msprop:Generator_RowDeletingName="FULL_NAMESRowDeleting" msprop:Generator_RowEvArgName="FULL_NAMESRowChangeEvent" msprop:Generator_TablePropName="FULL_NAMES" msprop:Generator_RowChangedName="FULL_NAMESRowChanged" msprop:Generator_RowChangingName="FULL_NAMESRowChanging" msprop:Generator_TableClassName="FULL_NAMESDataTable" msprop:Generator_RowClassName="FULL_NAMESRow" msprop:Generator_TableVarName="tableFULL_NAMES" msprop:Generator_UserTableName="FULL_NAMES">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FULL_N" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="FULL_N" msprop:Generator_ColumnPropNameInTable="FULL_NColumn" msprop:Generator_ColumnVarNameInTable="columnFULL_N" msprop:Generator_UserColumnName="FULL_N" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="92" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="STOLEN_AUTOS" msprop:Generator_RowEvHandlerName="STOLEN_AUTOSRowChangeEventHandler" msprop:Generator_RowDeletedName="STOLEN_AUTOSRowDeleted" msprop:Generator_RowDeletingName="STOLEN_AUTOSRowDeleting" msprop:Generator_RowEvArgName="STOLEN_AUTOSRowChangeEvent" msprop:Generator_TablePropName="STOLEN_AUTOS" msprop:Generator_RowChangedName="STOLEN_AUTOSRowChanged" msprop:Generator_RowChangingName="STOLEN_AUTOSRowChanging" msprop:Generator_TableClassName="STOLEN_AUTOSDataTable" msprop:Generator_RowClassName="STOLEN_AUTOSRow" msprop:Generator_TableVarName="tableSTOLEN_AUTOS" msprop:Generator_UserTableName="STOLEN_AUTOS">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Number" msprop:Generator_ColumnPropNameInRow="Number" msprop:Generator_ColumnPropNameInTable="NumberColumn" msprop:Generator_ColumnVarNameInTable="columnNumber" msprop:Generator_UserColumnName="Number">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VIN" msprop:Generator_ColumnPropNameInRow="VIN" msprop:Generator_ColumnPropNameInTable="VINColumn" msprop:Generator_ColumnVarNameInTable="columnVIN" msprop:Generator_UserColumnName="VIN">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="17" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Brand" msprop:Generator_ColumnPropNameInRow="Brand" msprop:Generator_ColumnPropNameInTable="BrandColumn" msprop:Generator_ColumnVarNameInTable="columnBrand" msprop:Generator_UserColumnName="Brand">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Release_D" msprop:Generator_ColumnPropNameInRow="Release_D" msprop:Generator_ColumnPropNameInTable="Release_DColumn" msprop:Generator_ColumnVarNameInTable="columnRelease_D" msprop:Generator_UserColumnName="Release_D">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Engine_volume" msprop:Generator_ColumnPropNameInRow="Engine_volume" msprop:Generator_ColumnPropNameInTable="Engine_volumeColumn" msprop:Generator_ColumnVarNameInTable="columnEngine_volume" msprop:Generator_UserColumnName="Engine_volume">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Engine_n" msprop:Generator_ColumnPropNameInRow="Engine_n" msprop:Generator_ColumnPropNameInTable="Engine_nColumn" msprop:Generator_ColumnVarNameInTable="columnEngine_n" msprop:Generator_UserColumnName="Engine_n">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Chasis_n" msprop:Generator_ColumnPropNameInRow="Chasis_n" msprop:Generator_ColumnPropNameInTable="Chasis_nColumn" msprop:Generator_ColumnVarNameInTable="columnChasis_n" msprop:Generator_UserColumnName="Chasis_n">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Body_n" msprop:Generator_ColumnPropNameInRow="Body_n" msprop:Generator_ColumnPropNameInTable="Body_nColumn" msprop:Generator_ColumnVarNameInTable="columnBody_n" msprop:Generator_UserColumnName="Body_n">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Color" msprop:Generator_ColumnPropNameInRow="Color" msprop:Generator_ColumnPropNameInTable="ColorColumn" msprop:Generator_ColumnVarNameInTable="columnColor" msprop:Generator_UserColumnName="Color">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Type" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_ColumnPropNameInTable="TypeColumn" msprop:Generator_ColumnVarNameInTable="columnType" msprop:Generator_UserColumnName="Type">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
