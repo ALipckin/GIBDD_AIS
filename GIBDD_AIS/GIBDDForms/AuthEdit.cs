@@ -18,55 +18,52 @@ namespace GIBDD_AIS.GIBDDForms
         {
             InitializeComponent();
         }
-
-        private void Auth_edit_Load(object sender, EventArgs e)
+        private void AuthEditLoad(object sender, EventArgs e)
         {
 
         }
-
-        private void Save_button_Click(object sender, EventArgs e)
+        private void saveButtonClick(object sender, EventArgs e)
         {
-            string NewLogin = _loginTextBox.Text;
+            string NewLogin = loginTextBox.Text;
             DataBase dataBase = new DataBase();
             dataBase.openConnection();
-            string NewPassword = _passwordTextBox.Text;
+            string NewPassword = passwordTextBox.Text;
             SqlCommand sqlCommand = null;
 
-            if (CheckForm()) {
+            if (CheckForm())
+            {
                 string create_owner = $"UPDATE USERS SET Login = '{NewLogin}', Password = '{NewPassword}' WHERE ID = 1";
                 sqlCommand = new SqlCommand(create_owner, dataBase.GetConnection());
                 sqlCommand.ExecuteNonQuery();
                 MessageBox.Show("Данные изменены", "Успешно!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
-            
-
         }
 
         private bool CheckLogin()
         {
-            string newLogin = _loginTextBox.Text;
+            string newLogin = loginTextBox.Text;
             bool status = true;
             if (newLogin.Length >= 20)
             {
-                Login_errorProvider.SetError(_loginTextBox, "Максимум 20 символов");
+                Login_errorProvider.SetError(loginTextBox, "Максимум 20 символов");
                 status = false;
             }
             else
-                Login_errorProvider.SetError(_loginTextBox, "");
+                Login_errorProvider.SetError(loginTextBox, "");
             return status;
         }
         private bool CheckPassword()
         {
-            string newPassword = _passwordTextBox.Text;
+            string newPassword = passwordTextBox.Text;
             bool status = true;
             if (newPassword.Length >= 20)
             {
-                Password_errorProvider.SetError(_passwordTextBox, "Максимум 20 символов");
+                Password_errorProvider.SetError(passwordTextBox, "Максимум 20 символов");
                 status = false;
             }
             else
-                Password_errorProvider.SetError(_passwordTextBox, "");
+                Password_errorProvider.SetError(passwordTextBox, "");
             return status;
         }
   
@@ -79,6 +76,7 @@ namespace GIBDD_AIS.GIBDDForms
                 return true;
             else return false;
         }
+
 
     }
 }

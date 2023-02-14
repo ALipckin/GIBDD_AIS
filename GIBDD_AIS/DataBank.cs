@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GIBDD_AIS.GIBDD_Forms.Autos_forms;
 
 namespace GIBDD_AIS
 {

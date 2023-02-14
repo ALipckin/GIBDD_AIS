@@ -8,7 +8,7 @@
 - Оперативного поиска угнанных транспортных средств.
 
 Как установить:
-- Установить Microsoft SQL Server и запустить файл CREATE_DB.sql
-- Установить Crystal Reports (SAP Crystal Reports);
+- Установить Microsoft SQL Server
+- Выполнить запросы из SQLServerQueries
 - Настроить подключение к базе данных в файле App.config
 

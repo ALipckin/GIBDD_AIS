@@ -29,58 +29,58 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this._loginTextBox = new System.Windows.Forms.TextBox();
-            this._passwordTextBox = new System.Windows.Forms.TextBox();
-            this._loginLabel = new System.Windows.Forms.Label();
-            this._passwordLabel = new System.Windows.Forms.Label();
-            this.Save_button = new System.Windows.Forms.Button();
+            this.loginTextBox = new System.Windows.Forms.TextBox();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.loginLabel = new System.Windows.Forms.Label();
+            this.passwordLabel = new System.Windows.Forms.Label();
+            this.saveButton = new System.Windows.Forms.Button();
             this.Login_errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.Password_errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Login_errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Password_errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
-            // _loginTextBox
+            // loginTextBox
             // 
-            this._loginTextBox.Location = new System.Drawing.Point(15, 34);
-            this._loginTextBox.Name = "_loginTextBox";
-            this._loginTextBox.Size = new System.Drawing.Size(174, 20);
-            this._loginTextBox.TabIndex = 0;
+            this.loginTextBox.Location = new System.Drawing.Point(15, 34);
+            this.loginTextBox.Name = "loginTextBox";
+            this.loginTextBox.Size = new System.Drawing.Size(174, 20);
+            this.loginTextBox.TabIndex = 0;
             // 
-            // _passwordTextBox
+            // passwordTextBox
             // 
-            this._passwordTextBox.Location = new System.Drawing.Point(15, 78);
-            this._passwordTextBox.Name = "_passwordTextBox";
-            this._passwordTextBox.Size = new System.Drawing.Size(174, 20);
-            this._passwordTextBox.TabIndex = 1;
+            this.passwordTextBox.Location = new System.Drawing.Point(15, 78);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.Size = new System.Drawing.Size(174, 20);
+            this.passwordTextBox.TabIndex = 1;
             // 
-            // _loginLabel
+            // loginLabel
             // 
-            this._loginLabel.AutoSize = true;
-            this._loginLabel.Location = new System.Drawing.Point(12, 18);
-            this._loginLabel.Name = "_loginLabel";
-            this._loginLabel.Size = new System.Drawing.Size(38, 13);
-            this._loginLabel.TabIndex = 2;
-            this._loginLabel.Text = "Логин";
+            this.loginLabel.AutoSize = true;
+            this.loginLabel.Location = new System.Drawing.Point(12, 18);
+            this.loginLabel.Name = "loginLabel";
+            this.loginLabel.Size = new System.Drawing.Size(38, 13);
+            this.loginLabel.TabIndex = 2;
+            this.loginLabel.Text = "Логин";
             // 
-            // _passwordLabel
+            // passwordLabel
             // 
-            this._passwordLabel.AutoSize = true;
-            this._passwordLabel.Location = new System.Drawing.Point(15, 61);
-            this._passwordLabel.Name = "_passwordLabel";
-            this._passwordLabel.Size = new System.Drawing.Size(45, 13);
-            this._passwordLabel.TabIndex = 3;
-            this._passwordLabel.Text = "Пароль";
+            this.passwordLabel.AutoSize = true;
+            this.passwordLabel.Location = new System.Drawing.Point(15, 61);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(45, 13);
+            this.passwordLabel.TabIndex = 3;
+            this.passwordLabel.Text = "Пароль";
             // 
-            // Save_button
+            // saveButton
             // 
-            this.Save_button.Location = new System.Drawing.Point(61, 113);
-            this.Save_button.Name = "Save_button";
-            this.Save_button.Size = new System.Drawing.Size(75, 23);
-            this.Save_button.TabIndex = 4;
-            this.Save_button.Text = "Сохранить";
-            this.Save_button.UseVisualStyleBackColor = true;
-            this.Save_button.Click += new System.EventHandler(this.Save_button_Click);
+            this.saveButton.Location = new System.Drawing.Point(61, 113);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.TabIndex = 4;
+            this.saveButton.Text = "Сохранить";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButtonClick);
             // 
             // Login_errorProvider
             // 
@@ -90,19 +90,18 @@
             // 
             this.Password_errorProvider.ContainerControl = this;
             // 
-            // Auth_edit
+            // AuthEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(218, 148);
-            this.Controls.Add(this.Save_button);
-            this.Controls.Add(this._passwordLabel);
-            this.Controls.Add(this._loginLabel);
-            this.Controls.Add(this._passwordTextBox);
-            this.Controls.Add(this._loginTextBox);
-            this.Name = "Auth_edit";
-            this.Text = "Auth_edit";
-            this.Load += new System.EventHandler(this.Auth_edit_Load);
+            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.passwordLabel);
+            this.Controls.Add(this.loginLabel);
+            this.Controls.Add(this.passwordTextBox);
+            this.Controls.Add(this.loginTextBox);
+            this.Name = "AuthEdit";
+            this.Load += new System.EventHandler(this.AuthEditLoad);
             ((System.ComponentModel.ISupportInitialize)(this.Login_errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Password_errorProvider)).EndInit();
             this.ResumeLayout(false);
@@ -112,11 +111,11 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox _loginTextBox;
-        private System.Windows.Forms.TextBox _passwordTextBox;
-        private System.Windows.Forms.Label _loginLabel;
-        private System.Windows.Forms.Label _passwordLabel;
-        private System.Windows.Forms.Button Save_button;
+        private System.Windows.Forms.TextBox loginTextBox;
+        private System.Windows.Forms.TextBox passwordTextBox;
+        private System.Windows.Forms.Label loginLabel;
+        private System.Windows.Forms.Label passwordLabel;
+        private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.ErrorProvider Login_errorProvider;
         private System.Windows.Forms.ErrorProvider Password_errorProvider;
     }

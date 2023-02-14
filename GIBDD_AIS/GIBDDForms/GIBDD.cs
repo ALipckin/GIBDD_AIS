@@ -22,27 +22,27 @@ namespace GIBDD_AIS.GIBDDForms
         {
             InitializeComponent();
         }
-        private void Vehicles_Click(object sender, EventArgs e)
+        private void vehiclesClick(object sender, EventArgs e)
         {
-            Vehicles newForm = new Vehicles();
+            Vehicle newForm = new Vehicle();
             newForm.Show();
         }
-        private void Accidents_button_Click(object sender, EventArgs e)
+        private void accidentsButtonClick(object sender, EventArgs e)
         {
-            Accidents newForm = new Accidents();
+            Accident newForm = new Accident();
             newForm.Show();
         }
-        private void Owners_Click(object sender, EventArgs e)
+        private void ownersClick(object sender, EventArgs e)
         {
-            Owners newForm = new Owners();
+            Owner newForm = new Owner();
             newForm.Show();
         }
-        private void GIBDD_Load(object sender, EventArgs e)
+        private void GIBDDLoad(object sender, EventArgs e)
         {
             ClientSize = new Size(745, 633);
             FormBorderStyle = FormBorderStyle.FixedSingle;
         }
-        private void Exit_button_Click(object sender, EventArgs e)
+        private void exitButtonClick(object sender, EventArgs e)
         {
             DialogResult res = new DialogResult();
             res = MessageBox.Show("Вы действительно хотите выйти?", "Выход из программы", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
@@ -51,25 +51,28 @@ namespace GIBDD_AIS.GIBDDForms
             else
             { return; }
         }
-        private void AutoTI_button_Click(object sender, EventArgs e)
+
+        private void changeAuthButtonClick(object sender, EventArgs e)
         {
-            TIAutosReport newForm = new TIAutosReport();
+            AuthEdit newForm = new AuthEdit();
             newForm.Show();
         }
-        private void SolenAuto_button_Click(object sender, EventArgs e)
+
+        private void reportStolenVehiclesButtonClick(object sender, EventArgs e)
         {
-            StolenAutoReport newForm = new StolenAutoReport();
+            StolenVehiclesReport newForm = new StolenVehiclesReport();
             newForm.Show();
         }
-        private void AccidetsrReport_button_Click(object sender, EventArgs e)
+
+        private void reportAccidentsButtonClick(object sender, EventArgs e)
         {
             AccidentsReport newForm = new AccidentsReport();
             newForm.Show();
         }
 
-        private void Change_auth_button_Click(object sender, EventArgs e)
+        private void reportVehiclesTIButtonClick(object sender, EventArgs e)
         {
-            AuthEdit newForm = new AuthEdit();
+            VehiclesTIReport newForm = new VehiclesTIReport();
             newForm.Show();
         }
     }
