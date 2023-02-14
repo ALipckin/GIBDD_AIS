@@ -14,7 +14,7 @@ namespace GIBDD_AIS.GIBDDForms.ReportsForms.ReportData
 {
     public partial class AccidentsReport : Form
     {
-        DataBase dataBase = new DataBase();
+        DataBase _dataBase = new DataBase();
         public AccidentsReport()
         {
             InitializeComponent();
@@ -22,38 +22,34 @@ namespace GIBDD_AIS.GIBDDForms.ReportsForms.ReportData
 
         private void Accidents_Report_Form_Load(object sender, EventArgs e)
         {
-            dataBase.openConnection();
+            _dataBase.openConnection();
             startDateDateTimePicker.CustomFormat = "dd-MM-yyyy";
             startDateDateTimePicker.Format = DateTimePickerFormat.Custom;
             endDateDateTimePicker.CustomFormat = "dd-MM-yyyy";
             endDateDateTimePicker.Format = DateTimePickerFormat.Custom;
 
-            string querystring = "SELECT * FROM Accidents";
-
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(querystring, dataBase.GetConnection());
-            DataSet s = new DataSet();
-            dataAdapter.Fill(s);
-
-            AccidentsCrystalReport sr = new AccidentsCrystalReport();
-            sr.SetDataSource(s.Tables["table"]);
-            mainCrystalReportViewer.ReportSource = sr;
-            
+            string queryString = "SELECT * FROM Accidents";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(queryString, _dataBase.GetConnection());
+            DataSet newDataSet = new DataSet();
+            dataAdapter.Fill(newDataSet);
+            AccidentsCrystalReport crystalReport = new AccidentsCrystalReport();
+            crystalReport.SetDataSource(newDataSet.Tables["table"]);
+            mainCrystalReportViewer.ReportSource = crystalReport;
         }
 
         private void load_button_Click(object sender, EventArgs e)
         {
-            string StartDate = startDateDateTimePicker.Text;
-            string EndDate = endDateDateTimePicker.Text;
-            StartDate.Reverse();
-            EndDate.Reverse();
-            string querystring = "SELECT * FROM Accidents where Date >= '" + StartDate + "' and Date <= '" + EndDate + "' ";
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(querystring, dataBase.GetConnection());
-            DataSet s = new DataSet();
-            dataAdapter.Fill(s);
-
-            AccidentsCrystalReport sr = new AccidentsCrystalReport();
-            sr.SetDataSource(s.Tables["table"]);
-            mainCrystalReportViewer.ReportSource = sr;
+            string startDate = startDateDateTimePicker.Text;
+            string endDate = endDateDateTimePicker.Text;
+            startDate.Reverse();
+            endDate.Reverse();
+            string queryString = "SELECT * FROM Accidents where Date >= '" + startDate + "' and Date <= '" + endDate + "' ";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(queryString, _dataBase.GetConnection());
+            DataSet newDataSet = new DataSet();
+            dataAdapter.Fill(newDataSet);
+            AccidentsCrystalReport newReport = new AccidentsCrystalReport();
+            newReport.SetDataSource(newDataSet.Tables["table"]);
+            mainCrystalReportViewer.ReportSource = newReport;
         }
     }
 }

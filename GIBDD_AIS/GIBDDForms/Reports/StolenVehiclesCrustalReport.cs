@@ -16,14 +16,14 @@ namespace GIBDD_AIS.GIBDDForms.Reports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class StolenAutosCrustalReport : ReportClass {
+    public class StolenVehiclesCrustalReport : ReportClass {
         
-        public StolenAutosCrustalReport() {
+        public StolenVehiclesCrustalReport() {
         }
         
         public override string ResourceName {
             get {
-                return "StolenAutosCrustalReport.rpt";
+                return "StolenVehiclesCrustalReport.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace GIBDD_AIS.GIBDDForms.Reports {
         
         public override string FullResourceName {
             get {
-                return "GIBDD_AIS.GIBDDForms.Reports.StolenAutosCrustalReport.rpt";
+                return "GIBDD_AIS.GIBDDForms.Reports.StolenVehiclesCrustalReport.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace GIBDD_AIS.GIBDDForms.Reports {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedStolenAutosCrustalReport : Component, ICachedReport {
+    public class CachedStolenVehiclesCrustalReport : Component, ICachedReport {
         
-        public CachedStolenAutosCrustalReport() {
+        public CachedStolenVehiclesCrustalReport() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace GIBDD_AIS.GIBDDForms.Reports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            StolenAutosCrustalReport rpt = new StolenAutosCrustalReport();
+            StolenVehiclesCrustalReport rpt = new StolenVehiclesCrustalReport();
             rpt.Site = this.Site;
             return rpt;
         }

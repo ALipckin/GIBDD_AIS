@@ -10,8 +10,8 @@ using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GIBDD_AIS.GIBDDForms.Reports;
-using GIBDD_AIS.GIBDDForms.Reports.ReportData;
+using GIBDD_AIS.GIBDDForms.ReportsForms;
+using GIBDD_AIS.GIBDDForms.ReportsForms.ReportData;
 
 namespace GIBDD_AIS.GIBDDForms
 {
@@ -58,6 +58,22 @@ namespace GIBDD_AIS.GIBDDForms
             newForm.Show();
         }
 
- 
+        private void reportStolenVehiclesButtonClick(object sender, EventArgs e)
+        {
+            StolenVehiclesReport newForm = new StolenVehiclesReport();
+            newForm.Show();
+        }
+
+        private void reportAccidentsButtonClick(object sender, EventArgs e)
+        {
+            AccidentsReport newForm = new AccidentsReport();
+            newForm.Show();
+        }
+
+        private void reportVehiclesTIButtonClick(object sender, EventArgs e)
+        {
+            VehiclesTIReport newForm = new VehiclesTIReport();
+            newForm.Show();
+        }
     }
 }

@@ -16,14 +16,14 @@ namespace GIBDD_AIS.GIBDDForms.Reports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class AutoTICrystalReport : ReportClass {
+    public class VehiclesTICrystalReport : ReportClass {
         
-        public AutoTICrystalReport() {
+        public VehiclesTICrystalReport() {
         }
         
         public override string ResourceName {
             get {
-                return "AutoTICrystalReport.rpt";
+                return "VehiclesTICrystalReport.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace GIBDD_AIS.GIBDDForms.Reports {
         
         public override string FullResourceName {
             get {
-                return "GIBDD_AIS.GIBDDForms.Reports.AutoTICrystalReport.rpt";
+                return "GIBDD_AIS.GIBDDForms.Reports.VehiclesTICrystalReport.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace GIBDD_AIS.GIBDDForms.Reports {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedAutoTICrystalReport : Component, ICachedReport {
+    public class CachedVehiclesTICrystalReport : Component, ICachedReport {
         
-        public CachedAutoTICrystalReport() {
+        public CachedVehiclesTICrystalReport() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace GIBDD_AIS.GIBDDForms.Reports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            AutoTICrystalReport rpt = new AutoTICrystalReport();
+            VehiclesTICrystalReport rpt = new VehiclesTICrystalReport();
             rpt.Site = this.Site;
             return rpt;
         }

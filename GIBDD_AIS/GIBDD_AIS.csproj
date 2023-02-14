@@ -180,16 +180,11 @@
       <DependentUpon>AccidentsCrystalReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="GIBDDForms\Reports\AutoTICrystalReport.cs">
+    <Compile Include="GIBDDForms\Reports\VehiclesTICrystalReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AutoTICrystalReport.rpt</DependentUpon>
+      <DependentUpon>VehiclesTICrystalReport.rpt</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GIBDDForms\Reports\ReportData\Accidents_DataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Accidents_DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="GIBDDForms\Reports\AccidentsReport.cs">
       <SubType>Form</SubType>
@@ -197,23 +192,23 @@
     <Compile Include="GIBDDForms\Reports\AccidentsReport.Designer.cs">
       <DependentUpon>AccidentsReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="GIBDDForms\Reports\StolenAutosCrustalReport.cs">
+    <Compile Include="GIBDDForms\Reports\StolenVehiclesCrustalReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>StolenAutosCrustalReport.rpt</DependentUpon>
+      <DependentUpon>StolenVehiclesCrustalReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="GIBDDForms\Reports\StolenAutoReport.cs">
+    <Compile Include="GIBDDForms\Reports\StolenVehiclesReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GIBDDForms\Reports\StolenAutoReport.Designer.cs">
-      <DependentUpon>StolenAutoReport.cs</DependentUpon>
+    <Compile Include="GIBDDForms\Reports\StolenVehiclesReport.Designer.cs">
+      <DependentUpon>StolenVehiclesReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="GIBDDForms\Reports\TIAutosReport.cs">
+    <Compile Include="GIBDDForms\Reports\VehiclesTIReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GIBDDForms\Reports\TIAutosReport.Designer.cs">
-      <DependentUpon>TIAutosReport.cs</DependentUpon>
+    <Compile Include="GIBDDForms\Reports\VehiclesTIReport.Designer.cs">
+      <DependentUpon>VehiclesTIReport.cs</DependentUpon>
     </Compile>
     <Compile Include="GIBDDForms\Authorization.cs">
       <SubType>Form</SubType>
@@ -260,26 +255,26 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>AccidentsCrystalReport.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="GIBDDForms\Reports\AutoTICrystalReport.rpt">
+    <EmbeddedResource Include="GIBDDForms\Reports\VehiclesTICrystalReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>AutoTICrystalReport.cs</LastGenOutput>
+      <LastGenOutput>VehiclesTICrystalReport.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="GIBDDForms\Reports\ReportData\Accidents_Report.rdlc" />
+    <EmbeddedResource Include="GIBDDForms\Reports\ReportData\AccidentsReport.rdlc" />
     <EmbeddedResource Include="GIBDDForms\Reports\AccidentsReport.resx">
       <DependentUpon>AccidentsReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GIBDDForms\Reports\StolenAutosCrustalReport.rpt">
+    <EmbeddedResource Include="GIBDDForms\Reports\StolenVehiclesCrustalReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>StolenAutosCrustalReport.cs</LastGenOutput>
+      <LastGenOutput>StolenVehiclesCrustalReport.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="GIBDDForms\Reports\StolenAutoReport.resx">
-      <DependentUpon>StolenAutoReport.cs</DependentUpon>
+    <EmbeddedResource Include="GIBDDForms\Reports\StolenVehiclesReport.resx">
+      <DependentUpon>StolenVehiclesReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GIBDDForms\Reports\TIAutosReport.resx">
-      <DependentUpon>TIAutosReport.cs</DependentUpon>
+    <EmbeddedResource Include="GIBDDForms\Reports\VehiclesTIReport.resx">
+      <DependentUpon>VehiclesTIReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GIBDDForms\Reports\ReportData\TIAutos_Report.rdlc" />
-    <EmbeddedResource Include="GIBDDForms\Reports\ReportData\StolenAutos_Report.rdlc" />
+    <EmbeddedResource Include="GIBDDForms\Reports\ReportData\TIAutosReport.rdlc" />
+    <EmbeddedResource Include="GIBDDForms\Reports\ReportData\StolenAutosReport.rdlc" />
     <EmbeddedResource Include="GIBDDForms\Vehicles.resx" />
     <EmbeddedResource Include="GIBDDForms\Authorization.resx">
       <DependentUpon>Authorization.cs</DependentUpon>
@@ -306,17 +301,6 @@
     <EmbeddedResource Include="GIBDDForms\Vehicles\Vehicle.resx">
       <DependentUpon>Vehicle.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="GIBDDForms\Reports\ReportData\Accidents_DataSet.xsc">
-      <DependentUpon>Accidents_DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="GIBDDForms\Reports\ReportData\Accidents_DataSet.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Accidents_DataSet.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="GIBDDForms\Reports\ReportData\Accidents_DataSet.xss">
-      <DependentUpon>Accidents_DataSet.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

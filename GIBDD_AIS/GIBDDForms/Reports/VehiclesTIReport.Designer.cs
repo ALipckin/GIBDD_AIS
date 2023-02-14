@@ -1,6 +1,6 @@
 ﻿namespace GIBDD_AIS.GIBDDForms.ReportsForms
 {
-    partial class TIAutosReport
+    partial class VehiclesTIReport
     {
         /// <summary>
         /// Required designer variable.

@@ -39,6 +39,10 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.changeAuthButton = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.reportStolenVehiclesButton = new System.Windows.Forms.Button();
+            this.reportAccidentsButton = new System.Windows.Forms.Button();
+            this.reportVehiclesTIButton = new System.Windows.Forms.Button();
+            this.reportLabel = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +50,7 @@
             // 
             this.vehiclesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.vehiclesButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vehiclesButton.Location = new System.Drawing.Point(238, 198);
+            this.vehiclesButton.Location = new System.Drawing.Point(110, 198);
             this.vehiclesButton.Name = "vehiclesButton";
             this.vehiclesButton.Size = new System.Drawing.Size(200, 50);
             this.vehiclesButton.TabIndex = 0;
@@ -58,7 +62,7 @@
             // 
             this.accidentsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.accidentsButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accidentsButton.Location = new System.Drawing.Point(238, 271);
+            this.accidentsButton.Location = new System.Drawing.Point(110, 271);
             this.accidentsButton.Name = "accidentsButton";
             this.accidentsButton.Size = new System.Drawing.Size(200, 50);
             this.accidentsButton.TabIndex = 1;
@@ -70,7 +74,7 @@
             // 
             this.ownersButton.AutoSize = true;
             this.ownersButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ownersButton.Location = new System.Drawing.Point(238, 345);
+            this.ownersButton.Location = new System.Drawing.Point(110, 345);
             this.ownersButton.Name = "ownersButton";
             this.ownersButton.Size = new System.Drawing.Size(200, 50);
             this.ownersButton.TabIndex = 2;
@@ -85,7 +89,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.descriptionLabel.AutoSize = true;
             this.descriptionLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionLabel.Location = new System.Drawing.Point(234, 130);
+            this.descriptionLabel.Location = new System.Drawing.Point(106, 130);
             this.descriptionLabel.Name = "descriptionLabel";
             this.descriptionLabel.Size = new System.Drawing.Size(217, 44);
             this.descriptionLabel.TabIndex = 3;
@@ -118,6 +122,10 @@
             // mainPanel
             // 
             this.mainPanel.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.mainPanel.Controls.Add(this.reportLabel);
+            this.mainPanel.Controls.Add(this.reportStolenVehiclesButton);
+            this.mainPanel.Controls.Add(this.reportAccidentsButton);
+            this.mainPanel.Controls.Add(this.reportVehiclesTIButton);
             this.mainPanel.Controls.Add(this.changeAuthButton);
             this.mainPanel.Controls.Add(this.descriptionLabel);
             this.mainPanel.Controls.Add(this.nameLabel);
@@ -148,6 +156,56 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "ReportIcon.png");
             // 
+            // reportStolenVehiclesButton
+            // 
+            this.reportStolenVehiclesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.reportStolenVehiclesButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportStolenVehiclesButton.Location = new System.Drawing.Point(408, 198);
+            this.reportStolenVehiclesButton.Name = "reportStolenVehiclesButton";
+            this.reportStolenVehiclesButton.Size = new System.Drawing.Size(200, 50);
+            this.reportStolenVehiclesButton.TabIndex = 25;
+            this.reportStolenVehiclesButton.Text = "Атомобили в розыске";
+            this.reportStolenVehiclesButton.UseVisualStyleBackColor = true;
+            this.reportStolenVehiclesButton.Click += new System.EventHandler(this.reportStolenVehiclesButtonClick);
+            // 
+            // reportAccidentsButton
+            // 
+            this.reportAccidentsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.reportAccidentsButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportAccidentsButton.Location = new System.Drawing.Point(408, 271);
+            this.reportAccidentsButton.Name = "reportAccidentsButton";
+            this.reportAccidentsButton.Size = new System.Drawing.Size(200, 50);
+            this.reportAccidentsButton.TabIndex = 26;
+            this.reportAccidentsButton.Text = "ДТП в промежутках";
+            this.reportAccidentsButton.UseVisualStyleBackColor = true;
+            this.reportAccidentsButton.Click += new System.EventHandler(this.reportAccidentsButtonClick);
+            // 
+            // reportVehiclesTIButton
+            // 
+            this.reportVehiclesTIButton.AutoSize = true;
+            this.reportVehiclesTIButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportVehiclesTIButton.Location = new System.Drawing.Point(408, 345);
+            this.reportVehiclesTIButton.Name = "reportVehiclesTIButton";
+            this.reportVehiclesTIButton.Size = new System.Drawing.Size(201, 50);
+            this.reportVehiclesTIButton.TabIndex = 27;
+            this.reportVehiclesTIButton.Text = "Просроченное ТО";
+            this.reportVehiclesTIButton.UseVisualStyleBackColor = true;
+            this.reportVehiclesTIButton.Click += new System.EventHandler(this.reportVehiclesTIButtonClick);
+            // 
+            // reportLabel
+            // 
+            this.reportLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.reportLabel.AutoSize = true;
+            this.reportLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportLabel.Location = new System.Drawing.Point(420, 152);
+            this.reportLabel.Name = "reportLabel";
+            this.reportLabel.Size = new System.Drawing.Size(162, 22);
+            this.reportLabel.TabIndex = 28;
+            this.reportLabel.Text = "Работа с  отчетами";
+            this.reportLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // GIBDD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,5 +235,9 @@
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button changeAuthButton;
+        private System.Windows.Forms.Label reportLabel;
+        private System.Windows.Forms.Button reportStolenVehiclesButton;
+        private System.Windows.Forms.Button reportAccidentsButton;
+        private System.Windows.Forms.Button reportVehiclesTIButton;
     }
 }

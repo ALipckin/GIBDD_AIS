@@ -1,6 +1,6 @@
 ﻿namespace GIBDD_AIS.GIBDDForms.ReportsForms
 {
-    partial class StolenAutoReport
+    partial class StolenVehiclesReport
     {
         /// <summary>
         /// Required designer variable.
@@ -37,18 +37,20 @@
             // mainCrystalReportViewer
             // 
             this.mainCrystalReportViewer.ActiveViewIndex = -1;
+            this.mainCrystalReportViewer.AutoSize = true;
             this.mainCrystalReportViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mainCrystalReportViewer.Cursor = System.Windows.Forms.Cursors.Default;
-            this.mainCrystalReportViewer.Location = new System.Drawing.Point(0, 38);
+            this.mainCrystalReportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainCrystalReportViewer.Location = new System.Drawing.Point(0, 0);
             this.mainCrystalReportViewer.Name = "mainCrystalReportViewer";
-            this.mainCrystalReportViewer.Size = new System.Drawing.Size(1013, 478);
+            this.mainCrystalReportViewer.Size = new System.Drawing.Size(1013, 516);
             this.mainCrystalReportViewer.TabIndex = 0;
             this.mainCrystalReportViewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             this.mainCrystalReportViewer.Load += new System.EventHandler(this.crystalReportViewer1_Load);
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(109, 12);
+            this.searchTextBox.Location = new System.Drawing.Point(548, 5);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(196, 20);
             this.searchTextBox.TabIndex = 1;
@@ -56,7 +58,7 @@
             // numberLabel
             // 
             this.numberLabel.AutoSize = true;
-            this.numberLabel.Location = new System.Drawing.Point(35, 15);
+            this.numberLabel.Location = new System.Drawing.Point(474, 8);
             this.numberLabel.Name = "numberLabel";
             this.numberLabel.Size = new System.Drawing.Size(68, 13);
             this.numberLabel.TabIndex = 2;
@@ -64,24 +66,25 @@
             // 
             // loadButton
             // 
-            this.loadButton.Location = new System.Drawing.Point(339, 10);
+            this.loadButton.Location = new System.Drawing.Point(750, 2);
             this.loadButton.Name = "loadButton";
-            this.loadButton.Size = new System.Drawing.Size(128, 23);
+            this.loadButton.Size = new System.Drawing.Size(95, 23);
             this.loadButton.TabIndex = 4;
             this.loadButton.Text = "Сформировать";
             this.loadButton.UseVisualStyleBackColor = true;
             this.loadButton.Click += new System.EventHandler(this.load_button_Click);
             // 
-            // StolenAutoReport
+            // StolenVehiclesReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1013, 516);
             this.Controls.Add(this.loadButton);
             this.Controls.Add(this.numberLabel);
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.mainCrystalReportViewer);
-            this.Name = "StolenAutoReport";
+            this.Name = "StolenVehiclesReport";
             this.Text = "Отчет";
             this.Load += new System.EventHandler(this.StolenAuto_ReportForm_Load);
             this.ResumeLayout(false);

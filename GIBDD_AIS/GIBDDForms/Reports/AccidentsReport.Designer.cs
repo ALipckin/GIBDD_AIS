@@ -39,31 +39,32 @@
             this.mainCrystalReportViewer.ActiveViewIndex = -1;
             this.mainCrystalReportViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mainCrystalReportViewer.Cursor = System.Windows.Forms.Cursors.Default;
-            this.mainCrystalReportViewer.Location = new System.Drawing.Point(5, 38);
+            this.mainCrystalReportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainCrystalReportViewer.Location = new System.Drawing.Point(0, 0);
             this.mainCrystalReportViewer.Name = "mainCrystalReportViewer";
-            this.mainCrystalReportViewer.Size = new System.Drawing.Size(1009, 492);
+            this.mainCrystalReportViewer.Size = new System.Drawing.Size(1023, 536);
             this.mainCrystalReportViewer.TabIndex = 0;
             this.mainCrystalReportViewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // endDateDateTimePicker
             // 
-            this.endDateDateTimePicker.Location = new System.Drawing.Point(295, 12);
+            this.endDateDateTimePicker.Location = new System.Drawing.Point(643, 5);
             this.endDateDateTimePicker.Name = "endDateDateTimePicker";
-            this.endDateDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.endDateDateTimePicker.Size = new System.Drawing.Size(125, 20);
             this.endDateDateTimePicker.TabIndex = 1;
             // 
             // startDateDateTimePicker
             // 
-            this.startDateDateTimePicker.Location = new System.Drawing.Point(60, 12);
+            this.startDateDateTimePicker.Location = new System.Drawing.Point(516, 5);
             this.startDateDateTimePicker.Name = "startDateDateTimePicker";
-            this.startDateDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.startDateDateTimePicker.Size = new System.Drawing.Size(121, 20);
             this.startDateDateTimePicker.TabIndex = 2;
             // 
             // loadButton
             // 
-            this.loadButton.Location = new System.Drawing.Point(541, 9);
+            this.loadButton.Location = new System.Drawing.Point(774, 4);
             this.loadButton.Name = "loadButton";
-            this.loadButton.Size = new System.Drawing.Size(111, 23);
+            this.loadButton.Size = new System.Drawing.Size(91, 21);
             this.loadButton.TabIndex = 3;
             this.loadButton.Text = "Сформировать";
             this.loadButton.UseVisualStyleBackColor = true;
@@ -73,6 +74,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1023, 536);
             this.Controls.Add(this.loadButton);
             this.Controls.Add(this.startDateDateTimePicker);
