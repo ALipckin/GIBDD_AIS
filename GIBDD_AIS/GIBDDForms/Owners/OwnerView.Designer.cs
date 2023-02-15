@@ -71,7 +71,10 @@
             this.vehiclesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.vehiclesDataGridView.Enabled = false;
             this.vehiclesDataGridView.Location = new System.Drawing.Point(25, 276);
+            this.vehiclesDataGridView.MultiSelect = false;
             this.vehiclesDataGridView.Name = "vehiclesDataGridView";
+            this.vehiclesDataGridView.ReadOnly = true;
+            this.vehiclesDataGridView.RowHeadersVisible = false;
             this.vehiclesDataGridView.Size = new System.Drawing.Size(380, 139);
             this.vehiclesDataGridView.TabIndex = 168;
             // 

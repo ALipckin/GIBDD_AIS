@@ -108,7 +108,6 @@
             this.Controls.SetChildIndex(this.brandTextBox, 0);
             this.Controls.SetChildIndex(this.vinTextBox, 0);
             this.Controls.SetChildIndex(this.ownerLabel, 0);
-            this.Controls.SetChildIndex(this.currOwnerLabel, 0);
             this.Controls.SetChildIndex(this.deleteButton, 0);
             this.Controls.SetChildIndex(this.searchLabel, 0);
             this.Controls.SetChildIndex(this.searchTextBox, 0);

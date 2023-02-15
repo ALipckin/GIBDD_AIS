@@ -25,17 +25,17 @@ namespace GIBDD_AIS.GIBDDForms.Vehicles
         public void VehicleEditLoad(object sender, EventArgs e)
         {
             _dataBase.openConnection();
-            int MaxLength = 30;
-            brandTextBox.MaxLength = MaxLength;
+            int maxLength = 30;
+            brandTextBox.MaxLength = maxLength;
             vinTextBox.MaxLength = 17;
-            bodyNumberTextBox.MaxLength = MaxLength;
-            engineVolumeTextBox.MaxLength = MaxLength;
-            engineNumberTextBox.MaxLength = MaxLength;
-            chasisNumberTextBox.MaxLength = MaxLength;
-            colorTextBox.MaxLength = MaxLength;
+            bodyNumberTextBox.MaxLength = maxLength;
+            engineVolumeTextBox.MaxLength = maxLength;
+            engineNumberTextBox.MaxLength = maxLength;
+            chasisNumberTextBox.MaxLength = maxLength;
+            colorTextBox.MaxLength = maxLength;
             numberTextBox.MaxLength = 9;
 
-            bool Wanted;
+            bool wanted;
             SqlDataReader dataReader = null;
             lastTIDateTimePicker.CustomFormat = "dd-MM-yyyy";
             lastTIDateTimePicker.Format = DateTimePickerFormat.Custom;
@@ -45,24 +45,12 @@ namespace GIBDD_AIS.GIBDDForms.Vehicles
             typeComboBox.Items.AddRange(Types);
             typeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            // Fill DataGridView
-            string querystring = "SELECT CONCAT(Surname, ' ', Name, ' ', Middle_Name) as 'ФИО' FROM OWNERS";
+            string querystring = $"SELECT CONCAT(Surname, ' ', Name, ' ', Middle_Name) as 'ФИО' FROM OWNERS WHERE ID NOT IN(SELECT OWNERS_ID FROM VEHICLES WHERE ID = '{DataBank.ChosenID}')";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(querystring, _dataBase.GetConnection());
             DataSet db = new DataSet();
             dataAdapter.Fill(db);
             dataGridView.DataSource = db.Tables[0];
 
-            // Calculate current owner
-            string CurrOwnerQuerystring = $"SELECT CONCAT(Surname, ' ', Name, ' ', Middle_Name) as 'ФИО' FROM OWNERS where id in(SELECT OWNERS_ID FROM VEHICLES WHERE ID = '{DataBank.ChosenID}')";
-            SqlCommand sqlCommand = new SqlCommand(CurrOwnerQuerystring, _dataBase.GetConnection());
-            dataReader = sqlCommand.ExecuteReader();
-            while (dataReader.Read())
-            {
-                currOwnerLabel.Text = dataReader[0].ToString();
-            }
-            dataReader.Close();
-
-            // Fill TextBoxes
             try
             {
                 string vehicle_querystring = $"SELECT Number, VIN, Type, Release_D, Engine_volume, Brand, Engine_n, Chasis_n, Body_n, Color, Wanted,OWNERS_ID, TID from VEHICLES WHERE ID LIKE '{DataBank.ChosenID}'";
@@ -80,8 +68,8 @@ namespace GIBDD_AIS.GIBDDForms.Vehicles
                     chasisNumberTextBox.Text = dataReader[7].ToString();
                     bodyNumberTextBox.Text = dataReader[8].ToString();
                     colorTextBox.Text = dataReader[9].ToString();
-                    Wanted = Convert.ToBoolean(dataReader[10].ToString());
-                    if (Wanted == true)
+                    wanted = Convert.ToBoolean(dataReader[10].ToString());
+                    if (wanted == true)
                     { wantedCheckBox.Checked = true; }
                     else { wantedCheckBox.Checked = false; }
                     DataBank.Owner_ID = dataReader[11].ToString();

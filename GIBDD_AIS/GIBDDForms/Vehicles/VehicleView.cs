@@ -12,7 +12,7 @@ namespace GIBDD_AIS.GIBDDForms.Vehicles
 {
     public partial class VehicleView : GIBDD_AIS.BaseVehicle
     {
-        DataBase _dataBase = new DataBase();
+        private DataBase _dataBase = new DataBase();
         public VehicleView()
         {
             InitializeComponent();
@@ -21,31 +21,26 @@ namespace GIBDD_AIS.GIBDDForms.Vehicles
         private void VehicleViewLoad(object sender, EventArgs e)
         {
             _dataBase.openConnection();
-
-
-            bool Wanted;
             SqlDataReader dataReader = null;
             lastTIDateTimePicker.CustomFormat = "dd-MM-yyyy";
             lastTIDateTimePicker.Format = DateTimePickerFormat.Custom;
             releaseDateDateTimePicker.CustomFormat = "dd-MM-yyyy";
             releaseDateDateTimePicker.Format = DateTimePickerFormat.Custom;
-            string[] Types = { "Легковой", "Грузовой", "Грузопасажирский", "Автобус", "Спецтранспорт" };
-            typeComboBox.Items.AddRange(Types);
+            string[] types = { "Легковой", "Грузовой", "Грузопасажирский", "Автобус", "Спецтранспорт" };
+            typeComboBox.Items.AddRange(types);
             typeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            // Fill dataGridView
-            string querystring = $"SELECT Date as 'Дата', Reason as 'Обстоятельства' FROM ACCIDENTS WHERE ID IN(SELECT ACCIDENTS_ID FROM HISTORYS WHERE VEHICLES_ID LIKE '{DataBank.ChosenID}')";
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(querystring, _dataBase.GetConnection());
+            string queryString = $"SELECT Date as 'Дата', Reason as 'Обстоятельства' FROM ACCIDENTS WHERE ID IN(SELECT ACCIDENTS_ID FROM HISTORYS WHERE VEHICLES_ID LIKE '{DataBank.ChosenID}')";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(queryString, _dataBase.GetConnection());
             DataSet db = new DataSet();
             dataAdapter.Fill(db);
             dataGridView.DataSource = db.Tables[0];
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            // Fill textBoxes
             try
             {
-                string vehicle_querystring = $"SELECT Number, VIN, Type, Release_D, Engine_volume, Brand, Engine_n, Chasis_n, Body_n, Color, Wanted,OWNERS_ID, TID from VEHICLES WHERE ID LIKE '{DataBank.ChosenID}'";
-                SqlCommand sqlCommand1 = new SqlCommand(vehicle_querystring, _dataBase.GetConnection());
+                string vehicleQuery = $"SELECT Number, VIN, Type, Release_D, Engine_volume, Brand, Engine_n, Chasis_n, Body_n, Color, Wanted,OWNERS_ID, TID from VEHICLES WHERE ID LIKE '{DataBank.ChosenID}'";
+                SqlCommand sqlCommand1 = new SqlCommand(vehicleQuery, _dataBase.GetConnection());
                 dataReader = sqlCommand1.ExecuteReader();
                 while (dataReader.Read())
                 {
@@ -59,8 +54,8 @@ namespace GIBDD_AIS.GIBDDForms.Vehicles
                     chasisNumberTextBox.Text = dataReader[7].ToString();
                     bodyNumberTextBox.Text = dataReader[8].ToString();
                     colorTextBox.Text = dataReader[9].ToString();
-                    Wanted = Convert.ToBoolean(dataReader[10].ToString());
-                    if (Wanted == true)
+                    bool wanted = Convert.ToBoolean(dataReader[10].ToString());
+                    if (wanted == true)
                     { wantedCheckBox.Checked = true; }
                     else { wantedCheckBox.Checked = false; }
                     DataBank.Owner_ID = dataReader[11].ToString();
