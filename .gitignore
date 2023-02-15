@@ -7,6 +7,9 @@
 /packages/EntityFramework.ru.6.2.0
 /packages/Microsoft.SqlServer.Types.14.0.1016.290
 /packages/EntityFramework.6.2.0
+/GIBDD_AIS/BaseFormsLibrary/BaseFormsLibrary/bin
+/GIBDD_AIS/BaseFormsLibrary/BaseFormsLibrary/obj
+/GIBDD_AIS/BaseFormsLibrary/.vs
 /GIBDD_AIS/obj
 /GIBDD_AIS/bin
 /.vs/GIBDD_AIS
