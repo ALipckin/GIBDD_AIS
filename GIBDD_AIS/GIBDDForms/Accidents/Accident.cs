@@ -14,20 +14,20 @@ namespace GIBDD_AIS
 {
     public partial class Accident : Form
     {
-        DataBase dataBase = new DataBase();
+        DataBase _dataBase = new DataBase();
         public Accident()
         {
             InitializeComponent();
         }
         private void AccidentsLoad(object sender, EventArgs e)
         {
-            dataBase.openConnection();
+            _dataBase.openConnection();
             accidentsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             accidentsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             accidentsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
   
             string querystring = "SELECT Area as 'Место', Date as 'Дата' FROM ACCIDENTS ";
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(querystring, dataBase.GetConnection());
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(querystring, _dataBase.GetConnection());
             DataSet db = new DataSet();
             dataAdapter.Fill(db);
             accidentsDataGridView.DataSource = db.Tables[0];
@@ -42,7 +42,7 @@ namespace GIBDD_AIS
                 string Date = accidentsDataGridView.CurrentRow.Cells[1].Value.ToString();
                 string querystring = $"SELECT ID FROM ACCIDENTS WHERE Area = '{Area}' AND Date = '{Date}'";
                 SqlDataReader dataReader = null;
-                SqlCommand sqlCommand = new SqlCommand(querystring, dataBase.GetConnection());
+                SqlCommand sqlCommand = new SqlCommand(querystring, _dataBase.GetConnection());
                 dataReader = sqlCommand.ExecuteReader();
                 while (dataReader.Read())
                 {

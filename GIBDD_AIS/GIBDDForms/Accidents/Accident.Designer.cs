@@ -74,6 +74,7 @@
             this.accidentsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.accidentsDataGridView.Location = new System.Drawing.Point(85, 50);
             this.accidentsDataGridView.Name = "accidentsDataGridView";
+            this.accidentsDataGridView.RowHeadersVisible = false;
             this.accidentsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.accidentsDataGridView.Size = new System.Drawing.Size(380, 150);
             this.accidentsDataGridView.TabIndex = 9;

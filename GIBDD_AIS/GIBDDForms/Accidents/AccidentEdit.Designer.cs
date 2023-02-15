@@ -30,16 +30,20 @@
         {
             this.deleteButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
+            this.newVehiclesDataGridView = new System.Windows.Forms.DataGridView();
+            this.chooseLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newVehiclesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // exitButton
             // 
-            this.exitButton.Click += new System.EventHandler(this.exitButtonClick);
+            this.exitButton.Location = new System.Drawing.Point(286, 633);
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(39, 483);
+            this.deleteButton.Location = new System.Drawing.Point(28, 633);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(114, 23);
             this.deleteButton.TabIndex = 241;
@@ -49,7 +53,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(165, 483);
+            this.saveButton.Location = new System.Drawing.Point(154, 633);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(106, 23);
             this.saveButton.TabIndex = 240;
@@ -57,9 +61,46 @@
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButtonClick);
             // 
+            // newVehiclesDataGridView
+            // 
+            this.newVehiclesDataGridView.AllowUserToAddRows = false;
+            this.newVehiclesDataGridView.AllowUserToDeleteRows = false;
+            this.newVehiclesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.newVehiclesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.newVehiclesDataGridView.Location = new System.Drawing.Point(28, 450);
+            this.newVehiclesDataGridView.MultiSelect = false;
+            this.newVehiclesDataGridView.Name = "newVehiclesDataGridView";
+            this.newVehiclesDataGridView.ReadOnly = true;
+            this.newVehiclesDataGridView.RowHeadersVisible = false;
+            this.newVehiclesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.newVehiclesDataGridView.Size = new System.Drawing.Size(405, 150);
+            this.newVehiclesDataGridView.TabIndex = 242;
+            this.newVehiclesDataGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.newVehiclesDataGridViewCellMouseDoubleClick);
+            // 
+            // chooseLabel
+            // 
+            this.chooseLabel.AutoSize = true;
+            this.chooseLabel.Location = new System.Drawing.Point(28, 431);
+            this.chooseLabel.Name = "chooseLabel";
+            this.chooseLabel.Size = new System.Drawing.Size(149, 13);
+            this.chooseLabel.TabIndex = 243;
+            this.chooseLabel.Text = "Выберите нового участника";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(332, 431);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 13);
+            this.label1.TabIndex = 244;
+            this.label1.Text = "- двойное нажатие";
+            // 
             // AccidentEdit
             // 
-            this.ClientSize = new System.Drawing.Size(467, 529);
+            this.ClientSize = new System.Drawing.Size(467, 668);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.chooseLabel);
+            this.Controls.Add(this.newVehiclesDataGridView);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.saveButton);
             this.Name = "AccidentEdit";
@@ -76,7 +117,11 @@
             this.Controls.SetChildIndex(this.victimsTextBox, 0);
             this.Controls.SetChildIndex(this.saveButton, 0);
             this.Controls.SetChildIndex(this.deleteButton, 0);
+            this.Controls.SetChildIndex(this.newVehiclesDataGridView, 0);
+            this.Controls.SetChildIndex(this.chooseLabel, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newVehiclesDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -86,5 +131,8 @@
 
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.DataGridView newVehiclesDataGridView;
+        private System.Windows.Forms.Label chooseLabel;
+        private System.Windows.Forms.Label label1;
     }
 }
