@@ -12,7 +12,12 @@ namespace GIBDD_AIS.GIBDDForms.Accidents
 {
     public partial class AccidentEdit : BaseFormsLibrary.BaseAccident
     {
+
         DataBase _dataBase = new DataBase();
+        private DataTable _currData;
+        private DataTable _newData;
+        private List <string> _addedVehiclesID = new List<string>();
+        private List<string> _removedVehiclesID = new List<string>();
         public AccidentEdit()
         {
             InitializeComponent();
@@ -22,11 +27,18 @@ namespace GIBDD_AIS.GIBDDForms.Accidents
         {
             _dataBase.openConnection();
             SqlDataReader dataReader = null;
-            string Vehicle_querystring = $"SELECT Number as 'Номер', Brand as 'Марка', Color as 'Цвет' from VEHICLES where ID IN (SELECT VEHICLES_ID FROM HISTORYS WHERE ACCIDENTS_ID LIKE'{DataBank.ChosenID}')";
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(Vehicle_querystring, _dataBase.GetConnection());
-            DataSet db = new DataSet();
-            dataAdapter.Fill(db);
-            dataGridView.DataSource = db.Tables[0];
+            string currVehicleQueryString = $"SELECT Number as 'Номер', Brand as 'Марка', Color as 'Цвет' from VEHICLES where ID IN (SELECT VEHICLES_ID FROM HISTORYS WHERE ACCIDENTS_ID LIKE'{DataBank.ChosenID}')";
+            SqlDataAdapter currDataAdapter = new SqlDataAdapter(currVehicleQueryString, _dataBase.GetConnection());
+            _currData = new DataTable();
+            currDataAdapter.Fill(_currData);
+            currVehiclesDataGridView.DataSource = _currData;
+      
+            string newVehicleQueryString = $"SELECT Number as 'Номер', Brand as 'Марка', Color as 'Цвет' from VEHICLES where ID NOT IN (SELECT VEHICLES_ID FROM HISTORYS WHERE ACCIDENTS_ID LIKE'{DataBank.ChosenID}')";
+            SqlDataAdapter newdDataAdapter = new SqlDataAdapter(newVehicleQueryString, _dataBase.GetConnection());
+            _newData = new DataTable();
+            newdDataAdapter.Fill(_newData);
+            newVehiclesDataGridView.DataSource = _newData;
+
             reasonTextBox.MaxLength = 30;
             damageAmountTextBox.MaxLength = 53;
             roadConditionsTextBox.MaxLength = 30;
@@ -59,30 +71,26 @@ namespace GIBDD_AIS.GIBDDForms.Accidents
             }
         }
 
-        public string CalculateVehicleID()
+        public string CalculateDataGridViewVehicleID(DataGridView dataGridView)
         {
-            Int32 selectedRowCount =
-            dataGridView.Rows.GetRowCount(DataGridViewElementStates.Selected);
-            if (selectedRowCount > 0)
+            int currRow =dataGridView.CurrentRow.Index;
+            string chosenNumber = dataGridView[0, currRow].Value.ToString();
+            string query = $"SELECT ID FROM VEHICLES WHERE Number LIKE '{chosenNumber}'";
+            SqlDataReader dataReader = null;
+            SqlCommand sqlCommand = new SqlCommand(query, _dataBase.GetConnection());
+            dataReader = sqlCommand.ExecuteReader();
+            string ID = "";
+            while (dataReader.Read())
             {
-                string chosenNumber = dataGridView[0, dataGridView.CurrentRow.Index].Value.ToString();
-                string query = $"SELECT ID FROM VEHICLES WHERE Number LIKE '{chosenNumber}'";
-                SqlDataReader dataReader = null;
-                SqlCommand sqlCommand = new SqlCommand(query, _dataBase.GetConnection());
-                dataReader = sqlCommand.ExecuteReader();
-                string ID = "";
-                while (dataReader.Read())
-                {
-                    ID = dataReader[0].ToString();
-                }
-                dataReader.Close();
-                return ID;
+                ID = dataReader[0].ToString();
             }
-            return "";
+            dataReader.Close();
+            return ID;
         }
 
         private void saveButtonClick(object sender, EventArgs e)
         {
+
             if (checkForm())
             {
                 var date = dateDateTimePicker.Text;
@@ -90,14 +98,32 @@ namespace GIBDD_AIS.GIBDDForms.Accidents
                 string query = $"UPDATE ACCIDENTS SET Date = '{dateDateTimePicker.Text}', Reason = '{reasonTextBox.Text}', Amount_of_damage = '{damageAmountTextBox.Text}' , Road_conditions = '{roadConditionsTextBox.Text}', Area = '{areaTextBox.Text}', Type = '{typeComboBox.Text}', Num_of_victims = '{victimsTextBox.Text}' WHERE ID LIKE '{DataBank.ChosenID}'";
                 SqlCommand sqlCommand = new SqlCommand(query, _dataBase.GetConnection());
                 sqlCommand.ExecuteNonQuery();
-                if (CalculateVehicleID() != "")
+
+                if (_addedVehiclesID.Count > 0)
                 {
-                    query = $"UPDATE HISTORYS SET VEHICLES_ID = '{CalculateVehicleID()}' WHERE ACCIDENTS_ID = '{DataBank.ChosenID}'";
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter(query, _dataBase.GetConnection());
-                    DataSet db = new DataSet();
-                    dataAdapter.Fill(db);
-                    var MaxID = db.Tables[0].Rows[0][0].ToString();
+                    for (int i = 0; i < _addedVehiclesID.Count; i++)
+                    {
+                        try
+                        {
+                            string insertHistoryQuery = $"INSERT INTO HISTORYS (VEHICLES_ID, ACCIDENTS_ID) VALUES('{_addedVehiclesID[i]}', '{DataBank.ChosenID}')";
+                            SqlCommand historyCommand = new SqlCommand(insertHistoryQuery, _dataBase.GetConnection());
+                            historyCommand.ExecuteNonQuery();
+                        }
+                        catch
+                        { }
+                    }
                 }
+                if (_removedVehiclesID.Count > 0)
+                {
+                    for (int i = 0; i < _removedVehiclesID.Count; i++)
+                    {
+                        Console.WriteLine("Deleting");
+                        string deleteHistoryQuery = $"DELETE FROM HISTORYS WHERE VEHICLES_ID = '{_removedVehiclesID[i]}' AND ACCIDENTS_ID = '{DataBank.ChosenID}'";
+                        SqlCommand historyCommand = new SqlCommand(deleteHistoryQuery, _dataBase.GetConnection());
+                        historyCommand.ExecuteNonQuery();
+                    }
+                }
+      
                 MessageBox.Show("Сохранение прошло успешно!", "Успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
@@ -108,9 +134,11 @@ namespace GIBDD_AIS.GIBDDForms.Accidents
         private void deleteButtonClick(object sender, EventArgs e)
         {
             string delete_accidents = $"DELETE FROM ACCIDENTS WHERE ID = '{DataBank.ChosenID}'";
+
             string delete_historys = $"DELETE FROM HISTORYS WHERE ACCIDENTS_ID = '{DataBank.ChosenID}'";
             SqlCommand sqlCommand2 = new SqlCommand(delete_historys, _dataBase.GetConnection());
             sqlCommand2.ExecuteNonQuery();
+            
             SqlCommand sqlCommand1 = new SqlCommand(delete_accidents, _dataBase.GetConnection());
             sqlCommand1.ExecuteNonQuery();
 
@@ -127,6 +155,30 @@ namespace GIBDD_AIS.GIBDDForms.Accidents
         private void exitButtonClick(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        protected override void currVehiclesDataGridViewCellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int currRow = currVehiclesDataGridView.CurrentRow.Index;
+            string currID = CalculateDataGridViewVehicleID(currVehiclesDataGridView);
+            _removedVehiclesID.Add(currID);
+            object[] copyRow = _currData.Rows[currVehiclesDataGridView.CurrentRow.Index].ItemArray;
+            _currData.Rows.RemoveAt(currRow);
+            _newData.Rows.Add(copyRow);
+            currVehiclesDataGridView.Refresh();
+            newVehiclesDataGridView.Refresh();
+        }
+
+        private void newVehiclesDataGridViewCellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int currRow = newVehiclesDataGridView.CurrentRow.Index;
+            string currID = CalculateDataGridViewVehicleID(newVehiclesDataGridView);
+            _addedVehiclesID.Add(currID);
+            object[] copyRow = _newData.Rows[newVehiclesDataGridView.CurrentRow.Index].ItemArray;
+            _newData.Rows.RemoveAt(currRow);
+            _currData.Rows.Add(copyRow);
+            currVehiclesDataGridView.Refresh();
+            newVehiclesDataGridView.Refresh();
         }
     }
 }

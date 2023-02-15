@@ -25,8 +25,8 @@ namespace GIBDD_AIS.GIBDDForms.Accidents
             SqlDataAdapter dataAdapter = new SqlDataAdapter(Vehicle_querystring, _dataBase.GetConnection());
             DataSet db = new DataSet();
             dataAdapter.Fill(db);
-            dataGridView.DataSource = db.Tables[0];
-            dataGridView.Enabled = false;
+            currVehiclesDataGridView.DataSource = db.Tables[0];
+            currVehiclesDataGridView.Enabled = false;
             reasonTextBox.MaxLength = 30;
             damageAmountTextBox.MaxLength = 53;
             roadConditionsTextBox.MaxLength = 30;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -12,6 +13,11 @@ namespace GIBDD_AIS.GIBDDForms.Accidents
 {
     public partial class AccidentInput : BaseFormsLibrary.BaseAccident
     {
+        private DataTable _currData;
+        private DataTable _newData;
+        private List<string> _addedVehiclesID = new List<string>();
+     
+
         public AccidentInput()
         {
             InitializeComponent();
@@ -21,11 +27,18 @@ namespace GIBDD_AIS.GIBDDForms.Accidents
         private void AccidentInputLoad(object sender, EventArgs e)
         {
             _dataBase.openConnection();
-            string Vehicle_querystring = $"SELECT Number as 'Номер', Brand as 'Марка', Color as 'Цвет' from VEHICLES";
+            string Vehicle_querystring = $"SELECT Number as 'Номер', Brand as 'Марка', Color as 'Цвет' from VEHICLES WHERE ID = -1";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(Vehicle_querystring, _dataBase.GetConnection());
-            DataSet db = new DataSet();
-            dataAdapter.Fill(db);
-            dataGridView.DataSource = db.Tables[0];
+            _currData = new DataTable();
+            dataAdapter.Fill(_currData);
+            currVehiclesDataGridView.DataSource = _currData;
+
+            string newVehicleQueryString = $"SELECT Number as 'Номер', Brand as 'Марка', Color as 'Цвет' from VEHICLES";
+            SqlDataAdapter newdDataAdapter = new SqlDataAdapter(newVehicleQueryString, _dataBase.GetConnection());
+            _newData = new DataTable();
+            newdDataAdapter.Fill(_newData);
+            newVehiclesDataGridView.DataSource = _newData;
+
             reasonTextBox.MaxLength = 30;
             damageAmountTextBox.MaxLength = 53;
             roadConditionsTextBox.MaxLength = 30;
@@ -35,55 +48,52 @@ namespace GIBDD_AIS.GIBDDForms.Accidents
             string[] Types = { "Столкновение", "Опрокидывание", "Наезд на стоящее тс", "Наезд на препятствие", "Наезд на пешехода", "Наезд на велосипедиста", "Наезд на животное", "Падение пассажира", "Другое" };
             typeComboBox.Items.AddRange(Types);
             typeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-
         }
 
-        public void CalculateChosenID()
+        public string CalculateDataGridViewVehicleID(DataGridView dataGridView)
         {
-
-            int selectedRowCount =
-            dataGridView.Rows.GetRowCount(DataGridViewElementStates.Selected);
-            if (selectedRowCount > 0)
+            int currRow = dataGridView.CurrentRow.Index;
+            string chosenNumber = dataGridView[0, currRow].Value.ToString();
+            string query = $"SELECT ID FROM VEHICLES WHERE Number LIKE '{chosenNumber}'";
+            SqlDataReader dataReader = null;
+            SqlCommand sqlCommand = new SqlCommand(query, _dataBase.GetConnection());
+            dataReader = sqlCommand.ExecuteReader();
+            string ID = "";
+            while (dataReader.Read())
             {
-                string chosenNumber = dataGridView[0, dataGridView.CurrentRow.Index].Value.ToString();
-                string query = $"SELECT ID FROM VEHICLES WHERE Number LIKE '{chosenNumber}'";
-                SqlDataReader dataReader = null;
-                SqlCommand sqlCommand = new SqlCommand(query, _dataBase.GetConnection());
-                dataReader = sqlCommand.ExecuteReader();
-
-                while (dataReader.Read())
-                {
-                    DataBank.ChosenID = dataReader[0].ToString();
-                }
-                dataReader.Close();
+                ID = dataReader[0].ToString();
             }
-            else
-                MessageBox.Show("Выберете запись", "Запись не выбрана", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+            dataReader.Close();
+            return ID;
         }
 
         private void saveButtonClick(object sender, EventArgs e)
         {
-            if (checkForm())
+            if (checkForm() && _addedVehiclesID.Count > 0)
             {
                 _dataBase.openConnection();
                 var date = dateDateTimePicker.Text;
                 date.Reverse();
-                int num = Int32.Parse(victimsTextBox.Text);
-                string querystring1 = $"INSERT INTO ACCIDENTS( Reason, Amount_of_damage, Road_conditions, Area, Type, Date, Num_of_victims) VALUES('{reasonTextBox.Text}','{damageAmountTextBox.Text}','{roadConditionsTextBox.Text}','{areaTextBox.Text}','{typeComboBox.Text}','{date}', '{num}')";
-                SqlCommand sqlCommand1 = new SqlCommand(querystring1, _dataBase.GetConnection());
-                sqlCommand1.ExecuteNonQuery();
+                int num = int.Parse(victimsTextBox.Text);
+                string newAccidentQuery = $"INSERT INTO ACCIDENTS( Reason, Amount_of_damage, Road_conditions, Area, Type, Date, Num_of_victims) VALUES('{reasonTextBox.Text}','{damageAmountTextBox.Text}','{roadConditionsTextBox.Text}','{areaTextBox.Text}','{typeComboBox.Text}','{date}', '{num}')";
+                SqlCommand newAccidentCommand = new SqlCommand(newAccidentQuery, _dataBase.GetConnection());
+                newAccidentCommand.ExecuteNonQuery();
 
-                string SI_QS = $"SELECT Max(ID) FROM ACCIDENTS";
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(SI_QS, _dataBase.GetConnection());
-                DataSet db = new DataSet();
+                string newIDQuery = $"SELECT Max(ID) FROM ACCIDENTS";
+                SqlCommand newIDCommand = new SqlCommand(newIDQuery, _dataBase.GetConnection());
+                var newID = newIDCommand.ExecuteScalar();
 
-                dataAdapter.Fill(db);
-                var MaxID = db.Tables[0].Rows[0][0].ToString();
-                CalculateChosenID();
-                string AddMemberQ = $"SET IDENTITY_INSERT HISTORYS on INSERT INTO HISTORYS(ACCIDENTS_ID, Start_D,End_D, Amount, VEHICLES_ID) VALUES('{MaxID}' ,'{date}','{date}', '1' ,'{DataBank.ChosenID}')";
-                SqlCommand sqlCommand = new SqlCommand(AddMemberQ, _dataBase.GetConnection());
-                sqlCommand.ExecuteNonQuery();
+                for (int i = 0; i < _addedVehiclesID.Count; i++)
+                {
+                    try
+                    {
+                        string insertHistoryQuery = $"INSERT INTO HISTORYS (VEHICLES_ID, ACCIDENTS_ID) VALUES('{_addedVehiclesID[i]}', '{newID}')";
+                        SqlCommand historyCommand = new SqlCommand(insertHistoryQuery, _dataBase.GetConnection());
+                        historyCommand.ExecuteNonQuery();
+                    }
+                    catch
+                    { }
+                }
                 MessageBox.Show("Успешно создано!", "Успешно!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 _dataBase.closeConnection();
                 this.Close();
@@ -101,6 +111,29 @@ namespace GIBDD_AIS.GIBDDForms.Accidents
         private void exitButtonClick(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        protected override void currVehiclesDataGridViewCellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int currRow = currVehiclesDataGridView.CurrentRow.Index;
+            string currID = CalculateDataGridViewVehicleID(currVehiclesDataGridView);
+            object[] copyRow = _currData.Rows[currVehiclesDataGridView.CurrentRow.Index].ItemArray;
+            _currData.Rows.RemoveAt(currRow);
+            _newData.Rows.Add(copyRow);
+            currVehiclesDataGridView.Refresh();
+            newVehiclesDataGridView.Refresh();
+        }
+
+        private void newVehiclesDataGridViewCellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int currRow = newVehiclesDataGridView.CurrentRow.Index;
+            string currID = CalculateDataGridViewVehicleID(newVehiclesDataGridView);
+            _addedVehiclesID.Add(currID);
+            object[] copyRow = _newData.Rows[newVehiclesDataGridView.CurrentRow.Index].ItemArray;
+            _newData.Rows.RemoveAt(currRow);
+            _currData.Rows.Add(copyRow);
+            currVehiclesDataGridView.Refresh();
+            newVehiclesDataGridView.Refresh();
         }
     }
 }
