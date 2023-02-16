@@ -23,25 +23,13 @@ namespace GIBDD_AIS.GIBDDForms.Owners
             _dataBase.openConnection();
             SqlDataReader dataReader = null;
 
-            string quertystring = $"SELECT Surname, Name, Middle_name, Address, Birth_D FROM OWNERS where ID LIKE '{DataBank.Owner_ID}'";
-            SqlCommand sqlCommand = new SqlCommand(quertystring, _dataBase.GetConnection());
-            dataReader = sqlCommand.ExecuteReader();
-
             surnameTextBox.MaxLength = 30;
             middleNameTextBox.MaxLength = 30;
             surnameTextBox.MaxLength = 30;
             addressTextBox.MaxLength = 60;
             birthDateDateTimePicker.CustomFormat = "dd-MM-yyyy";
             birthDateDateTimePicker.Format = DateTimePickerFormat.Custom;
-            while (dataReader.Read())
-            {
-                nameTextBox.Text = dataReader[1].ToString();
-                surnameTextBox.Text = dataReader[0].ToString();
-                middleNameTextBox.Text = dataReader[2].ToString();
-                addressTextBox.Text = dataReader[3].ToString();
-                birthDateDateTimePicker.Text = dataReader[4].ToString();
-            }
-            dataReader.Close();
+
         }
 
         private void saveButton_Click(object sender, EventArgs e)

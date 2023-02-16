@@ -31,11 +31,7 @@
             this.ownerInfoButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
-            // 
-            // currOwnerLabel
-            // 
-            this.currOwnerLabel.Enabled = false;
-            this.currOwnerLabel.Visible = false;
+
             // 
             // ownerLabel
             // 
@@ -128,7 +124,6 @@
             this.Controls.SetChildIndex(this.brandTextBox, 0);
             this.Controls.SetChildIndex(this.vinTextBox, 0);
             this.Controls.SetChildIndex(this.ownerLabel, 0);
-            this.Controls.SetChildIndex(this.currOwnerLabel, 0);
             this.Controls.SetChildIndex(this.ownerInfoButton, 0);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);

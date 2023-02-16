@@ -71,8 +71,10 @@
             this.vehiclesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.vehiclesDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.vehiclesDataGridView.Location = new System.Drawing.Point(42, 46);
+            this.vehiclesDataGridView.MultiSelect = false;
             this.vehiclesDataGridView.Name = "vehiclesDataGridView";
             this.vehiclesDataGridView.ReadOnly = true;
+            this.vehiclesDataGridView.RowHeadersVisible = false;
             this.vehiclesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.vehiclesDataGridView.Size = new System.Drawing.Size(299, 152);
             this.vehiclesDataGridView.TabIndex = 13;

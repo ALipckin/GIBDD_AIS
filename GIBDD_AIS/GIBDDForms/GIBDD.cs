@@ -12,12 +12,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GIBDD_AIS.GIBDDForms.ReportsForms;
 using GIBDD_AIS.GIBDDForms.ReportsForms.ReportData;
+using BaseFormsLibrary;
 
 namespace GIBDD_AIS.GIBDDForms
 {
     public partial class GIBDD : Form
     {
-        DataBase dataBase = new DataBase();
+       
         public GIBDD()
         {
             InitializeComponent();

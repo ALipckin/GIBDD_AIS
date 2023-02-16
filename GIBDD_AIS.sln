@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GIBDD_AIS", "GIBDD_AIS\GIBDD_AIS.csproj", "{14654688-E4BE-44E7-8DA0-5192D7C9ABC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseFormsLibrary", "..\Users\aleks\source\repos\BaseFormsLibrary\BaseFormsLibrary\BaseFormsLibrary.csproj", "{2AF3C040-D755-49D6-A0E3-50287CF5B82C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseFormsLibrary", "BaseFormsLibrary\BaseFormsLibrary\BaseFormsLibrary.csproj", "{2AF3C040-D755-49D6-A0E3-50287CF5B82C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
