@@ -45,11 +45,17 @@ namespace GIBDD_AIS.GIBDDForms.Vehicles
             typeComboBox.Items.AddRange(Types);
             typeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            string querystring = $"SELECT CONCAT(Surname, ' ', Name, ' ', Middle_Name) as 'ФИО' FROM OWNERS WHERE ID NOT IN(SELECT OWNERS_ID FROM VEHICLES WHERE ID = '{DataBank.ChosenID}')";
+            string querystring = $"SELECT CONCAT(Surname, ' ', Name, ' ', Middle_Name) as 'ФИО' FROM OWNERS";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(querystring, _dataBase.GetConnection());
             DataSet db = new DataSet();
             dataAdapter.Fill(db);
             dataGridView.DataSource = db.Tables[0];
+
+            string CurrOwnerQuerystring = $"SELECT CONCAT(Surname, ' ', Name, ' ', Middle_Name) as 'ФИО' FROM OWNERS where id in(SELECT OWNERS_ID FROM VEHICLES WHERE ID = '{DataBank.ChosenID}')";
+            SqlCommand sqlCommand = new SqlCommand(CurrOwnerQuerystring, _dataBase.GetConnection());
+            var owner = sqlCommand.ExecuteScalar();
+            if (owner != null)
+                currOwnerTextBox.Text = owner.ToString();
 
             try
             {
